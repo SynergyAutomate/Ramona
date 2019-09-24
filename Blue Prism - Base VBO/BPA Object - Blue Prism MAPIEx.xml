@@ -1,0 +1,2714 @@
+﻿<process name="Blue Prism MAPIEx" version="1.0" narrative="VBO wrapper around the Blue Prism MAPIEx library. Note that this will not work on a particular resource if it does not have the MAPIEx library installed." type="object" runmode="Background" preferredid="fe1dc740-e02c-481a-b4cb-fbe9d9fbe978">
+  <appdef>
+    <element name="Application Root">
+      <id>d2c05a0f-3b39-47ce-a75e-648c620eb391</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>-42</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="025aeaad-53de-4d82-9360-4a529226603b" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="e250080f-f4b2-4180-9f8e-fd9cbc67caca" type="Normal" published="True">
+    <name>Encode HTML as ASCII</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="ce4a600c-7dc9-44de-9d4c-8c2c236dae80" type="Normal" published="True">
+    <name>Configure</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="6392eaf7-abbf-4f00-9284-c89bcd8e7126" type="Normal" published="True">
+    <name>Send Mail</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-59</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="0d866341-8d03-4ebf-a0f6-69bb9f606108" type="Normal" published="True">
+    <name>Get Mail</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="f9d2f037-4fff-49d7-8514-735795b24fe2" type="Normal" published="True">
+    <name>Reply To Mail</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-105</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="57eb5bbe-ffac-4720-b432-1959abd50672" type="Normal" published="True">
+    <name>Move Mail</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="05a8e224-deb3-42a8-ac75-e2b36c4d9a3d" type="Normal" published="True">
+    <name>Delete Mail</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="ca4ed70a-51f6-45cf-9d1b-f7900e208517" type="Normal" published="True">
+    <name>List Mails Within DateTimes</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="cb136000-e200-481e-b315-0d5df933beab" type="Normal" published="True">
+    <name>Get Contacts</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="2babcbc1-64d6-43e3-a135-cf39722d59cf" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>15d1c2c8-c7b2-41fa-b018-3641d98cbea7</onsuccess>
+  </stage>
+  <stage stageid="15d1c2c8-c7b2-41fa-b018-3641d98cbea7" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="8bb93e2c-d236-42c2-854d-3766aae9842b" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>270</displaywidth>
+    <displayheight>150</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <references>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>C:\Program Files\Blue Prism Limited\Blue Prism Automate\BluePrismMAPIExAutomation.dll</reference>
+      <reference>System.Web.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>BluePrism.WindowsAutomation.MAPIEx</import>
+      <import>BluePrism.WindowsAutomation.MAPIEx.NetMAPI</import>
+      <import>System.Collections.Generic</import>
+      <import>System.Data</import>
+      <import>Microsoft.VisualBasic</import>
+      <import>System.Text</import>
+      <import>System.IO</import>
+      <import>System.Web</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[
+
+]]></globalcode>
+    <code><![CDATA[
+Private mDiagsLog As String = Nothing
+
+Private Function GetNextMessage(ByVal mapi As NetMAPI, ByVal bUnreadOnly As Boolean) As MAPIMessage
+	Dim m As MAPIMessage = Nothing
+	If Not mapi.GetNextMessage(m, bUnreadOnly) Then
+		Throw New Exception("Failed to Get Next Message")
+	End If
+	Return m
+End Function
+
+Private Sub Log(ByVal msg As String)
+	If mDiagsLog Is Nothing Then Return
+	Try
+		Dim ts As String = DateTime.UtcNow.ToString("u")
+        File.AppendAllText(mDiagsLog, String.Format("{0}: {1}", ts, msg) & vbCrLf, Encoding.UTF8)
+	Catch
+        'Nothing we can do really.
+    End Try
+End Sub
+
+Private Function EncodeHTMLAsASCII(ByVal msg As String) As String
+        Dim result = ""
+        
+        For i As Integer = 0 To msg.Length - 1
+            Dim codePoint As Integer
+			' ConvertToUtf32 will handle surrogate pairs.
+			' But you can't point it at a Low Surrogate character - this
+			' character will have already been handled when the High Surrogate Character
+			' was processed.
+			If Char.IsLowSurrogate(msg(i)) Then Continue For
+            codePoint = Char.ConvertToUtf32(msg, i)
+            
+		'Encode any non-ASCII characters as HTML entities.
+		' Unicode characters are encoded as '&#{codepoint};'
+            If codePoint < 128
+               result &= msg(i)
+            Else
+                result &= String.Format("&#{0};", codePoint.ToString())
+            End If
+        Next
+
+        Return result
+End Function]]></code>
+  </stage>
+  <stage stageid="17083a92-d568-4725-a5fc-64fc9ec0d5b2" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>025aeaad-53de-4d82-9360-4a529226603b</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="fe9e23e9-e51e-42a4-b303-bfcf9ee3321a" name="Start" type="Start">
+    <subsheetid>025aeaad-53de-4d82-9360-4a529226603b</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>8e62d6c3-495a-46b3-97e9-9ce5e57c4fef</onsuccess>
+  </stage>
+  <stage stageid="8e62d6c3-495a-46b3-97e9-9ce5e57c4fef" name="End" type="End">
+    <subsheetid>025aeaad-53de-4d82-9360-4a529226603b</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="15939151-f273-41a6-b9be-01c4343a272e" name="Send Mail" type="SubSheetInfo">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>Send Email</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="a920a471-fa96-47b7-9410-77c591602359" name="Start" type="Start">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile. No other email clients (e.g. Outlook) should be running." />
+      <condition narrative="" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Email sent" />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="To" narrative="The email address to send to. If more than one recipient is required then each one is to be separated by a semi-colon" stage="To" />
+      <input type="text" name="CC" narrative="The email address to send CC to. If more than one recipient is required then each one is to be separated by a semi-colon" stage="CC" />
+      <input type="text" name="BCC" narrative="The email address to send BCC to. If more than one recipient is required then each one is to be separated by a semi-colon" stage="BCC" />
+      <input type="text" name="Attachment" narrative="The full path to the attachment to send. If more than one attachment is required then each one is to be separated by a semi-colon" stage="Attachment" />
+      <input type="text" name="Subject" narrative="The subject of the email" stage="Subject" />
+      <input type="text" name="Message" narrative="The message of the email" stage="Message" />
+    </inputs>
+    <onsuccess>b6508b55-5279-47d7-ae71-f477b6de48cb</onsuccess>
+  </stage>
+  <stage stageid="713ef327-ae8e-465b-9702-eac5d13414b8" name="End" type="End">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of sending" stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+  </stage>
+  <stage stageid="82159592-e971-4cfa-9bef-ca93bf6bf8ff" name="new" type="Note">
+    <subsheetid>025aeaad-53de-4d82-9360-4a529226603b</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ad55675b-00fc-45d2-8a8c-f6343edcbbb5" name="new" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="30061016-19c4-4587-9679-350c907b798f" name="Profile" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="bf0819f7-7cde-47a0-8b04-43e71300b462" name="Note1" type="Note">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <loginhibit />
+    <narrative>Inputs</narrative>
+    <displayx>-240</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="79cbde3f-9e27-4a23-ada0-f89636637adb" name="Success" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="71ee34f6-6058-4ab4-8b0d-4b979a9cf8a6" name="Note1" type="Note">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <loginhibit />
+    <narrative>Outputs</narrative>
+    <displayx>-150</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="b6508b55-5279-47d7-ae71-f477b6de48cb" name="SendMail Code" type="Code">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" expr="[Profile]" />
+      <input type="text" name="To" narrative="The email address to send to. If more than one recipient is required then each one is to be separated by a semi-colon" expr="[To]" />
+      <input type="text" name="CC" narrative="The email address to send CC to. If more than one recipient is required then each one is to be separated by a semi-colon" expr="[CC]" />
+      <input type="text" name="BCC" narrative="The email address to send BCC to. If more than one recipient is required then each one is to be separated by a semi-colon" expr="[BCC]" />
+      <input type="text" name="Attachment" narrative="The full path to the attachment to send. If more than one attachment is required then each one is to be separated by a semi-colon" expr="[Attachment]" />
+      <input type="text" name="Subject" narrative="The subject of the email" expr="[Subject]" />
+      <input type="text" name="Message" narrative="The message of the email" expr="[Message]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of sending" stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+    <onsuccess>713ef327-ae8e-465b-9702-eac5d13414b8</onsuccess>
+    <code><![CDATA[' Assume Success
+Success = True
+Error_Message = ""
+Try
+	If [To] = "" Then Throw New MAPIException( _
+	 "'To' input parameter was not provided")
+
+	Using mapi As New NetMAPI()
+
+		mapi.Login(Profile)
+
+		If Not mapi.OpenMessageStore() Then Throw New MAPIException( _
+		 "Failed to access message store")
+
+		If Not mapi.OpenOutbox() Then Throw New MAPIException( _
+		 "Failed to access outbox")
+
+		Using msg As New BPMAPIMessage()
+			If Not msg.Create(mapi) Then Throw New MAPIException( _
+			 "Failed to create message")
+
+			msg.Subject = Subject
+			If Message.StartsWith("<html", StringComparison.OrdinalIgnoreCase) Then
+				msg.SetRTF(Message)
+			Else
+				msg.Body = Message
+			End If
+
+			' Add recipients
+			msg.AddRecipients(RecipientType.TO, [To])
+			msg.AddRecipients(RecipientType.CC, CC)
+			msg.AddRecipients(RecipientType.BCC, BCC)
+
+			' Add attachments
+			For Each att As String In Attachment.Split(";"c)
+				If att = "" Then Continue For
+				If Not msg.AddAttachment(att) Then Throw New MAPIException( _
+				 "Failed to add attachment ({0})", att)
+			Next
+
+			If Not msg.Send() Then Throw New MAPIException( _
+			  "Failed to send message")
+
+		End Using
+
+	End Using
+
+Catch mex As MAPIException
+	Success = False
+	Error_Message = mex.GetActionMessage("Send Mail")
+
+Catch e As Exception
+	Success = False
+	Error_Message = e.ToString()
+
+End Try]]></code>
+  </stage>
+  <stage stageid="828302f5-e5a1-4e05-be11-19d2150e17a1" name="Get Mail" type="SubSheetInfo">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>Gets the next email message; This uses the Configuration variables "Folder Separator" and "Include Recipient Email Addresses" - see the Configure action for details.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="654d35de-e957-4602-ab05-38225ffdf8df" name="Start" type="Start">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile. No other email clients (e.g. Outlook) should be running." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Email read" />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="Sub-Folder" narrative="Optional. The name of a sub-folder below the Inbox from which to get emails.  If not set the Inbox will be used." stage="Sub-Folder" />
+      <input type="flag" name="Get Oldest?" narrative="If True then get oldest email from inbox, otherwise get newest" stage="Get Oldest?" />
+      <input type="flag" name="Unread Only?" narrative="If True than only get unread emails, otherwise get any" stage="Unread Only?" />
+      <input type="text" name="Move to Sub-Folder" narrative="Optional. Sub-folder to move email message to once read. If the sub-folder (of folder we are reading emails from) does not exist it will be created. The config variable &quot;Folder Separator&quot; will cause MAPIEx to treat this as a full path to a folder from the reading folder. If not set the email will not be moved." stage="Move to Sub-Folder" />
+      <input type="flag" name="Delete?" narrative="If True then the email will be deleted once read, otherwise email will be left." stage="Delete?" />
+      <input type="text" name="Attachment Directory" narrative="Optional. Folder on computer or network where any attachments should be saved to.  If not set than attachments will be ignored" stage="Attachment Directory" />
+    </inputs>
+    <onsuccess>74fd2b3c-6273-4afb-96b6-487d1016087b</onsuccess>
+  </stage>
+  <stage stageid="2d63f617-4462-47ef-b123-4f13c21d9628" name="End" type="End">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Sender Name" narrative="The name of the sender" stage="Sender Name" />
+      <output type="text" name="Sender Email Address" narrative="The email address of the sender" stage="Sender Email Address" />
+      <output type="text" name="Subject" narrative="The subject of the email" stage="Subject" />
+      <output type="datetime" name="Sent Time" narrative="The time the email was sent" stage="Sent Time" />
+      <output type="datetime" name="Received Time" narrative="The time the email was received" stage="Received Time" />
+      <output type="text" name="Message Body" narrative="The body of the message" stage="Message Body" />
+      <output type="number" name="Attachment Count" narrative="The number of attachments on the email" stage="Attachment Count" />
+      <output type="text" name="Attachment Names" narrative="The names of any attachments, separated by a semi-colon" stage="Attachment Names" />
+      <output type="text" name="To" narrative="The names that the email was sent to. If more than one recipient was used then each one will be separated by a semi-colon. If the config variable 'Include Recipient Email Addresses' is set to True, this will return the email addresses as well as the display names." stage="To" />
+      <output type="text" name="CC" narrative="The names that the email was CC'd to. If more than one recipient was used then each one will be separated by a semi-colon. If the config variable 'Include Recipient Email Addresses' is set to True, this will return the email addresses as well as the display names." stage="CC" />
+      <output type="text" name="ID" narrative="The unique ID of the email message. The ID persists across outlook sessions, and platform reboots. If the email is deleted, the ID can no longer be used." stage="ID" />
+      <output type="flag" name="Success" narrative="Success or failure of getting email.  Note: This is only false if an error has occurred.  If this action succeeds in trying to read emails but there were no emails to read this flag will be set to True." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+      <output type="flag" name="Message Is HTML" narrative="True if the message body is formatted as HTML" stage="Message Is HTML" />
+    </outputs>
+  </stage>
+  <stage stageid="fa85095a-81bf-4d36-87fc-d8c0ad1bf03b" name="Move Mail" type="SubSheetInfo">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <narrative>Move an email message</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="8d8efe23-ebc8-4c6b-9975-03aa0f9f1b2d" name="Start" type="Start">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile. No other email clients (e.g. Outlook) should be running." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Email moved. The ID of the message can no longer be used after the message is moved." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="ID" narrative="The unique ID of the email message" stage="ID" />
+      <input type="text" name="Move to Sub-Folder" narrative="Optional. The destination for the mail to be moved. This must be a sub-folder of the Inbox. The config variable &quot;Folder Separator&quot; will cause MAPIEx to treat this as a full path to a folder from the Inbox. If not specified then the mail will be moved to the Inbox itself. If the destination does not exist then it will be automatically created as a sub-folder of the Inbox." stage="Move to Sub-Folder" />
+    </inputs>
+    <onsuccess>df13808c-ff8d-47fe-a2a8-cf04e5899ea4</onsuccess>
+  </stage>
+  <stage stageid="7e066acc-d04a-4949-b423-1deac6c5b4cc" name="End" type="End">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of moving email.  Note: This is only false if an error has occurred.  If this action succeeds moving the email this flag will be set to True." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+      <output type="text" name="ID" narrative="The new id of the Mail once it has been moved." stage="ID" />
+    </outputs>
+  </stage>
+  <stage stageid="3c940fa8-d0d5-4364-b061-5cda25e93ca8" name="Delete Mail" type="SubSheetInfo">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="e60105cd-2aef-427a-a3ba-5c55a235f450" name="Start" type="Start">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile. No other email clients (e.g. Outlook) should be running." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Email deleted. The ID of the message can no longer be used after the message is deleted." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="ID" narrative="The unique ID of the email message" stage="ID" />
+    </inputs>
+    <onsuccess>61e4b41c-4c35-4e4d-9dc5-39fba0b99318</onsuccess>
+  </stage>
+  <stage stageid="8e18047a-92b0-42f3-9a7b-8b395d70f8d2" name="End" type="End">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of deleting the email.  Note: This is only false if an error has occurred." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+  </stage>
+  <stage stageid="a3d84a5c-8409-49ba-8d83-1b069ebc1a17" name="List Mails Within DateTimes" type="SubSheetInfo">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-225</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="28bf28d3-5208-4e98-aa21-03bb310e7dca" name="Start" type="Start">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile. No other email clients (e.g. Outlook) should be running." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Emails returned" />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="Sub-Folder" narrative="Optional. The name of a sub-folder below the Inbox from which to get emails.  If not set the Inbox will be used." stage="Sub-Folder" />
+      <input type="flag" name="Unread Only?" narrative="If True than only get unread emails, otherwise get any" stage="Unread Only?" />
+      <input type="datetime" name="Minimum DateTime" narrative="Optional. The earliest date and time of interest. Mails received earlier than this date will not be returned. If not specified then all mails received earlier than the Maximum Date will be returned." stage="Minimum DateTime" />
+      <input type="datetime" name="Maximum DateTime" narrative="Optional. The latest date and time of interest. Mails received later than this date will not be returned. If not specified then all mails received later than the Minimum Date will be returned." stage="Maximum DateTime" />
+      <input type="flag" name="Oldest First?" narrative="Optional. States if the oldest email should be received first (Enabling will result in a faster execution process)" stage="Oldest First?" />
+    </inputs>
+    <onsuccess>caa25e0c-5f18-435c-9b54-80f649b7cbd1</onsuccess>
+  </stage>
+  <stage stageid="0eb13d84-9aa7-4c27-9b7e-17395d9d1f4b" name="End" type="End">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="IDs" narrative="Collection containing email IDs that are within the specific datetime range" stage="IDs" />
+      <output type="flag" name="Success" narrative="Success or failure of getting the list of emails received within a specific datetime range.  Note: This is only false if an error has occurred." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+  </stage>
+  <stage stageid="bb3bddfe-8eeb-4aaf-ab85-7623511d5087" name="Get Contacts" type="SubSheetInfo">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>BACKWARD COMPATIBILITY NOTE: The field name "Business Phone No." in the contacts collection is invalid - it has been changed to "Business Phone No", ie. the trailing full stop has been removed.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="e1211ab4-42b4-4d1a-8be9-37c371cd7133" name="Start" type="Start">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile. No other email clients (e.g. Outlook) should be running." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Contacts returned" />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="Given Name" narrative="The First name of the contact to get" stage="Given Name" />
+      <input type="text" name="Surname" narrative="The Surname of the contact to get" stage="Surname" />
+    </inputs>
+    <onsuccess>9a2e9aaa-5949-4c81-8094-dd49a55b3d06</onsuccess>
+  </stage>
+  <stage stageid="a92723cc-b3df-49f7-a20e-64300d28f7b4" name="End" type="End">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Contacts" narrative="Collection containing contacts that match the surname and given name, if more than one contact matches several rows will be returned in the collection" stage="Contacts" />
+      <output type="flag" name="Success" narrative="Success or failure of getting contact.  Note: This is only false if an error has occurred.  If this action succeeds in trying to read contacts but there were no contacts to read this flag will be set to True." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+  </stage>
+  <stage stageid="74fd2b3c-6273-4afb-96b6-487d1016087b" name="GetMail Code" type="Code">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" expr="[Profile]" />
+      <input type="text" name="Sub-Folder" narrative="Optional. The name of a sub-folder below the Inbox from which to get emails.  If not set the Inbox will be used." expr="[Sub-Folder]" />
+      <input type="flag" name="Get Oldest?" narrative="If True then get oldest email from inbox, otherwise get newest" expr="[Get Oldest?]" />
+      <input type="flag" name="Unread Only?" narrative="If True than only get unread emails, otherwise get any" expr="[Unread Only?]" />
+      <input type="text" name="Move to Sub-Folder" narrative="Optional. Sub-folder to move email message to once read. If sub-folder (of folder we are reading emails from) does not exist it will be created. If not set the email will not be moved." expr="[Move to Sub-Folder]" />
+      <input type="flag" name="Delete?" narrative="If True then the email will be deleted once read, otherwise email will be left." expr="[Delete?]" />
+      <input type="text" name="Attachment Directory" narrative="Optional. Folder on computer or network where any attachments should be saved to.  If not set than attachments will be ignored" expr="[Attachment Directory]" />
+      <input type="flag" name="Include Recipient Addresses" expr="[Include Recipient Email Addresses]" />
+      <input type="text" name="Folder Separator" expr="[Folder Separator]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Sender Name" narrative="The name of the sender" stage="Sender Name" />
+      <output type="text" name="Sender Email Address" narrative="The email address of the sender" stage="Sender Email Address" />
+      <output type="text" name="Subject" narrative="The subject of the email" stage="Subject" />
+      <output type="datetime" name="Sent Time" narrative="The time the email was sent" stage="Sent Time" />
+      <output type="datetime" name="Received Time" narrative="The time the email was received" stage="Received Time" />
+      <output type="text" name="Message Body" narrative="The body of the message" stage="Message Body" />
+      <output type="number" name="Attachment Count" narrative="The number of attachments on the email" stage="Attachment Count" />
+      <output type="text" name="Attachment Names" narrative="The names of any attachments, separated by a semi-colon" stage="Attachment Names" />
+      <output type="text" name="To" narrative="The email address the email was sent to. If more than one recipient was used then each one will be separated by a semi-colon" stage="To" />
+      <output type="text" name="CC" narrative="The email address the email was CC'd to. If more than one recipient was used then each one will be separated by a semi-colon" stage="CC" />
+      <output type="text" name="ID" narrative="The unique ID of the email message. The ID persists across outlook sessions, and platform reboots. If the email is moved the ID can no longer be used. If the email is Deleted the ID can no longer be used." stage="ID" />
+      <output type="flag" name="Success" narrative="Success or failure of getting email.  Note: This is only false if an error has occurred.  If this action succeeds in trying to read emails but there were no emails to read this flag will be set to True." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+      <output type="flag" name="Message Is HTML" stage="Message Is HTML" />
+    </outputs>
+    <onsuccess>2d63f617-4462-47ef-b123-4f13c21d9628</onsuccess>
+    <code><![CDATA[
+' Assume success
+Success = True
+Error_Message = ""
+Dim NewID As String = ""
+Try
+
+	Using mapi As New NetMAPI()
+		'log into mapi
+		Log("...MAPI login")
+		mapi.Login(Profile)
+
+		Log("...open message store")
+		If Not mapi.OpenMessageStore() Then Throw New MAPIException( _
+		 "Failed to access message store")
+
+		If Not mapi.OpenInbox() Then Throw New MAPIException( _
+		 "Failed to access inbox")
+
+		'open sub folder if specified
+		Dim msgFolder As String = "Inbox"
+		If Sub_Folder <> "" Then
+			msgFolder = "sub-folder '" & Sub_Folder & "'"
+			Log("...open subfolder")
+			If Not mapi.OpenSubFolder(Sub_Folder) Then _
+			 Throw New MAPIException("Failed to open {0}", msgFolder)
+		End If
+
+		Log("...get contents")
+		If Not mapi.GetContents() Then Throw New MAPIException( _
+		 "Failed to get contents of {0}", msgFolder)
+
+		If mapi.RowCount <= 0 Then Throw New MAPIException( _
+		 "There were no messages in the {0}", msgFolder)
+
+		'sort the folder in the order we want (oldest or newest first)
+		Log("...sort contents")
+		mapi.SortContents(Get_Oldest_)
+
+		Log("...get next message")
+		Using msg As BPMAPIMessage = GetNextMessage(mapi, Unread_Only_)
+
+			Sender_Name = msg.SenderName
+			Sender_Email_Address = msg.SenderEmail
+			Subject = msg.Subject
+			Received_Time = msg.ReceivedTime
+			Sent_Time = msg.SentTime
+
+			Dim sbRTF As StringBuilder = New StringBuilder(msg.GetRTFSize + 1)
+			msg.GetRTF(sbRTF)
+			Dim strRTF as string = sbRTF.ToString
+
+			If strRTF.StartsWith("<html", StringComparison.OrdinalIgnoreCase) Then
+				Message_Body = strRTF
+				Message_Is_HTML = True
+			Else
+				Message_Body = msg.Body
+				Message_Is_HTML = False
+			End If
+
+
+			If Include_Recipient_Addresses Then
+				[To] = msg.ToAddresses
+				CC = msg.CCAddresses
+			Else
+				[To] = msg.ToNames
+				CC = msg.CCNames
+			End If
+
+
+			If Include_Recipient_Addresses Then
+				[To] = msg.ToAddresses
+				CC = msg.CCAddresses
+			Else
+				[To] = msg.ToNames
+				CC = msg.CCNames
+			End If
+
+			Dim attachNames As IList(Of String) = msg.AttachmentNames
+			Attachment_Count = attachNames.Count
+
+			Dim sb As New StringBuilder()
+			For Each attach As String In attachNames
+				If sb.Length > 0 Then sb.Append(";")
+				sb.Append(attach)
+			Next
+			Attachment_Names = sb.ToString()
+
+			' Once more with writing
+			If Attachment_Directory <> "" Then
+				Dim dir As String = Attachment_Directory
+				For i As Integer = 0 To attachNames.Count - 1
+					If Not msg.SaveAttachment(dir, i) Then Throw New MAPIException( _
+					 "Failed to save attachment to {0}", dir)
+				Next
+			End If
+
+			'mark as read - so we don't pick up the message again
+			If msg.IsUnread Then
+				Log("...mark as read")
+				msg.MarkAsRead(True)
+			End If
+
+			If Move_to_Sub_Folder <> "" Then
+				Log("...move message")
+				msg.MoveMessageTo(mapi, Move_to_Sub_Folder, Folder_Separator)
+				NewID = msg.ID
+			Else
+				If Delete_ Then
+					Log("...delete message")
+					If Not mapi.DeleteMessage(msg) Then
+						Throw New MAPIException("Failed to delete message")
+					End If
+				End If
+			End If
+
+			' Get the ID after it has been moved, otherwise it will be
+			' referring to the pre-moved message, ie. it will be invalid.
+			ID = ""
+			' Obviously ID is useless if it's been deleted.
+			If Not Delete_ Then ID = msg.ID
+
+		End Using
+
+	End Using
+
+Catch mex As MAPIException
+	Success = False
+	Error_Message = mex.GetActionMessage("Get Mail")
+
+Catch e As Exception
+	Success = False
+	Error_Message = e.ToString()
+	' Failure in Get Mail function of Blue Prism Extended MAPI Automation
+
+End Try
+]]></code>
+  </stage>
+  <stage stageid="d313f913-3fcb-403a-9e1f-e1af186c6a0a" name="Note1" type="Note">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <loginhibit />
+    <narrative>Inputs</narrative>
+    <displayx>-240</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3706974e-a8bf-4af6-b6ac-5c38e0c529ed" name="Note1" type="Note">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <loginhibit />
+    <narrative>Outputs</narrative>
+    <displayx>-150</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="df13808c-ff8d-47fe-a2a8-cf04e5899ea4" name="MoveMail Code" type="Code">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" expr="[Profile]" />
+      <input type="text" name="ID" narrative="The unique ID of the email message" expr="[ID]" />
+      <input type="text" name="Move to Sub-Folder" narrative="Optional. The destination for the mail to be moved. This must be a sub-folder of the Inbox. If not specified then the mail will be moved to the Inbox itself. If the destination does not exist then it will be automatically created as a sub-folder of the Inbox." expr="[Move to Sub-Folder]" />
+      <input type="text" name="Folder Separator" expr="[Folder Separator]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of moving email.  Note: This is only false if an error has occurred.  If this action succeeds moving the email this flag will be set to True." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+      <output type="text" name="NewID" stage="ID" />
+    </outputs>
+    <onsuccess>7e066acc-d04a-4949-b423-1deac6c5b4cc</onsuccess>
+    <code><![CDATA[
+' Assume success
+Success = True
+Error_Message = ""
+NewID = ""
+
+Try
+
+	' Verify that all input fields are present
+	Dim missingInput As String = Nothing
+	' Save the first empty input name
+	Select Case ""
+		Case Profile : missingInput = "Profile"
+		Case ID : missingInput = "ID"
+	End Select
+	' If any were empty, raise the error
+	If missingInput IsNot Nothing Then Throw New MAPIException( _
+	  "{0} input parameter not set", missingInput)
+
+	' Initialise the extended MAPI interface
+	Using mapi As New NetMAPI()
+
+		'log into mapi
+		mapi.Login(Profile)
+
+		If Not mapi.OpenMessageStore() Then Throw New MAPIException( _
+		 "Failed to access message store")
+
+		If Not mapi.OpenInbox() Then Throw New MAPIException( _
+		 "Failed to access inbox")
+
+		If Move_to_Sub_Folder <> "" Then
+			Using msg As BPMAPIMessage = mapi.FindMessage(ID)
+				msg.MoveMessageTo(mapi, Move_to_Sub_Folder, Folder_Separator)
+				NewID = msg.ID
+			End Using
+		End If
+	End Using
+
+Catch mex As MAPIException
+	Success = False
+	Error_Message = mex.GetActionMessage("Move Mail")
+
+Catch e As Exception
+	Success = False
+	Error_Message = e.ToString()
+End Try
+]]></code>
+  </stage>
+  <stage stageid="409a617c-2547-4233-9cd0-ffa1bbd49829" name="Note1" type="Note">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <loginhibit />
+    <narrative>Inputs</narrative>
+    <displayx>-240</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="b1ec41e4-8dc9-448d-b1ab-b4c9ffe58ada" name="Note1" type="Note">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <loginhibit />
+    <narrative>Outputs</narrative>
+    <displayx>-150</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="61e4b41c-4c35-4e4d-9dc5-39fba0b99318" name="DeleteMail Code" type="Code">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" expr="[Profile]" />
+      <input type="text" name="ID" narrative="The unique ID of the email message" expr="[ID]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of deleting the email.  Note: This is only false if an error has occurred." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+    <onsuccess>8e18047a-92b0-42f3-9a7b-8b395d70f8d2</onsuccess>
+    <code><![CDATA[		'The following two variables are used when generating the outputs at the end.
+		'They are set by all control paths that end up at the 'done' label!
+		'This action never returns an error, but encodes any failure condition within
+		'its outputs.
+
+		'inputs
+		Dim sProfile As String = Profile
+		Dim sID As String = ID
+
+
+		Try
+
+            ' Verify fields
+            If sProfile = "" Then
+                Error_Message = "Failure in Delete Mail function of Blue Prism Extended MAPI Automation. Profile input parameter not set"
+                Success = False
+                Throw New MAPIException(Error_Message)
+            End If
+
+            ' Initialise the extended MAPI interface
+            Using mapi As New NetMAPI
+                mapi.Login(sProfile)
+
+                If Not mapi.OpenMessageStore Then
+                    Error_Message = "Failure in Delete Mail function of Blue Prism Extended MAPI Automation. Failed to access message store"
+                    Success = False
+                    Throw New MAPIException(Error_Message)
+                End If
+
+                If Not mapi.OpenInbox() Then
+                    Error_Message = "Failure in Delete Mail function of Blue Prism Extended MAPI Automation. Failed to access inbox"
+                    Success = False
+                    Throw New MAPIException(Error_Message)
+                End If
+
+                Using message As MAPIMessage = mapi.FindMessage(sID)
+
+                    If Not mapi.DeleteMessage(message) Then
+                        Error_Message = "Failure in Delete Mail function of Blue Prism Extended MAPI Automation. Failed to delete message"
+                        Success = False
+                        Throw New MAPIException(Error_Message)
+                    Else
+                        Success = True
+                    End If
+
+                    'dispose of this instance of the message
+                End Using
+
+            End Using
+
+        Catch mex As MAPIException
+            Error_Message = mex.GetActionMessage("Delete Mail")
+            Success = False
+
+        Catch e As Exception
+            Error_Message = e.ToString
+            Success = False
+        End Try]]></code>
+  </stage>
+  <stage stageid="8cdbe3d3-a67f-4138-a354-60cd2b7ef3f5" name="To" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>195</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4b969a23-7195-43e9-9ba6-7db657cdae22" name="CC" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ca96d5c8-4803-499f-87d2-3426d956d52e" name="BCC" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="aecf056a-9aee-4125-9512-b8df89373e1f" name="Attachment" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>240</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2c4df3a2-f416-41f1-936e-0e10d20c437c" name="Subject" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5f8bbc5b-dba2-416e-9a57-5c563d049348" name="Message" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>285</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="56090240-ba6f-422d-a7b3-9ba3f29c53d2" name="Error Message" type="Data">
+    <subsheetid>6392eaf7-abbf-4f00-9284-c89bcd8e7126</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="112fdc95-3cab-45ee-b8f1-f8ae21decaff" name="Note1" type="Note">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <loginhibit />
+    <narrative>Inputs</narrative>
+    <displayx>-270</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="c0322828-9b1b-4ec9-9f6f-5b296ac3e00a" name="Note1" type="Note">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <loginhibit />
+    <narrative>Outputs</narrative>
+    <displayx>-180</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="caa25e0c-5f18-435c-9b54-80f649b7cbd1" name="List Mails Within DateTimes Code" type="Code">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" expr="[Profile]" />
+      <input type="text" name="Sub-Folder" narrative="Optional. The name of a sub-folder below the Inbox from which to get emails.  If not set the Inbox will be used." expr="[Sub-Folder]" />
+      <input type="flag" name="Unread Only?" narrative="If True than only get unread emails, otherwise get any" expr="[Unread Only?]" />
+      <input type="datetime" name="Minimum DateTime" narrative="Optional. The earliest date and time of interest. Mails received earlier than this date will not be returned. If not specified then all mails received earlier than the Maximum Date will be returned." expr="[Minimum DateTime]" />
+      <input type="datetime" name="Maximum DateTime" narrative="Optional. The latest date and time of interest. Mails received later than this date will not be returned. If not specified then all mails received later than the Minimum Date will be returned." expr="[Maximum DateTime]" />
+      <input type="flag" name="Oldest First?" expr="[Oldest First?]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="IDs" narrative="Collection containing email IDs that are within the specific datetime range" stage="IDs" />
+      <output type="flag" name="Success" narrative="Success or failure of getting the list of emails received within a specific datetime range.  Note: This is only false if an error has occurred." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+    <onsuccess>0eb13d84-9aa7-4c27-9b7e-17395d9d1f4b</onsuccess>
+    <code><![CDATA[		'The following two variables are used when generating the outputs at the end.
+		'They are set by all control paths that end up at the 'done' label!
+		'This action never returns an error, but encodes any failure condition within
+		'its outputs.
+		'inputs
+		Dim bUnreadOnly As Boolean = Unread_Only_
+		Dim oldestFirst As Boolean = Oldest_First_
+		Dim sProfile As String = Profile
+		Dim sSubFolder As String = Sub_Folder
+		Dim dtMinDate As Date = Minimum_DateTime
+		Dim bMinDateInUse As Boolean = (dtMinDate <> Date.MinValue)
+		Dim dtMaxDate As Date = Maximum_DateTime
+		Dim bMaxDateInUse As Boolean = (dtMaxDate <> Date.MinValue)
+		Dim aIDs As New List(Of String)
+
+
+		Try			
+            Log("...testing date regions")
+			If bMinDateInUse = False And bMaxDateInUse = False	
+				Error_Message = "Please use suitable DateTime dates"
+				Success = False
+				Throw New MAPIException(Error_Message)
+			End If
+
+			' Verify fields
+            Log("...verifying Mail Profile")
+			If sProfile = "" Then
+				Error_Message = "Failure in List Mails Within DateTimes function of Blue Prism Extended MAPI Automation. Profile input parameter not set"
+				Success = False
+				Throw New MAPIException(Error_Message)
+			End If
+
+			' Initialise the extended MAPI interface
+			Using mapi As New NetMAPI
+				mapi.Login(sProfile)
+
+                Log("...open message store")
+				If Not mapi.OpenMessageStore Then
+					Error_Message = "Failure in List Mails Within DateTimes function of Blue Prism Extended MAPI Automation. Failed to access message store"
+					Success = False
+					Throw New MAPIException(Error_Message)
+				End If
+
+                Log("...open inbox")
+				If Not mapi.OpenInbox() Then
+					'unable to open inbox
+					Error_Message = "Failure in List Mails Within DateTimes function of Blue Prism Extended MAPI Automation. Failed to access inbox"
+					Success = False
+					Throw New MAPIException(Error_Message)
+				End If
+
+                Log("...open sub folder")
+				'open sub folder if specified
+				If sSubFolder <> "" Then
+					If Not mapi.OpenSubFolder(sSubFolder) Then
+						'error opening sub folder
+						Error_Message = "Failure in List Mails Within DateTimes function of Blue Prism Extended MAPI Automation. Failed to open sub-folder " & sSubFolder
+						Success = False
+						Throw New MAPIException(Error_Message)
+					End If
+				End If
+
+                Log("...get contacts")
+				If Not mapi.GetContents() Then
+					'unable to use inbox
+					Error_Message = "Failure in List Mails Within DateTimes function of Blue Prism Extended MAPI Automation. Failed to get inbox contents"
+					Success = False
+					Throw New MAPIException(Error_Message)
+				End If
+
+                If mapi.RowCount <= 0 Then 
+					Error_Message = "There were no messages in the " & sSubFolder
+					Success = False
+					Throw New MAPIException(Error_Message)
+				End If
+
+                'sort the folder in the order we want (oldest or newest first)
+                Log("...sort contents")
+                mapi.SortContents(oldestFirst)
+
+                Log("...get next message")
+
+				Dim gotFirstMsg as Boolean = False
+                Dim canGetNextMessage As Boolean = True
+                Try
+                    While canGetNextMessage
+
+                        Using msg As BPMAPIMessage = GetNextMessage(mapi, bUnreadOnly)
+
+                            Dim dtRecievedTime As Date = New Date()
+                            msg.GetReceivedTime(dtRecievedTime)
+
+							If dtRecievedTime < dtMinDate Or dtRecievedTime > dtMaxDate AndAlso gotFirstMsg = True Then
+                                canGetNextMessage = False
+								Success = True
+							Else
+								If dtRecievedTime >= dtMinDate AndAlso dtRecievedTime <= dtMaxDate Then
+									Dim s As New System.Text.StringBuilder(NetMAPI.DefaultBufferSize)
+									If msg.GetEntryID(s) Then
+										aIDs.Add(s.ToString)
+									End If
+									gotFirstMsg = True
+								End If
+							End If
+
+                        End Using
+                    End While
+
+                Catch 'Catch when there are no more messages.
+
+                End Try
+
+			End Using
+
+		Catch mex As MAPIException
+			Success = False
+			Error_Message = mex.GetActionMessage("List Mails Within DateTimes")
+
+		Catch e As Exception
+			Error_Message = e.ToString
+			Success = False
+		End Try
+
+
+	'IDs
+	IDs = New DataTable()
+	IDs.Columns.Add("ID", GetType(String))
+	For Each sID As String In aIDs
+		Dim row As DataRow = IDs.NewRow()
+		row("ID") = sID
+		IDs.Rows.Add(row)
+	Next
+]]></code>
+  </stage>
+  <stage stageid="bce12127-a74d-4a3c-b96c-9540c6bceada" name="Note1" type="Note">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <loginhibit />
+    <narrative>Inputs</narrative>
+    <displayx>-240</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="08b77dff-e118-4392-9070-dc119dc3d6bf" name="Note1" type="Note">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <loginhibit />
+    <narrative>Outputs</narrative>
+    <displayx>-150</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="9a2e9aaa-5949-4c81-8094-dd49a55b3d06" name="GetContacts Code" type="Code">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" expr="[Profile]" />
+      <input type="text" name="Given Name" narrative="The First name of the contact to get" expr="[Given Name]" />
+      <input type="text" name="Surname" narrative="The Surname of the contact to get" expr="[Surname]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Contacts" narrative="Collection containing contacts that match the surname and given name, if more than one contact matches several rows will be returned in the collection" stage="Contacts" />
+      <output type="flag" name="Success" narrative="Success or failure of getting contact.  Note: This is only false if an error has occurred.  If this action succeeds in trying to read contacts but there were no contacts to read this flag will be set to True." stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+    <onsuccess>a92723cc-b3df-49f7-a20e-64300d28f7b4</onsuccess>
+    <code><![CDATA[		'The following two variables are used when generating the outputs at the end.
+		'They are set by all control paths that end up at the 'done' label!
+		'This action never returns an error, but encodes any failure condition within
+		'its outputs.
+		Dim sErrorMessage As String, bSuccess As Boolean = False
+
+		'inputs
+		Dim sProfile As String = Profile
+		Dim sGivenName As String = Given_Name
+		Dim sSurname As String = Surname
+
+		'outputs
+		Dim contactList As New List(Of Dictionary(Of String, String))
+
+
+		Try
+
+			' Verify fields
+			If sProfile = "" Then
+				sErrorMessage = "Failure in Get Contacts function of Blue Prism Extended MAPI Automation. Profile input parameter not set"
+				bSuccess = False
+				GoTo done
+			End If
+
+
+			' Initialise the extended MAPI interface
+			'Dim iErr As Integer
+			Using mapi As New NetMAPI
+				'log into mapi
+				mapi.Login(sProfile)
+
+				If Not mapi.OpenGlobalAddressList() Then
+					sErrorMessage = "Failure in Get Contacts function of Blue Prism Extended MAPI Automation. Failed to get Global Address List contents"
+					bSuccess = False
+					GoTo done
+				End If
+
+				Dim c As MAPIContact = Nothing
+				While mapi.GetNextContact(c)
+					Dim sb As New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+					If Not c.GetName(sb, MAPIContact.NameType.GIVEN_NAME) Then
+						c.Dispose()
+						Continue While
+					End If
+					Dim sCurrentGivenName As String = sb.ToString
+
+					sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+					If Not c.GetName(sb, MAPIContact.NameType.SURNAME) Then
+						c.Dispose()
+						Continue While
+					End If
+					Dim sCurrentSurname As String = sb.ToString
+
+					If sGivenName = sCurrentGivenName AndAlso sSurname = sCurrentSurname OrElse _
+					   sGivenName = "" AndAlso sSurname = sCurrentSurname OrElse _
+					   sGivenName = sCurrentGivenName AndAlso sSurname = "" Then
+						Dim contact As New Dictionary(Of String, String)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetDisplayNamePrefix(sb)
+						contact.Add("Personal Title", sb.ToString)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetTitle(sb) 'returns the Job Title
+						contact.Add("Job Title", sb.ToString)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetName(sb, MAPIContact.NameType.DISPLAY_NAME)
+						contact.Add("Display Name", sb.ToString)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetSMTPAddress(sb)
+						contact.Add("Email Address", sb.ToString)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetPhoneNumber(sb, MAPIContact.PhoneType.BUSINESS_TELEPHONE_NUMBER)
+						contact.Add("Business Phone No", sb.ToString)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetOffice(sb)
+						contact.Add("Office", sb.ToString)
+
+						sb = New Text.StringBuilder(NetMAPI.DefaultBufferSize)
+						c.GetCompany(sb)
+						contact.Add("Company", sb.ToString)
+
+						contactList.Add(contact)
+					End If
+
+
+					c.Dispose()
+				End While
+
+
+				bSuccess = True
+				sErrorMessage = ""
+			End Using
+
+		Catch mex As MAPIException
+			bSuccess = False
+			sErrorMessage = mex.GetActionMessage("Get Contacts")
+
+		Catch e As Exception
+			bSuccess = False
+			sErrorMessage = e.ToString
+		End Try
+
+done:
+
+		Contacts = New DataTable()
+		Dim columnNames As IList(Of String) = New String() { _
+		 "Personal Title", _
+		 "Job Title", _
+		 "Display Name", _
+		 "Email Address", _
+		 "Business Phone No", _
+		 "Office", _
+		 "Company" _
+		}
+
+		For Each colname As String In columnNames
+			Contacts.Columns.Add(colname, GetType(String))
+		Next
+
+		For Each contact As Dictionary(Of String, String) In contactList
+			Dim row As DataRow = Contacts.NewRow()
+			For Each colname As String In columnNames
+				row(colname) = contact(colname)
+			Next
+			Contacts.Rows.Add(row)
+		Next
+
+		'success flag
+		Success = bSuccess
+
+		'error message
+		Error_Message = sErrorMessage
+
+]]></code>
+  </stage>
+  <stage stageid="cfc426c5-64a0-4785-978c-145b597a02ba" name="Profile" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c314da80-0d0d-4f13-81b0-e8913ba9dc14" name="Sub-Folder" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0046eede-f388-4444-817b-76b635b268a3" name="Get Oldest?" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cf30d982-ac3e-49d8-ba59-4f62c29a04ba" name="Unread Only?" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ae199306-98c4-42ad-add7-93d888f2394f" name="Move to Sub-Folder" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>180</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e5493e7f-8166-432b-bba6-0cfbbf9810e8" name="Delete?" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c71a3ea5-eb38-4ad6-92ad-1f799f2ea7ec" name="Attachment Directory" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1f894452-a130-414a-9679-6afdd12c1574" name="Sender Name" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="bbc02512-5cfb-49ed-975d-b0b2df2ab358" name="Sender Email Address" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f99eecef-8d34-485b-af11-b4bb8a18f16b" name="Subject" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a565cbe8-845f-4023-bc16-b21cb8ebb767" name="Sent Time" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f4f2e2e4-6bb5-441c-849c-ca19b44ad109" name="Received Time" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3e9d7b21-99c2-4682-bdd8-23137a3e0a87" name="Message Body" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="74f5cd93-8ee0-4db4-b8fe-5376bba5ba9d" name="Attachment Count" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>180</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1fc780e5-638d-4a65-b20d-2cf41ebfb343" name="Attachment Names" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>210</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="52ac8533-aefb-4f50-920a-71768fb811fe" name="To" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e6df9e1f-60ac-49d4-960c-271f21bd3a3b" name="CC" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b4a0a478-52e8-4426-a1ba-2c1f9a3edd8a" name="ID" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f44a1b81-baac-4c91-8dc7-d532b4a2af89" name="Success" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0d5c5ddd-1629-450d-ad00-c464b79ef26a" name="Error Message" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="01b45397-3cd0-4d5b-bd00-c543781b179f" name="Profile" type="Data">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="90abee9d-72d7-401b-87ed-e12022d377cf" name="ID" type="Data">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6ad5908a-c530-48cf-9dd6-b8db4c298820" name="Move to Sub-Folder" type="Data">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b3b3044e-92d8-49c9-8d52-c2beab2bfcee" name="Success" type="Data">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9f720e56-0e6a-4ed2-981a-20626b10ff18" name="Error Message" type="Data">
+    <subsheetid>57eb5bbe-ffac-4720-b432-1959abd50672</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3ee94e61-8d98-472b-8c75-12bdfc931127" name="Profile" type="Data">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6a8b4e09-4f6f-477b-897a-ac08f9f77f07" name="ID" type="Data">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f5ab2a29-b17e-45a4-9d5a-69bc1e7d0154" name="Success" type="Data">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6403cc1d-8d12-4602-8b57-eaab86bdeb04" name="Error Message" type="Data">
+    <subsheetid>05a8e224-deb3-42a8-ac75-e2b36c4d9a3d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f4dd3480-f59e-49be-97b7-ac18b8347870" name="Profile" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3078510d-9e06-4e65-8fe5-7259d5a53a87" name="Sub-Folder" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="69db52b0-055d-4400-bb75-57c536662f98" name="Unread Only?" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1c7f404d-875a-4698-9ceb-d1d41f1f40b0" name="Minimum DateTime" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="235f2d63-f0dd-403c-88de-a7d24efa343d" name="Maximum DateTime" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f4c46442-4b54-440d-a977-ee2e0404106d" name="IDs" type="Collection">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="ID" type="text" namespace="" description="The Message ID" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="4c8b6c9e-5476-4e14-87ff-5ff3ac48fb85" name="Success" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5c52bc35-6386-45a1-9488-26828dabdf29" name="Error Message" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9cc89074-9cb1-4739-997b-fdcd5821d9f6" name="Profile" type="Data">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c6cfd7d5-0945-4704-acb2-287a3acec6ef" name="Given Name" type="Data">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c2fc90ef-dd70-4a32-af80-0690545f3840" name="Surname" type="Data">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-240</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4e3b540f-34a6-4637-b919-48baac73b1d2" name="Contacts" type="Collection">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Personal Title" type="text" namespace="" />
+      <field name="Job Title" type="text" namespace="" />
+      <field name="Display Name" type="text" namespace="" />
+      <field name="Email Address" type="text" namespace="" />
+      <field name="Business Phone No" type="text" namespace="" description="NOTE: This is changed from the MAPIEx business object - the trailing full stop is invalid and has been removed." />
+      <field name="Office" type="text" namespace="" />
+      <field name="Company" type="text" namespace="" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="7360c4ee-8267-4ba6-9d81-eebb46f20ef9" name="Success" type="Data">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="56f5a492-6013-4672-9687-4d7a0cab6fcb" name="Error Message" type="Data">
+    <subsheetid>cb136000-e200-481e-b315-0d5df933beab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-150</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="33aeb827-86e4-4ee5-b7ed-c20252e90bd0" name="Note1" type="Note">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <loginhibit />
+    <narrative>Inputs</narrative>
+    <displayx>-240</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="8c6ed78b-cd68-4594-8071-adb4f58ad957" name="Note1" type="Note">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <loginhibit />
+    <narrative>Outputs</narrative>
+    <displayx>-120</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3f4fb766-1d73-43a9-89b3-18acb73fa4bd" name="Reply To Mail" type="SubSheetInfo">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>Reply to an existing email message</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="5326d08c-7be4-45a9-8961-9c295b8b1324" name="Start" type="Start">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="A valid default email account must be set up for the Profile" />
+      <condition narrative="The unique ID for an email has been retrieve (eg. using Get Mail)" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="An email will have been sent to the sender of the original message" />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" narrative="The mail client profile to use" stage="Profile" />
+      <input type="text" name="ID" narrative="The unique ID of the email message" stage="ID" />
+      <input type="flag" name="Reply To All" narrative="True to reply to all recipients; False to reply only to the sender" stage="Reply To All" />
+      <input type="flag" name="Include Original Mail" narrative="True to include the message that is being replied to below the reply message; False to just create a new message" stage="Include Original Mail" />
+      <input type="text" name="Attachment" narrative="The full path to the attachment to send. If more than one attachment is required then each one is to be separated by a semi-colon" stage="Attachment" />
+      <input type="text" name="Message" narrative="The message of the reply" stage="Message" />
+    </inputs>
+    <onsuccess>9d20c208-1f05-4500-b8dd-a6abe9b4b7b4</onsuccess>
+  </stage>
+  <stage stageid="c77874d1-e04e-4cf6-b1b3-7c7c28cb1620" name="End" type="End">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" narrative="Success or failure of sending the reply" stage="Success" />
+      <output type="text" name="Error Message" narrative="In the event of failure, an error description" stage="Error Message" />
+    </outputs>
+  </stage>
+  <stage stageid="9d20c208-1f05-4500-b8dd-a6abe9b4b7b4" name="ReplyToMail" type="Code">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Profile" expr="[Profile]" />
+      <input type="text" name="ID" expr="[ID]" />
+      <input type="flag" name="Reply To All" expr="[Reply To All]" />
+      <input type="flag" name="Include Original Mail" expr="[Include Original Mail]" />
+      <input type="text" name="Attachment" expr="[Attachment]" />
+      <input type="text" name="Message" expr="[Message]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+      <output type="text" name="Error Message" stage="Error Message" />
+    </outputs>
+    <onsuccess>c77874d1-e04e-4cf6-b1b3-7c7c28cb1620</onsuccess>
+    <code><![CDATA[' Assume success
+Success = True
+Error_Message = ""
+Try
+
+	Using mapi As New NetMAPI()
+
+		mapi.Login(Profile)
+
+		If Not mapi.OpenMessageStore() Then Throw New MAPIException( _
+		 "Failed to access message store")
+
+		Using msg As BPMAPIMessage = mapi.FindMessage(ID)
+			If Not mapi.OpenOutbox() Then Throw New MAPIException( _
+			 "Failed to access outbox")
+
+			Using reply As New BPMAPIMessage()
+
+				If Not reply.Create(mapi) Then Throw New MAPIException( _
+				 "Failed to create message")
+
+				Dim subj As String = msg.Subject
+				If Not subj.StartsWith("RE:", _
+				 StringComparison.OrdinalIgnoreCase) Then subj = "RE: " & subj
+
+				reply.Subject = subj
+
+				' msg.From => reply.To
+				reply.AddRecipients(RecipientType.TO, msg.SenderEncoded)
+
+				' msg.To => reply.To; msg.CC => reply.CC
+				' We can't typically see msg.BCC, but if it's there, then
+				' msg.BCC => reply.BCC
+				If Reply_To_All Then
+					For Each recipList As IList(Of Recipient) _
+					 In msg.RecipientMap.Values
+						reply.AddRecipients(recipList)
+					Next
+				End If
+
+
+
+				' Finally, the message body...
+				Dim MessageIsHTML As Boolean
+				Dim OriginalIsHTML As Boolean
+
+				Dim sb As New StringBuilder(Message)
+
+				If sb.ToString.StartsWith("<html", StringComparison.OrdinalIgnoreCase) Then MessageIsHTML = True
+
+				' add the original message where required
+				If Include_Original_Mail Then
+					Dim sbOriginal As New StringBuilder(msg.GetRTFSize + 1)
+					msg.getRTF(sbOriginal)
+					If sbOriginal.ToString.StartsWith("<html", StringComparison.OrdinalIgnoreCase) Then 
+						OriginalIsHTML = True
+						sbOriginal = New StringBuilder(EncodeHTMLAsASCII(sbOriginal.ToString()))
+					End If
+
+					If MessageIsHTML Then
+						With sb
+							'add some formatted rows before the original message
+							.Append("<HR>")
+							.Append("<P style='font-size: 11pt; font-family: Calibri'>")
+							.Append("<B>From:</B> " & msg.SenderEncoded)
+							.Append("<BR><B>Sent:</B> " & msg.SentTime)
+							.Append("<BR><B>To:</B> " & msg.ToAddresses)
+							Dim ccAddrs As String = msg.CCAddresses
+							If ccAddrs.Length > 0 Then
+								.Append("<BR><B>CC:</B> " & ccAddrs)
+							End If
+							.Append("<BR><B>Subject:</B> " & msg.Subject)
+							.Append("</P>")
+							.Append("<BR><BR>")
+							'then add the message in the required format
+							If OriginalIsHTML Then
+								.Append(sbOriginal.ToString)
+							Else
+								.Append(msg.Body)
+							End If
+						End With
+					Else
+						'append the original message without html
+						With sb
+							.AppendLine().AppendLine()
+							.AppendLine("-----Original Message-----")
+							.Append("From: ").AppendLine(msg.SenderEncoded)
+							.Append("Sent: ").Append(msg.SentTime).AppendLine()
+							.Append("To: ").AppendLine(msg.ToAddresses)
+							Dim ccAddrs As String = msg.CCAddresses
+							If ccAddrs.Length > 0 Then _
+								.Append("CC: ").AppendLine(ccAddrs)
+							.Append("Subject: ").AppendLine(msg.Subject)
+							.AppendLine()
+							.Append(msg.Body)
+						End With
+
+					End If
+				End If
+
+				'set the message body
+				If MessageIsHTML Then
+					reply.setRTF(sb.ToString())
+				Else
+					reply.Body = sb.ToString()
+				End If
+
+				' Add attachments
+				For Each att As String In Attachment.Split(";"c)
+					If att = "" Then Continue For
+					If Not reply.AddAttachment(att) Then Throw New MAPIException( _
+					 "Failed to add attachment ({0})", att)
+				Next
+
+				' And now we should be good to go...
+				If Not reply.Send() Then Throw New MAPIException( _
+				 "Failed to send message")
+
+			End Using
+
+		End Using
+
+	End Using
+
+Catch mex As MAPIException
+	Success = False
+	Error_Message = mex.GetActionMessage("Reply To Mail")
+
+Catch e As Exception
+	Success = False
+	Error_Message = e.ToString()
+
+End Try
+]]></code>
+  </stage>
+  <stage stageid="20092bea-e6a8-4097-9dba-14925aca481d" name="Profile" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="11d27019-747e-47c1-a0fa-022c028b17b7" name="ID" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>15</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e9a2b314-a1ef-4a10-a919-7864a6f2519a" name="Reply To All" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>45</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9386c20b-815f-49c6-93d4-d5dda88eb814" name="Include Original Mail" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>75</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1c192ca6-f61f-4677-aa7e-c424cf6585c9" name="Attachment" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>105</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ae70f2fa-43d7-4c71-9de4-d0c840dd20f8" name="Message" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>135</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="20c2169c-6e10-4352-93e7-2aed34bb39f4" name="Inputs" type="Block">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-315</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>210</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="864ec844-e4a1-43ad-a01a-cb6d80bfc6c2" name="Success" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-120</displayx>
+    <displayy>0</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cb79e6fe-4f9e-43e5-a800-ec4774481525" name="Error Message" type="Data">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-120</displayx>
+    <displayy>90</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cfbd5627-1872-46b7-b42d-44ea3306a9aa" name="Outputs" type="Block">
+    <subsheetid>f9d2f037-4fff-49d7-8514-735795b24fe2</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>210</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="99a1a50f-3cd3-4222-a72e-3140eff7a3d7" name="Configure" type="SubSheetInfo">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <narrative>Configures this instance of the MAPIEx VBO. This is primarily here to allow modified behaviour in existing actions while preserving backwards compatibility. The default value for any configuration variable will be to operate the same as MAPIEx did before the action was configurable.
+Calling this action with no parameters will reset MAPIEx to its default operating state.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>270</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="9e1cdebb-ea9e-4440-9450-0ec53ca3c51d" name="Start" type="Start">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Folder Separator" narrative="Character to use as the separator of folders in any action which takes a path, eg. &quot;Move Mail&quot; or &quot;Get Mail&quot;; Default is to not use a separator - ie. the whole string is the item name." stage="Folder Separator" />
+      <input type="flag" name="Include Recipient Email Addresses" narrative="Whether the To &amp; CC fields returned from a 'Get Mail' call should include the email addresses; Default is false" stage="Include Recipient Email Addresses" />
+      <input type="text" name="Diagnostics Log File" narrative="Full path to file to log diagnostics information" stage="Diagnostics Log File" />
+    </inputs>
+    <onsuccess>8a826e70-f085-4e86-ab1a-a37b8014524c</onsuccess>
+  </stage>
+  <stage stageid="d45a46c1-4022-4af3-a28d-5a7b58873a4c" name="End" type="End">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="769a3d11-7ffa-4151-b86b-00d916aca1d0" name="Folder Separator" type="Data">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>210</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec4e4f2d-c037-4348-9582-826ad9e69232" name="Include Recipient Email Addresses" type="Data">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>210</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="c343e16e-4783-4c93-bcd5-3de25fe97dfc" name="Global Config Vars" type="Block">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-315</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>240</displaywidth>
+    <displayheight>120</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="7f9cc0a0-7c25-45fb-b0c4-2a480982726c" name="Diagnostics Log File" type="Data">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>210</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8a826e70-f085-4e86-ab1a-a37b8014524c" name="Code1" type="Code">
+    <subsheetid>ce4a600c-7dc9-44de-9d4c-8c2c236dae80</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="LogFile" expr="[Diagnostics Log File]" />
+    </inputs>
+    <onsuccess>d45a46c1-4022-4af3-a28d-5a7b58873a4c</onsuccess>
+    <code><![CDATA[If LogFile.Length = 0 Then
+	mDiagsLog = Nothing
+Else
+	mDiagsLog = LogFile
+End If]]></code>
+  </stage>
+  <stage stageid="48d6128a-2ae2-4e84-8284-61de8674bd41" name="Message Is HTML" type="Data">
+    <subsheetid>0d866341-8d03-4ebf-a0f6-69bb9f606108</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-90</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="232700d5-9f59-44b0-b0cf-288c1a11d850" name="Encode HTML as ASCII" type="SubSheetInfo">
+    <subsheetid>e250080f-f4b2-4180-9f8e-fd9cbc67caca</subsheetid>
+    <narrative>Use this action to encode any unicode characters in your HTML as ASCII characters. This is required to send HTML containing unicode characters with the 'Send Message' action.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="67ac96cb-982a-4b9b-9cf3-172782d68556" name="Start" type="Start">
+    <subsheetid>e250080f-f4b2-4180-9f8e-fd9cbc67caca</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="HTML" narrative="HTML containing unicode characters" stage="HTML" />
+    </inputs>
+    <onsuccess>b8259f7d-835a-4420-a92d-902caeec4482</onsuccess>
+  </stage>
+  <stage stageid="175b9948-3ad8-4efc-a699-7d30f915b248" name="End" type="End">
+    <subsheetid>e250080f-f4b2-4180-9f8e-fd9cbc67caca</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Encoded" narrative="HTML with the unicode characters escaped as HTML entities." stage="Encoded" />
+    </outputs>
+  </stage>
+  <stage stageid="b8259f7d-835a-4420-a92d-902caeec4482" name="Encode HTML" type="Code">
+    <subsheetid>e250080f-f4b2-4180-9f8e-fd9cbc67caca</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="HTML" expr="[HTML]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Encoded" stage="Encoded" />
+    </outputs>
+    <onsuccess>175b9948-3ad8-4efc-a699-7d30f915b248</onsuccess>
+    <code><![CDATA[Encoded = EncodeHTMLAsASCII(HTML)
+]]></code>
+  </stage>
+  <stage stageid="9cf753b5-14dc-4f32-a78c-cc88ab759b8f" name="HTML" type="Data">
+    <subsheetid>e250080f-f4b2-4180-9f8e-fd9cbc67caca</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c69472d6-ceb8-4e6e-b70c-93e098068c39" name="Encoded" type="Data">
+    <subsheetid>e250080f-f4b2-4180-9f8e-fd9cbc67caca</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8cd2656e-7e3e-4233-ab66-b744fd57e9dc" name="Oldest First?" type="Data">
+    <subsheetid>ca4ed70a-51f6-45cf-9d1b-f7900e208517</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>165</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

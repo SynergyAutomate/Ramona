@@ -1,0 +1,2705 @@
+﻿<process name="MS Outlook VBO" version="1.0" bpversion="6.2.0.2669" narrative="The VBO replacement for the Common Automation Outlook business object. version 1.0.&#xD;&#xA;&#xD;&#xA;v6.0&#xD;&#xA;-------&#xD;&#xA;2018-25-15" type="object" runmode="Exclusive" preferredid="d89780f5-e968-41ac-bd1e-07ff1b5a8c3b">
+  <appdef>
+    <element name="BPA Object - MS Outlook VBO">
+      <id>5e2fdfcb-bd02-44a3-a2a2-d6b7e606eaa6</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+    <apptypeinfo>
+      <id>Win32Launch</id>
+      <parameters>
+        <parameter>
+          <name>Path</name>
+          <value>C:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</value>
+        </parameter>
+        <parameter>
+          <name>CommandLineParams</name>
+          <value>
+          </value>
+        </parameter>
+        <parameter>
+          <name>WorkingDirectory</name>
+          <value>
+          </value>
+        </parameter>
+        <parameter>
+          <name>NonInvasive</name>
+          <value>True</value>
+        </parameter>
+        <parameter>
+          <name>ProcessMode</name>
+          <value>Internal</value>
+        </parameter>
+        <parameter>
+          <name>ExternalProcessTimeout</name>
+          <value>0</value>
+        </parameter>
+        <parameter>
+          <name>Options</name>
+          <value>
+          </value>
+        </parameter>
+      </parameters>
+    </apptypeinfo>
+  </appdef>
+  <view>
+    <camerax>81</camerax>
+    <cameray>36</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="2c1824a2-048a-49bf-be89-4c55e07c714d" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="a3c79b74-5c14-4257-aa65-98fc56ed5e55" type="Normal" published="True">
+    <name>Check Access To MailBox</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="9385d280-a23c-456c-b054-ce978e522080" type="Normal" published="True">
+    <name>Get Sync Groups</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8a2c1903-ca54-4f91-8953-6f961205c3b1" type="Normal" published="True">
+    <name>Sync Status</name>
+    <view>
+      <camerax>74</camerax>
+      <cameray>63</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="0c6cbd02-279d-4473-9f66-04e218f48aa5" type="Normal" published="True">
+    <name>Get Emails By Subject</name>
+    <view>
+      <camerax>7</camerax>
+      <cameray>84</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b22b6391-5c97-4ae7-b41e-edbe6d30d3a5" type="Normal" published="True">
+    <name>Save Attachments</name>
+    <view>
+      <camerax>17</camerax>
+      <cameray>21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="bd9af2bb-3e24-439f-a369-5833476e772c" type="Normal" published="True">
+    <name>Save Attachments (From MSG)</name>
+    <view>
+      <camerax>-58</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="c567d9e7-f087-4bce-9db6-7d545f3db928" type="Normal" published="True">
+    <name>Save Email To Disk Folder</name>
+    <view>
+      <camerax>53</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="69008baf-c643-4e81-9ff1-3509bd66cdbf" type="Normal" published="True">
+    <name>Move To Folder</name>
+    <view>
+      <camerax>-23</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="2506ee31-6623-44e3-b0c9-e6fc4aa597af" type="Normal" published="True">
+    <name>Move To Subfolder</name>
+    <view>
+      <camerax>34</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="cdaf4226-20d6-4b9d-b2fe-a66086a70f86" type="Normal" published="True">
+    <name>Send Email</name>
+    <view>
+      <camerax>19</camerax>
+      <cameray>63</cameray>
+      <zoom version="2">1.199983</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="894849ce-aa8f-4555-b8cf-c1d367578c07" type="Normal" published="True">
+    <name>Reply To Email</name>
+    <view>
+      <camerax>-23</camerax>
+      <cameray>105</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="92c0b1d1-525e-4425-b31d-17b53348acb3" type="Normal" published="True">
+    <name>Set Unread</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="a1083152-cfaa-4243-b359-0bc719e58b31" type="Normal" published="True">
+    <name>Get All Accounts</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="5c281472-3917-4a97-b050-335444f21749" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>88e4770b-2091-4afa-ad61-e0274a0fa5e0</onsuccess>
+  </stage>
+  <stage stageid="88e4770b-2091-4afa-ad61-e0274a0fa5e0" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="d62f6b77-a57c-4e32-b408-5ea7ec57f4a3" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <references>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>C:\WINDOWS\assembly\GAC_MSIL\Microsoft.Office.Interop.Outlook\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Outlook.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>Microsoft.VisualBasic</import>
+      <import>System.Data</import>
+      <import>Microsoft.Office.Interop.Outlook</import>
+    </imports>
+    <language>visualbasic</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[	
+	Public SyncingEnded As Boolean = False
+
+	Sub SyncEnd_Handler()
+		'Handle the event.
+		SyncingEnded = True
+	End Sub]]></code>
+  </stage>
+  <stage stageid="42d84206-34e7-4433-822d-70706c2ff7c3" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>2c1824a2-048a-49bf-be89-4c55e07c714d</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="41caddec-b783-4175-bf0c-8cd010a0eaf6" name="Start" type="Start">
+    <subsheetid>2c1824a2-048a-49bf-be89-4c55e07c714d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <onsuccess>bf191637-a6d0-4c4d-afa0-e7478941986a</onsuccess>
+  </stage>
+  <stage stageid="bf191637-a6d0-4c4d-afa0-e7478941986a" name="End" type="End">
+    <subsheetid>2c1824a2-048a-49bf-be89-4c55e07c714d</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="b52b7e01-79f9-40c9-8942-13c4473726d0" name="new" type="Note">
+    <subsheetid>2c1824a2-048a-49bf-be89-4c55e07c714d</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <displayx>-195</displayx>
+    <displayy>45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>180</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ca9280e8-a75c-4ebd-a639-e25186863070" name="new" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <displayx>-195</displayx>
+    <displayy>45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>180</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="f3e30b07-b20c-43b0-9788-4c9b6b807990" name="GLOBAL Timeout - XS" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>1</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="61f90768-b3f8-4109-a2db-1e521a26cc2d" name="GLOBAL Timeout - S" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>5</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="2dbc0ff0-369a-42aa-99ed-4e6e4f68d062" name="GLOBAL Timeout - M" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>10</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="fd4d7320-64d5-4d30-aaad-7047d53e45ba" name="GLOBAL Timeout - L" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>30</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="f196ffc0-8d15-4ca0-bd30-37afeccbe112" name="GLOBAL Timeout - XL" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>60</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="f1d38660-c7a7-40a9-8561-0c220f281c17" name="GLOBAL Timeout - XXL" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>120</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="07e6c3d9-ccac-4e23-9714-4faedfc7e140" name="GLOBAL Timeout - XXS" type="Data">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0.5</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="81b26d23-0fea-4ff3-a213-81bfc3129a76" name="Save Attachments" type="SubSheetInfo">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <narrative>This action looks into the Inbox of an e-mail account, gets an e-mail identified by EntryID and saves the attachment(s) to the specified local path. There is the possibility to add a time stamp to each file name.
+
+The action Check Access To MailBox must be called on first.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="57692242-3be8-420e-9a66-8e6c0f2fb96c" name="Start" type="Start">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- Mailbox defined by [MailBoxName] exists" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Attachments are saved in a specified folder if there were any attachments." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Attachment Local Path" narrative="Local Path where to store attachments (c:\temp\)" stage="Attachment Local Path" />
+      <input type="flag" name="Add DateTime Stamp" narrative="add date and time stamp to the attachment name" stage="Add DateTime Stamp" />
+      <input type="text" name="EntryID" narrative="Unique identificator for outlook email item" stage="EntryID" />
+    </inputs>
+    <onsuccess>e692658d-3eff-4093-9711-f0c26717c9ad</onsuccess>
+  </stage>
+  <stage stageid="a0ccd45a-70eb-46d6-8fe3-d62ac5b7db60" name="End" type="End">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="7d61e0e1-002e-4b57-8045-7e76cca1e9c1" name="Save Attachments" type="Code">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Attachment Local Path" expr="[Attachment Local Path]" />
+      <input type="flag" name="Add DateTime Stamp" expr="[Add DateTime Stamp]" />
+      <input type="text" name="EntryID" expr="[EntryID]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+    </inputs>
+    <onsuccess>a0ccd45a-70eb-46d6-8fe3-d62ac5b7db60</onsuccess>
+    <code><![CDATA[
+	
+	Dim OutlookMailBox As String = [MailBoxName]	
+	Dim DestFolder As String = [Attachment_Local_Path]		
+	If Not DestFolder.EndsWith("\") Then
+		DestFolder = DestFolder & "\"
+	End If
+	
+	
+	Dim outlook as Object	
+	Dim ns As Object 	
+	Dim Atmt As Object	
+    Dim FileName AS String       
+		
+	Dim Item As Object
+
+	outlook = CreateObject("Outlook.Application")
+    ns = outlook.GetNamespace("MAPI")
+	Item = ns.GetItemFromID(EntryID)
+
+	For Each Atmt In Item.Attachments						
+		If Add_DateTime_Stamp Then
+			FileName = DestFolder & Format(Now, "dd-mmm-yyyy hh-mm-ss-fffff") & "_" & Atmt.FileName
+		Else
+			FileName = DestFolder & Atmt.FileName
+		End If
+		Atmt.SaveAsFile(FileName)
+	Next Atmt]]></code>
+  </stage>
+  <stage stageid="ff8fca7b-d548-46e4-b4cb-bdb39ac83864" name="Check Access To MailBox" type="SubSheetInfo">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <narrative>Checks whether email account with [MailBoxName] exists in Outlook. This needs to be called first!</narrative>
+    <displayx>-195</displayx>
+    <displayy>-165</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="7d382cca-37c7-44c5-abe8-f05456b5a4ab" name="Start" type="Start">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-165</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="MailBoxName" narrative="Name of the mailbox, i.e., &quot;Support&quot; or &quot;robot@domain.com&quot;" stage="MailBoxName" />
+      <input type="text" name="InboxName" narrative="Name of the inbox which is dependent on local settings, i.e., ''Inbox&quot;" stage="InboxName" />
+    </inputs>
+    <onsuccess>df287da3-7dba-4f9a-b4de-64af52a755ff</onsuccess>
+  </stage>
+  <stage stageid="8220179b-9fc5-4965-a2ae-529768e0fb90" name="End" type="End">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="MailBoxExists" narrative="Returns True flag if mailbox is found." stage="MailBoxExists" />
+      <output type="text" name="Error Message" narrative="Returns error message if mailbox was not found." stage="ErrMessage" />
+    </outputs>
+  </stage>
+  <stage stageid="df287da3-7dba-4f9a-b4de-64af52a755ff" name="Check Access To Mailbox" type="Code">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+      <input type="text" name="InboxName" expr="[InboxName]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="MailBoxExists" stage="MailBoxExists" />
+      <output type="text" name="ErrMessage" stage="ErrMessage" />
+    </outputs>
+    <onsuccess>8220179b-9fc5-4965-a2ae-529768e0fb90</onsuccess>
+    <code><![CDATA[		
+	Try
+		
+		
+		Dim OutlookMailBox As String = [MailBoxName]	
+		
+		Dim outlook as Object	
+		
+		Dim ns As Object    
+		Dim Inbox As Object
+		Dim  i As Object
+    
+		outlook = CreateObject("Outlook.Application")
+		ns = outlook.GetNamespace("MAPI")
+		Inbox = ns.Folders(OutlookMailBox)	
+		
+		[MailBoxExists] = False
+		For i = 1 To Inbox.Folders.Count 		
+			If Inbox.Folders.Item(i).Name = InboxName Then 
+				[MailBoxExists] = True
+			End If				
+		Next i
+	
+	Catch ex As System.Exception
+		ErrMessage =  ex.Message
+	End Try
+]]></code>
+  </stage>
+  <stage stageid="68653da2-3ce7-4168-b5b3-120b90da170b" name="MailBoxName" type="Data">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d8319d54-6863-434c-9961-eaa35bc232ba" name="MailBoxExists" type="Data">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="bee34f97-5822-4400-a8a4-9e99e54e5a44" name="Move To Folder" type="SubSheetInfo">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <narrative>This action looks into the Inbox of an e-mail account, finds their e-mail by specific EntryID, marks it as ticked and moves it to specific folder. There is a restriction for some types of shared mailboxes that it can move the e-mail into root folder only (i.e. you need to create a folder at the same level as Inbox, Drafts, etc.)
+
+The action Check Access To MailBox must be called on first.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="a1fd9b3c-eb05-423b-a8e1-528cbb79716d" name="Start" type="Start">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+      <condition narrative="- Outlook folder exists" />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" narrative="Unique email identification" stage="EntryID" />
+      <input type="text" name="Outlook Folder" narrative="Outlook Folder Name to Move Mail To" stage="Outlook Folder" />
+    </inputs>
+    <onsuccess>284b2d23-0b25-4a23-93b5-772dc4d2f572</onsuccess>
+  </stage>
+  <stage stageid="2f5a82e2-e668-4fde-8efc-f4b767e1cca0" name="End" type="End">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="8668a94f-26ae-43be-83df-d2b90e022d1b" name="Move Mail To Folder" type="Code">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" expr="[EntryID]" />
+      <input type="text" name="Outlook Folder" expr="[Outlook Folder]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+    </inputs>
+    <onsuccess>2f5a82e2-e668-4fde-8efc-f4b767e1cca0</onsuccess>
+    <code><![CDATA[	
+	
+	Dim OutlookMailBox As String = [MailBoxName]	
+
+	
+	
+	Dim outlook, olFolder as Object	
+	
+	Dim ns As Object    
+	
+	Dim StoreID as String
+	
+	Dim Item, MoveFolder As Object
+        
+	outlook = CreateObject("Outlook.Application")
+    ns = outlook.GetNamespace("MAPI")
+	olFolder = ns.Folders(OutlookMailBox)
+	StoreID = olFolder.StoreID
+	
+	MoveFolder = olFolder.Folders(Outlook_Folder)
+		                  
+	Item = ns.GetItemFromID(EntryID,StoreID)
+	Item.Move(MoveFolder)
+	]]></code>
+  </stage>
+  <stage stageid="c3a969d3-5468-4cba-9931-3210ba2623e0" name="Get Emails By Subject" type="SubSheetInfo">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <narrative>This action can be used for searching through the whole Inbox folder of specified e-mail account [MailboxName] and searches only those e-mails that have particular text in e-mail subject. If no subject is provided then it returns all e-mails currently present in the Inbox. 
+
+First must be called an action Check Access To MailBox.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ce20af6c-0ea1-48fd-a1a1-5c03a04976d4" name="Start" type="Start">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="[Emails] collections will be returned from the code stage as a result. It will contain the list of emails that contain the text searched for in email subject." />
+    </postconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="collection" name="Email Subjects" narrative="Email Subjects to Filter on" stage="Email Subjects" />
+      <input type="flag" name="UnRead Only?" narrative="Unread Emails Only" stage="UnRead" />
+      <input type="text" name="Mailbox Folder" stage="Mailbox Folder" />
+      <input type="text" name="Mailbox Subfolder" stage="Mailbox Subfolder" />
+    </inputs>
+    <onsuccess>dcca7a58-6d73-43ae-8bfb-d11533431fe3</onsuccess>
+  </stage>
+  <stage stageid="4b22df81-d871-4594-8305-96e28b84e540" name="End" type="End">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Emails" narrative="Collection of emails " stage="Emails" />
+    </outputs>
+  </stage>
+  <stage stageid="dda9a907-ada3-4dc9-a0b6-a481d72b4bf9" name="Get Emails By Subject" type="Code">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="collection" name="Email Subjects" expr="[Email Subjects]" />
+      <input type="flag" name="UnRead" expr="[UnRead]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+      <input type="text" name="MailBoxFolder" expr="[Mailbox Folder]" />
+      <input type="text" name="MailBoxSubFolder" expr="[Mailbox Subfolder]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Emails" stage="Emails" />
+    </outputs>
+    <onsuccess>4b22df81-d871-4594-8305-96e28b84e540</onsuccess>
+    <code><![CDATA[
+	Dim table As DataTable = [Emails]
+	Dim outlook as Object	
+	Dim ns As Object    
+	
+	
+	Dim OutlookMailBox As String = [MailBoxName]	
+
+	
+	Dim Inbox As Object
+	
+	Dim SubFolderString As String = [MailBoxSubFolder]
+	
+	Dim SubFolderObject As Object
+
+	
+	Dim i, InboxEmailsCount As Integer
+        
+	outlook = CreateObject("Outlook.Application")
+    ns = outlook.GetNamespace("MAPI")
+    Inbox = ns.Folders(OutlookMailBox)
+	Inbox = Inbox.Folders(MailBoxFolder)
+	If MailBoxSubFolder = "" Then
+		SubFolderObject = Inbox
+	Else
+		SubFolderObject = Inbox.Folders(SubFolderString)
+	End If
+	                  
+    
+	InboxEmailsCount=SubFolderObject.Items.Count
+
+	table.Columns.Add("ConversationID")
+	table.Columns.Add("EntryID")
+	table.Columns.Add("EmailTimestamp")
+	table.Columns.Add("EmailSubject")
+    table.Columns.Add("EmailBody")
+	table.Columns.Add("AttachmentsCount")
+
+	For i=1 To InboxEmailsCount		
+		If TypeOf (SubFolderObject.Items(i)) Is Microsoft.Office.Interop.Outlook.MailItem Then
+			If Email_Subjects.rows.count = 0 Then
+				If UnRead Then
+					If SubFolderObject.Items(i).UnRead Then
+						table.Rows.Add(SubFolderObject.Items(i).ConversationID, SubFolderObject.Items(i).EntryID, SubFolderObject.Items(i).CreationTime, SubFolderObject.Items(i).Subject, SubFolderObject.Items(i).Body, SubFolderObject.Items(i).Attachments.Count)
+						Inbox.Items(i).UnRead = False
+					End If
+				Else
+					table.Rows.Add(SubFolderObject.Items(i).ConversationID, SubFolderObject.Items(i).EntryID, SubFolderObject.Items(i).CreationTime, SubFolderObject.Items(i).Subject, SubFolderObject.Items(i).Body, SubFolderObject.Items(i).Attachments.Count)
+				End If
+			Else
+				For Each row As DataRow In Email_Subjects.Rows
+					If InStr(LCase(SubFolderObject.Items(i).Subject), LCase(row("Email Subject"))) > 0 Then				
+						If UnRead Then
+							If SubFolderObject.Items(i).UnRead Then
+								table.Rows.Add(SubFolderObject.Items(i).ConversationID, SubFolderObject.Items(i).EntryID, SubFolderObject.Items(i).CreationTime, SubFolderObject.Items(i).Subject, SubFolderObject.Items(i).Body, SubFolderObject.Items(i).Attachments.Count)
+								SubFolderObject.Items(i).UnRead = False
+							End If
+						Else
+							table.Rows.Add(SubFolderObject.Items(i).ConversationID, SubFolderObject.Items(i).EntryID, SubFolderObject.Items(i).CreationTime, SubFolderObject.Items(i).Subject, SubFolderObject.Items(i).Body, SubFolderObject.Items(i).Attachments.Count)
+						End If
+					End If		
+				Next row
+			End If
+		End If
+	Next i   ]]></code>
+  </stage>
+  <stage stageid="4e7c8db2-edf9-4119-87f1-241b64a20805" name="Emails" type="Collection">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>180</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="ConversationID" type="text" namespace="" description="Email conversation ID by which email can be uniquely and easily identified in Outlook Inbox folder" />
+      <field name="EmailTimestamp" type="text" namespace="" description="Timestamp when email was received" />
+      <field name="EmailSubject" type="text" namespace="" description="Email Subject" />
+      <field name="EmailBody" type="text" namespace="" description="Email Body" />
+      <field name="AttachmentsCount" type="number" namespace="" description="Number of Attachments" />
+      <field name="EntryID" type="text" namespace="" description="The unique identifier for the email." />
+    </collectioninfo>
+  </stage>
+  <stage stageid="cb7491a1-b5f7-44c8-8ff3-d8845d4748f5" name="Email Subjects" type="Collection">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Email Subject" type="text" namespace="" description="The subject line of the email." />
+    </collectioninfo>
+  </stage>
+  <stage stageid="800f22d5-2d36-47c0-b429-3e4d7b1be98d" name="Attachment Local Path" type="Data">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="48e930cf-541a-4d13-958b-4eca37a1c11b" name="Add DateTime Stamp" type="Data">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="64b470f8-c6d7-4c51-83ac-73fea3e90b3b" name="EntryID" type="Data">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f801e81d-9f28-4dd9-892c-80529e6d0c6b" name="UnRead" type="Data">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="79a956a3-a24a-495e-b71a-41bd0fbf72ee" name="EntryID" type="Data">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b846df59-e314-412e-9e6f-5ce901e582eb" name="Outlook Folder" type="Data">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dcca7a58-6d73-43ae-8bfb-d11533431fe3" name="MailBox Exists?" type="Decision">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[MailBoxExists]" />
+    <ontrue>dda9a907-ada3-4dc9-a0b6-a481d72b4bf9</ontrue>
+    <onfalse>0fa4d096-c227-48ef-85a9-f598d09c0059</onfalse>
+  </stage>
+  <stage stageid="0fa4d096-c227-48ef-85a9-f598d09c0059" name="Exception1" type="Exception">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <exception type="System Exception" detail="&quot;Mailbox name either does not exist or Check Access To MailBox action was not called first.&quot;" />
+  </stage>
+  <stage stageid="e692658d-3eff-4093-9711-f0c26717c9ad" name="MailBox Exists?" type="Decision">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[MailBoxExists]" />
+    <ontrue>7d61e0e1-002e-4b57-8045-7e76cca1e9c1</ontrue>
+    <onfalse>a281c3d8-e0d8-44a5-b23d-ad483d9787ff</onfalse>
+  </stage>
+  <stage stageid="a281c3d8-e0d8-44a5-b23d-ad483d9787ff" name="Exception1" type="Exception">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <exception type="System Exception" detail="&quot;Mailbox name either does not exist or Check Access To MailBox action was not called first.&quot;" />
+  </stage>
+  <stage stageid="284b2d23-0b25-4a23-93b5-772dc4d2f572" name="MailBox Exists?" type="Decision">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[MailBoxExists]" />
+    <ontrue>8668a94f-26ae-43be-83df-d2b90e022d1b</ontrue>
+    <onfalse>d5a0688f-3409-425c-a4ef-6bf9c433a56a</onfalse>
+  </stage>
+  <stage stageid="d5a0688f-3409-425c-a4ef-6bf9c433a56a" name="Exception1" type="Exception">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <exception type="System Exception" detail="&quot;Mailbox name either does not exist or Check Access To MailBox action was not called first.&quot;" />
+  </stage>
+  <stage stageid="0075c628-96bd-40dd-8a03-f5a8b75d5347" name="Move To Subfolder" type="SubSheetInfo">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <narrative>This action looks into Inbox of an e-mail account, finds their e-mail by specific EntryID, marks it as ticked and moves it to specific subfolder. There is a restriction for some types of shared mailboxes that it can move the email into root folder only (i.e. you need to create a folder at the same level as Inbox, Drafts, etc.)
+
+The action Check Access To MailBo must be called on first.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="534096af-1e5a-425b-be72-bfeb55e28da5" name="Start" type="Start">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+      <condition narrative="- Outlook folder exists" />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" narrative="Unique e-mail identification." stage="EntryID" />
+      <input type="text" name="SubFolderName" narrative="Outlook folder name to move e-mail to." stage="SubFolderName" />
+    </inputs>
+    <onsuccess>31aa99a2-e8ba-40ff-b493-a879fc4bd48d</onsuccess>
+  </stage>
+  <stage stageid="53db93a3-83a5-42b0-b821-30d83d1c10e6" name="End" type="End">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="a88bbf01-013b-4c30-9bbc-4b88175fc7d1" name="Move Mail To SubFolder" type="Code">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" expr="[EntryID]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+      <input type="text" name="SubFolderName" expr="[SubFolderName]" />
+    </inputs>
+    <onsuccess>53db93a3-83a5-42b0-b821-30d83d1c10e6</onsuccess>
+    <code><![CDATA[	
+	
+	Dim OutlookMailBox As String = [MailBoxName]
+	Dim ItemID As String = [EntryID]	
+	Dim SubFolderString As String = [SubFolderName]
+	Dim SubFolderObject As Object
+	Dim StoreID As String
+	Dim Outlook, olNs, Inbox, Item As Object
+
+    Outlook = CreateObject("Outlook.Application")
+	olNs = Outlook.GetNamespace("MAPI")
+    Inbox = olNs.Folders(OutlookMailBox)
+	Inbox = Inbox.Folders("Inbox")
+    
+	SubFolderObject = Inbox.Folders(SubFolderString)
+	
+	StoreID = Inbox.StoreID
+	
+	Item = olNs.GetItemFromID(EntryID)
+	Item.UnRead = False
+	Item.Move(SubFolderObject)
+	]]></code>
+  </stage>
+  <stage stageid="30499d0e-7a2f-4209-bb63-c39e7f213cf4" name="EntryID" type="Data">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="31aa99a2-e8ba-40ff-b493-a879fc4bd48d" name="MailBox Exists?" type="Decision">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[MailBoxExists]" />
+    <ontrue>a88bbf01-013b-4c30-9bbc-4b88175fc7d1</ontrue>
+    <onfalse>22fbf68a-37da-4c6b-8526-c3ed45fd8fec</onfalse>
+  </stage>
+  <stage stageid="22fbf68a-37da-4c6b-8526-c3ed45fd8fec" name="Exception1" type="Exception">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <exception type="System Exception" detail="&quot;Mailbox name either does not exist or Check Access To MailBox action was not called first.&quot;" />
+  </stage>
+  <stage stageid="40d08650-f465-4147-ba96-a88c67833039" name="SubFolderName" type="Data">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d12994b2-0d8e-411e-ac76-f14065ea8b14" name="Mailbox Folder" type="Data">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eca8a654-e114-40ea-a86d-176c4f73a09d" name="Mailbox Subfolder" type="Data">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>90</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7fcf2c47-b951-4d6d-b915-80fb723acb0a" name="Sync Status" type="SubSheetInfo">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <narrative>This action gets status if mailbox is completely synchronized</narrative>
+    <displayx>-180</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="e45c66c2-dafc-4ac5-a824-ed07df408c4e" name="Start" type="Start">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Sync Group Name" narrative="&quot;All Accounts&quot; or particular e-mail account e.g. &quot;name@domain.com&quot;" stage="Sync Group Name" />
+      <input type="number" name="Max Sync Wait Time" narrative="Maximum Time to wait for syncing to finish in seconds. Zero is indefinitely." stage="Max Sync Wait Time" />
+    </inputs>
+    <onsuccess>863e5056-8861-4882-88fb-4a0fb2546951</onsuccess>
+  </stage>
+  <stage stageid="2f1679ec-ebb5-492a-91c2-f35c15a946cb" name="End" type="End">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" narrative="Verifies if the code stage executed successfully." stage="Success" />
+      <output type="text" name="Error Message" narrative="The message produced by the code stage if an error occurred." stage="ErrMessage" />
+    </outputs>
+  </stage>
+  <stage stageid="863e5056-8861-4882-88fb-4a0fb2546951" name="Sync" type="Code">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+      <input type="text" name="Sync Group Name" expr="[Sync Group Name]" />
+      <input type="number" name="MaxWaitTime" expr="[Max Sync Wait Time]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+      <output type="text" name="ErrMessage" stage="ErrMessage" />
+    </outputs>
+    <onsuccess>2f1679ec-ebb5-492a-91c2-f35c15a946cb</onsuccess>
+    <code><![CDATA[	Try
+	
+		
+		Dim OutlookMailBox As String = [MailBoxName]
+	
+		Dim outlook as Object	
+		
+		Dim ns As Object    
+		Dim syncItem as SyncObject
+
+		Dim OriginalMaxWaitTime = MaxWaitTime
+		
+		Success = false
+		ErrMessage = ""
+
+		outlook = CreateObject("Outlook.Application")
+		ns = outlook.GetNamespace("MAPI")
+			
+		syncItem = ns.SyncObjects.Item(Sync_Group_Name)
+
+		
+		AddHandler syncItem.SyncEnd, AddressOf SyncEnd_Handler
+
+		
+		syncItem.Start
+
+		
+		If (MaxWaitTime=0) Then
+			While (SyncingEnded <> True)
+				Threading.Thread.Sleep(1000)
+			End While
+		Else		
+			While ((SyncingEnded <> True) AND (MaxWaitTime>0))
+				Threading.Thread.Sleep(1000)
+				MaxWaitTime = MaxWaitTime - 1
+			End While
+		End If
+		If (SyncingEnded=False)
+			ErrMessage = "Syncing of outlook mailbox did not finish during the time interval " & OriginalMaxWaitTime & " s."
+		Else
+			Success = True
+		End If
+
+	Catch ex As System.Exception
+		ErrMessage =  ex.Message
+	End Try
+]]></code>
+  </stage>
+  <stage stageid="ae3ccda4-1a74-41c4-8aa0-5b16bf8f5949" name="Sync Group Name" type="Data">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="96cfc794-3c6d-4baa-a1f1-6d127947f5d8" name="Get Sync Groups" type="SubSheetInfo">
+    <subsheetid>9385d280-a23c-456c-b054-ce978e522080</subsheetid>
+    <narrative>This action retrieves list of synchronized mailboxes in Outlook</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="93af6677-7c04-4e84-ba02-fb21f790a1df" name="Start" type="Start">
+    <subsheetid>9385d280-a23c-456c-b054-ce978e522080</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>93e6f7f8-b8f1-4e28-b99c-cb3494b3a298</onsuccess>
+  </stage>
+  <stage stageid="b0b35d90-df9e-49f7-b7fc-b07ca7ff037c" name="End" type="End">
+    <subsheetid>9385d280-a23c-456c-b054-ce978e522080</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Sync Group Names" narrative="Outlook synchronization group names" stage="Sync Groups" />
+    </outputs>
+  </stage>
+  <stage stageid="93e6f7f8-b8f1-4e28-b99c-cb3494b3a298" name="Get Sync Groups" type="Code">
+    <subsheetid>9385d280-a23c-456c-b054-ce978e522080</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Sync Groups" stage="Sync Groups" />
+    </outputs>
+    <onsuccess>b0b35d90-df9e-49f7-b7fc-b07ca7ff037c</onsuccess>
+    <code><![CDATA[	
+	
+	Dim OutlookMailBox As String = [MailBoxName]	
+
+	Dim table As DataTable = [Sync_Groups]
+	table.Columns.Add("Sync Group Name")
+
+	Dim mySyncObjects as Object
+		
+	Dim outlook as Object	
+	
+	Dim ns As Object    
+	Dim i as Integer
+
+	outlook = CreateObject("Outlook.Application")
+	ns = outlook.GetNamespace("MAPI")
+	
+	mySyncObjects = ns.SyncObjects
+
+	For i = 1 To mySyncObjects.Count
+		table.Rows.Add(mySyncObjects.Item(i).Name)
+	Next i
+]]></code>
+  </stage>
+  <stage stageid="be13d013-7ac7-47b5-b068-0ec19546908f" name="Sync Groups" type="Collection">
+    <subsheetid>9385d280-a23c-456c-b054-ce978e522080</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eab55630-cb1b-495a-a7a0-33f1151aecfa" name="Max Sync Wait Time" type="Data">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="66c513de-b608-42e3-a246-20e350a2070d" name="Success" type="Data">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>150</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="284389cf-c8ce-4d28-a6fe-a477327b9a02" name="ErrMessage" type="Data">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>180</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ceb554a3-1669-4803-a6e0-b82798e41dbc" name="Inputs" type="Block">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>165</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="be7dcc8f-c5b3-4158-aa83-899e8812842d" name="Outputs" type="Block">
+    <subsheetid>0c6cbd02-279d-4473-9f66-04e218f48aa5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>135</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>75</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="f46d0c91-374e-4f82-a060-3aa8f187e2f5" name="Inputs" type="Block">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="142d4e83-5f7e-4eaa-9c84-ea83c7d5ec4e" name="Outputs" type="Block">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="58a48bd2-5d82-4218-8997-53749ac0aa54" name="Outputs" type="Block">
+    <subsheetid>9385d280-a23c-456c-b054-ce978e522080</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>75</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="2707fe42-fd40-46ea-940b-2fc104ee98f7" name="Inputs" type="Block">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="55ca5f89-a537-4752-b36b-d7545beacecb" name="Outputs" type="Block">
+    <subsheetid>8a2c1903-ca54-4f91-8953-6f961205c3b1</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="aa5a1f90-0f40-4f39-ba8b-3f4fb20d7c60" name="ErrMessage" type="Data">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>90</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="44ab8038-9722-49a2-abbf-fe8e07383c5a" name="Inputs" type="Block">
+    <subsheetid>b22b6391-5c97-4ae7-b41e-edbe6d30d3a5</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>135</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="3c249344-67fa-4100-84d7-e2ee76f78145" name="Inputs" type="Block">
+    <subsheetid>69008baf-c643-4e81-9ff1-3509bd66cdbf</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="cc27cd65-1e6f-4c2b-ad82-3dbfd9aaf6da" name="Inputs" type="Block">
+    <subsheetid>2506ee31-6623-44e3-b0c9-e6fc4aa597af</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="8ac971d0-eb6e-4578-8072-b1bcabcea8d4" name="Send Email" type="SubSheetInfo">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>Send e-mail with specified parameters.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="247faa6c-9a02-4e86-b536-11894e029bf2" name="Start" type="Start">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="To" narrative="Recipients of the e-mail separated by semicolon (i.e. test1@test.com;test2@test.com)" stage="To" />
+      <input type="text" name="CC" narrative="Recipients in Cc separated by semicolon" stage="CC" />
+      <input type="text" name="BCC" narrative="Recipients in Bcc separated by semicolon" stage="BCC" />
+      <input type="text" name="Subject" narrative="E-mail subject" stage="Subject" />
+      <input type="text" name="Body" narrative="E-mail body" stage="Message" />
+      <input type="collection" name="Attachments" narrative="E-mail attachments" stage="Attachments" />
+      <input type="flag" name="HTML" narrative="A flag to drive whether e-mail is to be HTML formatted or plain text only" stage="HTMLFormat" />
+      <input type="number" name="Shared Mailbox Number" narrative="Provide a number of shared mailbox(can be obtained by &quot;Get All Accounts action&quot;). Default mailbox will be used if empty." stage="Shared Mailbox Number" />
+      <input type="text" name="Send On Behalf Name" narrative="Send on Behalf some other shared e-mail (if access to that e-mail is granted). Default mailbox will be used if empty." stage="Send On Behalf Name" />
+    </inputs>
+    <onsuccess>5f290b39-b026-4af6-89e9-b0ff3f6034fc</onsuccess>
+  </stage>
+  <stage stageid="30223e33-20b1-4a47-8716-f82407b3b3ef" name="End" type="End">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="flag" name="Success" narrative="Indicates whether the email was sent." stage="Success" />
+      <output type="text" name="Error Message" narrative="The message from the code stage specifying the error." stage="ErrMessage" />
+    </outputs>
+  </stage>
+  <stage stageid="5f290b39-b026-4af6-89e9-b0ff3f6034fc" name="Send Email" type="Code">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="To" expr="[To]" />
+      <input type="text" name="CC" expr="[CC]" />
+      <input type="text" name="BCC" expr="[BCC]" />
+      <input type="text" name="Subject" expr="[Subject]" />
+      <input type="text" name="Message" expr="[Message]" />
+      <input type="collection" name="Attachments" expr="[Attachments]" />
+      <input type="flag" name="HTMLFormat" expr="[HTMLFormat]" />
+      <input type="number" name="SharedMailBoxNumber" expr="[Shared Mailbox Number]" />
+      <input type="text" name="SendOnBehalfName" expr="[Send On Behalf Name]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" stage="Success" />
+      <output type="text" name="ErrMessage" stage="ErrMessage" />
+    </outputs>
+    <onsuccess>30223e33-20b1-4a47-8716-f82407b3b3ef</onsuccess>
+    <code><![CDATA[Try
+
+	Dim OutApp as Object = CreateObject("Outlook.Application")
+	Dim OutMail as Object = OutApp.CreateItem(0)
+	Dim OutAtt as Object = OutMail.Attachments
+
+    With OutMail
+        .to = [To]
+        .CC = [CC]
+        .BCC = [BCC]
+        .Subject = [Subject]
+		if [HTMLFormat] then
+			.HTMLBody = [Message]
+			.bodyformat = 2
+		else
+			.Body = [Message]
+		end if
+
+	if [SendOnBehalfName] <> "" then
+		.SentOnBehalfOfName = SendOnBehalfName
+	end if
+
+	End With
+	
+	For Each R As DataRow in Attachments.Rows
+		dim file As String = CStr(R("Path"))
+		OutAtt.Add (file)
+	Next
+	
+	
+    If SharedMailBoxNumber <> 1
+		OutMail.SendUsingAccount = OutApp.Session.Accounts.Item(SharedMailBoxNumber)
+	End If
+    
+	OutMail.Send   
+    
+    OutMail = Nothing
+    OutApp = Nothing
+	Success = True
+
+Catch ex As System.Exception
+	ErrMessage = ex.Message
+End Try
+]]></code>
+  </stage>
+  <stage stageid="eb1f103d-19e8-487c-853e-6f2f9f231834" name="To" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="947da317-5a20-4eae-8d32-c44496bd71e3" name="CC" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7174d268-5cf6-4ed9-a3c2-f809c74e8dce" name="BCC" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dcd3360b-7be4-4de2-acc1-6309c3953629" name="Subject" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>90</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b6783c8d-2a30-49d2-94bb-8ebd4ec3b799" name="Attachments" type="Collection">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>150</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Path" type="text" namespace="" description="The file path to the attachment." />
+    </collectioninfo>
+  </stage>
+  <stage stageid="0d3a268d-e14e-47c9-b7ae-595ced0f40f6" name="Inputs" type="Block">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>330</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="4760a192-41fe-46ae-a331-c2af225fc1ee" name="Message" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>120</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="605d221e-940d-4a8b-af87-669dd34f387e" name="HTMLFormat" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>180</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="676292d0-ba81-4285-b560-045de73024c3" name="InboxName" type="Data">
+    <subsheetid>a3c79b74-5c14-4257-aa65-98fc56ed5e55</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3f07270e-edcd-4590-a80f-928cfee40e7c" name="Save Email To Disk Folder" type="SubSheetInfo">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>This action gets an e-mail identified by EntryID and saves the e-mail message to the specified local path. There is the possibility to choose various types of saved message -HTML, MSG, RTF, TXT. If the saved type is not specified (empty) then it will be saved as an MSG.
+
+Any unsupported characters in file name will be replaced by space (/\*:?|&lt;&gt;").
+If unsupported save as type is entered the error message is returned.
+
+The action Check Access To MailBox must be called on first.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="fb8cf66e-826f-43c0-8cdd-fb55d28eb647" name="Start" type="Start">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" narrative="Unique e-mail identification." stage="EntryID" />
+      <input type="text" name="Local Folder" narrative="Local folder to save email message to." stage="Local Folder" />
+      <input type="text" name="File Name" narrative="Specify file name to save e-mail message under. If left empty the subject will be used." stage="File Name" />
+      <input type="text" name="Saved Type" narrative="Can be MSG, TXT, RTF, TXT. If left empty MSG will be used." stage="Saved Type" />
+    </inputs>
+    <onsuccess>f3781ac2-55c2-486a-842d-c51ffe15f22b</onsuccess>
+  </stage>
+  <stage stageid="3bf546f8-25bd-4238-adc2-99d75bc62bc0" name="End" type="End">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Error Message" narrative="The message from the code stage specifying the error." stage="ErrMessage" />
+    </outputs>
+  </stage>
+  <stage stageid="b9fcf781-71ef-48a6-945d-b352547c2871" name="Save Email To Disk Folder" type="Code">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" expr="[EntryID]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+      <input type="text" name="Local Folder" expr="[Local Folder]" />
+      <input type="text" name="File Name" expr="[File Name]" />
+      <input type="text" name="Saved Type" expr="[Saved Type]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="ErrMessage" stage="ErrMessage" />
+    </outputs>
+    <onsuccess>3bf546f8-25bd-4238-adc2-99d75bc62bc0</onsuccess>
+    <code><![CDATA[
+Dim OutlookMailBox As String = [MailBoxName]	
+	
+
+Dim olDoc=4
+Dim olHTML=5
+Dim olICal=8
+Dim olMSG=3
+Dim olMSGUnicode=9
+Dim olRTF=1
+Dim olTemplate=2
+Dim olTXT=0
+Dim olVCal=7
+Dim olVCard=6
+
+
+Dim outlook, olFolder as Object	
+
+Dim ns As Object    
+
+Dim StoreID as String
+Dim Item As Object
+        
+Try
+	outlook = CreateObject("Outlook.Application")
+    ns = outlook.GetNamespace("MAPI")
+	olFolder = ns.Folders(OutlookMailBox)
+	StoreID = olFolder.StoreID
+	Item = ns.GetItemFromID(EntryID,StoreID)
+	
+	
+	If (File_Name="") Then
+		File_Name = Item.Subject
+	End If
+
+	File_Name = File_Name.Replace("/"," ").Replace("\"," ").Replace("*"," ").Replace(":"," ").Replace("?"," ").Replace("|"," ").Replace("<"," ").Replace(">"," ").Replace(""""," ")
+	
+
+	If Right(Local_Folder,1)<>"\" Then
+		Local_Folder=Local_Folder & "\"
+	End If
+
+	If (Saved_Type.ToUpper="MSG" or Saved_Type="") Then
+		
+		Item.SaveAs(Local_Folder & File_Name & ".msg", olMsg)
+	else if Saved_Type.ToUpper="TXT" Then
+		Item.SaveAs(Local_Folder & File_Name & ".txt", olTXT)
+	else if Saved_Type.ToUpper="HTML" Then
+		Item.SaveAs(Local_Folder & File_Name & ".html", olHTML)
+	else if Saved_Type.ToUpper="RTF" Then
+		Item.SaveAs(Local_Folder & File_Name & ".rtf", olRTF)
+	else
+		ErrMessage="Unsupported save as type format. Only supported formats are MSG, HTML, TXT, RTF."
+	End If
+
+Catch ex As System.Exception
+	ErrMessage = "Error message returned - "& ex.Message
+End Try]]></code>
+  </stage>
+  <stage stageid="636630d5-fab2-4a55-920f-15622508dbe6" name="EntryID" type="Data">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f3781ac2-55c2-486a-842d-c51ffe15f22b" name="MailBox Exists?" type="Decision">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[MailBoxExists]" />
+    <ontrue>b9fcf781-71ef-48a6-945d-b352547c2871</ontrue>
+    <onfalse>38f55d71-ac03-4832-9073-c46349eff3a9</onfalse>
+  </stage>
+  <stage stageid="38f55d71-ac03-4832-9073-c46349eff3a9" name="Exception1" type="Exception">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <exception type="system exception" detail="&quot;Mailbox name either does not exist or Check Access To MailBox action was not called first.&quot;" />
+  </stage>
+  <stage stageid="5ab795b8-2e73-4007-a139-49fc5691eb6a" name="Local Folder" type="Data">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b7f41fbb-585c-48c4-8ecb-e1586a116c1f" name="Saved Type" type="Data">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>90</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="860d58cd-c2f0-431d-837a-1237519ae83b" name="Inputs" type="Block">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>165</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="e9e03381-5eca-46b2-8c70-8e278a669eac" name="File Name" type="Data">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f59299f0-6dd4-4080-850e-57702064d162" name="ErrMessage" type="Data">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>180</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="324b0f04-16d2-4f77-9bdd-f9039145c08b" name="Outputs" type="Block">
+    <subsheetid>c567d9e7-f087-4bce-9db6-7d545f3db928</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>135</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>75</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="abfe96bf-40d9-4172-95a4-8fbf64543636" name="Shared Mailbox Number" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>210</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="850cbd2c-e6dc-45d4-af3d-ce0a9b1b794b" name="ErrMessage" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>375</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7419454c-fb8c-44cb-9fe8-551ad220cc39" name="Outputs" type="Block">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>300</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="2899d70d-fe59-400d-a2f8-ad0218509554" name="Success" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>345</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d709873d-0f47-4780-be5a-31c53249d8ff" name="Move To Folder" type="SubSheetInfo">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>This action finds an e-mail by specific EntryID and moves it to a specific folder.
+
+The action Check Access To MailBox must be called on first.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="15a33380-6c97-4ff5-8eba-0ba0b1c82fdc" name="Start" type="Start">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" narrative="Unique e-mail identification" stage="EntryID" />
+      <input type="flag" name="Reply All" narrative="Reply All" stage="Reply All" />
+      <input type="flag" name="HTML Body" narrative="A flag to drive whether e-mail is to be HTML formatted or plain text only" stage="HTML Body" />
+      <input type="text" name="Body" narrative="E-mail body" stage="Body" />
+      <input type="text" name="Subject" narrative="E-mail subject optional" stage="Subject" />
+      <input type="text" name="CC" narrative="Carbon Copy" stage="CC" />
+    </inputs>
+    <onsuccess>7fd4284e-212f-44cc-8e07-91bda0015bd8</onsuccess>
+  </stage>
+  <stage stageid="7938cd47-909b-408e-9f53-2c94e24cd478" name="End" type="End">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Error Message" narrative="The message from the code stage specifying the error." stage="ErrMessage" />
+    </outputs>
+  </stage>
+  <stage stageid="5bc9ae00-ada2-4069-80a5-dca86d4e0410" name="Reply To Email" type="Code">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" expr="[EntryID]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+      <input type="flag" name="HTMLFormat" expr="[HTML Body]" />
+      <input type="flag" name="Reply All" expr="[Reply All]" />
+      <input type="text" name="Body" expr="[Body]" />
+      <input type="text" name="Subject" expr="[Subject]" />
+      <input type="text" name="CC" expr="[CC]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="ErrMessage" stage="ErrMessage" />
+    </outputs>
+    <onsuccess>7938cd47-909b-408e-9f53-2c94e24cd478</onsuccess>
+    <code><![CDATA[	
+	Dim OutlookMailBox As String = [MailBoxName]	
+
+	
+	
+	Dim outlook, olFolder, MsgReply as Object	
+	
+	Dim ns As Object    
+	
+	Dim StoreID as String
+	
+	Dim Item As Object
+Try       
+	outlook = CreateObject("Outlook.Application")
+    ns = outlook.GetNamespace("MAPI")
+	olFolder = ns.Folders(OutlookMailBox)
+	StoreID = olFolder.StoreID
+	
+	Item = ns.GetItemFromID(EntryID,StoreID)
+
+	If (Reply_All) Then 
+		MsgReply = Item.ReplyAll
+	Else 
+		MsgReply = Item.Reply
+	End If
+	
+	With MsgReply
+		If [CC]<>"" Then
+			.CC = MsgReply.CC & ";" & [CC]
+		End If
+
+		If [HTMLFormat] Then
+			.HTMLBody = [Body] & MsgReply.HTMLBody
+			.bodyformat = 2
+		Else
+			.Body = [Body] & MsgReply.Body
+		End If
+		
+		If [Subject]<> "" Then
+			.Subject = [Subject]
+		End If
+	
+	End With
+	
+	MsgReply.Send
+	
+	MsgReply = Nothing
+	outlook = Nothing
+	olFolder = Nothing
+	StoreID = Nothing
+	Item = Nothing
+
+Catch ex As System.Exception
+	ErrMessage = "Error message returned - "& ex.Message
+End Try]]></code>
+  </stage>
+  <stage stageid="3ac56615-11a5-4a58-a294-1d6cbd4c4fe1" name="EntryID" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7fd4284e-212f-44cc-8e07-91bda0015bd8" name="MailBox Exists?" type="Decision">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[MailBoxExists]" />
+    <ontrue>5bc9ae00-ada2-4069-80a5-dca86d4e0410</ontrue>
+    <onfalse>a9400896-b0ec-494a-b05d-5796ffdc9c50</onfalse>
+  </stage>
+  <stage stageid="a9400896-b0ec-494a-b05d-5796ffdc9c50" name="Exception1" type="Exception">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>135</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <exception type="System Exception" detail="&quot;Mailbox name either does not exist or Check Access To MailBox action was not called first.&quot;" />
+  </stage>
+  <stage stageid="ccd97170-afbe-46fa-8849-2c5a84b26399" name="ErrMessage" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>240</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="40a1a330-2f59-4cde-9aa7-f2848f99997c" name="Reply All" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>True</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3590a1cb-3cb7-4449-a988-12b09f047219" name="HTML Body" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>150</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="950b87ef-8c5e-448b-a080-2a4bcc5cb02c" name="Body" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>120</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="58e67696-7d33-43f4-ae4b-dc5316702b3f" name="Subject" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>90</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ae796516-00ff-4c98-9189-1fd279e86961" name="CC" type="Data">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>60</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="681dfed8-84b4-4577-ae56-ee51a0bd1c85" name="Set Unread" type="SubSheetInfo">
+    <subsheetid>92c0b1d1-525e-4425-b31d-17b53348acb3</subsheetid>
+    <narrative>This action marks specified e-mail (by EntryID parameter) as unread.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="a8c9cfe0-8901-463a-ac8e-46db99fea3d6" name="Start" type="Start">
+    <subsheetid>92c0b1d1-525e-4425-b31d-17b53348acb3</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Entry ID" narrative="The unique identifier for the email." stage="Entry ID" />
+    </inputs>
+    <onsuccess>49c3389b-ec2b-44a2-bf54-6aedebdbf2b4</onsuccess>
+  </stage>
+  <stage stageid="288fc3f1-1f3a-4ab2-838d-4c9bcb3fb39e" name="End" type="End">
+    <subsheetid>92c0b1d1-525e-4425-b31d-17b53348acb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="4d49cd0b-bd74-463d-8856-53842eee9ac7" name="Entry ID" type="Data">
+    <subsheetid>92c0b1d1-525e-4425-b31d-17b53348acb3</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="49c3389b-ec2b-44a2-bf54-6aedebdbf2b4" name="Set Unread" type="Code">
+    <subsheetid>92c0b1d1-525e-4425-b31d-17b53348acb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="EntryID" expr="[Entry ID]" />
+      <input type="text" name="MailBoxName" expr="[MailBoxName]" />
+    </inputs>
+    <onsuccess>288fc3f1-1f3a-4ab2-838d-4c9bcb3fb39e</onsuccess>
+    <code><![CDATA[	
+	Dim OutlookMailBox As String = [MailBoxName]	
+
+	Dim outlook as Object	
+	
+	Dim ns,olFolder, StoreID As Object    
+	
+	Dim Inbox, Item As Object
+       
+	outlook = CreateObject("Outlook.Application")
+    ns = outlook.GetNamespace("MAPI")
+    Inbox = ns.Folders(OutlookMailBox)
+	olFolder = ns.Folders(OutlookMailBox)
+	StoreID = olFolder.StoreID
+	
+	Item = ns.GetItemFromID(EntryID,StoreID)
+	Item.Unread = True]]></code>
+  </stage>
+  <stage stageid="6e78e67a-fd7b-4953-a69f-82654976d3ea" name="Get All Accounts" type="SubSheetInfo">
+    <subsheetid>a1083152-cfaa-4243-b359-0bc719e58b31</subsheetid>
+    <narrative>This action gets account(s) used in Outlook and stores its details in an output collection with parameters: Account Name, Account Number and Account User Name</narrative>
+    <displayx>-180</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ac0955a6-e23e-42ea-af45-0002562e7ea9" name="Start" type="Start">
+    <subsheetid>a1083152-cfaa-4243-b359-0bc719e58b31</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="- [MailBoxName] email account exists." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>773e8650-b32a-43b6-a0db-647bb45069cd</onsuccess>
+  </stage>
+  <stage stageid="5bde5da3-49e8-4c97-8fc9-09d0e744215d" name="End" type="End">
+    <subsheetid>a1083152-cfaa-4243-b359-0bc719e58b31</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Accounts" narrative="Get accounts used in Outlook." stage="Accounts" />
+    </outputs>
+  </stage>
+  <stage stageid="773e8650-b32a-43b6-a0db-647bb45069cd" name="Get Account" type="Code">
+    <subsheetid>a1083152-cfaa-4243-b359-0bc719e58b31</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="collection" name="Accounts" stage="Accounts" />
+    </outputs>
+    <onsuccess>5bde5da3-49e8-4c97-8fc9-09d0e744215d</onsuccess>
+    <code><![CDATA[Dim OutApp As Object
+Dim Table As  Object
+Table = New DataTable
+Dim I As Long
+OutApp = CreateObject("Outlook.Application")
+
+Table.Columns.Add("Account Name")
+Table.Columns.Add("Account Number")
+Table.Columns.Add("Account User Name")
+
+
+For I = 1 To OutApp.Session.Accounts.Count
+
+Dim Account =  OutApp.Session.Accounts.Item(I)
+
+	Table.Rows.Add (
+	Account.DisplayName.ToString(),I,Account.UserName.ToString()
+)
+	
+Next I
+
+Accounts = Table
+]]></code>
+  </stage>
+  <stage stageid="75ec37f5-cc90-425d-afba-5d324ec07bc5" name="Accounts" type="Collection">
+    <subsheetid>a1083152-cfaa-4243-b359-0bc719e58b31</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-180</displayx>
+    <displayy>30</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="da3fbfe6-dfaa-4565-885f-3f13e70d3323" name="Inputs" type="Block">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>225</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="00621764-3d36-41ee-be26-ab4db2070785" name="Outputs" type="Block">
+    <subsheetid>894849ce-aa8f-4555-b8cf-c1d367578c07</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>195</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>75</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="32fe6868-dd34-42a1-b723-42f250e1ee81" name="Inputs" type="Block">
+    <subsheetid>92c0b1d1-525e-4425-b31d-17b53348acb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>75</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="5004f559-ad8f-41d1-9f6f-8c9d5c8c3ef3" name="Outputs" type="Block">
+    <subsheetid>a1083152-cfaa-4243-b359-0bc719e58b31</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-255</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>75</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="b62dc974-9cdb-4d4f-85e7-cf027b064fdb" name="Send On Behalf Name" type="Data">
+    <subsheetid>cdaf4226-20d6-4b9d-b2fe-a66086a70f86</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>240</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1f09ade5-f477-4b94-b1ad-0802db1facb9" name="Save Attachments" type="SubSheetInfo">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <narrative>This action is used to get attachment from an e-mail file (.msg) in a specified path. Attachment can be extracted either with a filename of the message or only with its original name.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="4c13235e-c4c4-468b-ab3c-a41cddf18890" name="Start" type="Start">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <loginhibit />
+    <preconditions>
+      <condition narrative="E-mail message with attachment stored on a local drive." />
+    </preconditions>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Attachment Local Path" narrative="Local path where to store attachments (e.g. &quot;c:\temp\&quot;)" stage="Attachment Local Path" />
+      <input type="flag" name="Include MSG Name" narrative="Set True to Add message filename to the attachment name. If False is set, only file with original attachment name is saved." stage="Include MSG Name" />
+      <input type="text" name="FileName" narrative="Full path with file name to the message file." stage="FileName" />
+    </inputs>
+    <onsuccess>a05b6bb0-46bf-41ba-b436-aa53ed40ae50</onsuccess>
+  </stage>
+  <stage stageid="e65276a2-64ee-4ec1-bbb5-6eb270da5640" name="End" type="End">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="a05b6bb0-46bf-41ba-b436-aa53ed40ae50" name="Save Attachments (From MSG)" type="Code">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Tahoma" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Attachment Local Path" expr="[Attachment Local Path]" />
+      <input type="flag" name="Include MSG Name" expr="[Include MSG Name]" />
+      <input type="text" name="FIleName" expr="[FileName]" />
+    </inputs>
+    <onsuccess>e65276a2-64ee-4ec1-bbb5-6eb270da5640</onsuccess>
+    <code><![CDATA[
+Dim DestFolder As String = [Attachment_Local_Path]	
+
+If Not DestFolder.EndsWith("\") Then
+	DestFolder = DestFolder & "\"
+End If
+
+Dim MSG_Name As String = System.IO.Path.GetFileName(FileName)
+
+
+Dim oMsg As Microsoft.Office.Interop.Outlook.MailItem
+
+
+Dim oAtmt As Microsoft.Office.Interop.Outlook.Attachment
+
+Dim instance As Microsoft.Office.Interop.Outlook._Application
+instance = CreateObject("Outlook.Application")
+
+oMsg = instance.CreateItemFromTemplate(FileName)
+
+If oMsg.Attachments.Count > 0 Then
+	For Each oAtmt In oMsg.Attachments
+		If (Include_MSG_Name) Then
+			oAtmt.SaveAsFile (DestFolder & MSG_Name & "_" & oAtmt.FileName)
+		Else
+			oAtmt.SaveAsFile (DestFolder & oAtmt.FileName)
+		End If
+    Next
+End If]]></code>
+  </stage>
+  <stage stageid="3b653d3a-0b88-40c4-97cd-1790ee453bf5" name="Attachment Local Path" type="Data">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b2ad548e-9845-4c1b-a154-f947fe494a26" name="Inputs" type="Block">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>135</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="26bcd182-9f1d-41cb-ad05-cc9d763a1d84" name="FileName" type="Data">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-210</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c901ed5f-4e88-47c2-aba2-b834bd2f8751" name="Include MSG Name" type="Data">
+    <subsheetid>bd9af2bb-3e24-439f-a369-5833476e772c</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>15</displayy>
+    <displaywidth>120</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
