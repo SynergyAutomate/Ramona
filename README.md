@@ -1,2 +1,2 @@
 # Ramona
-Synergy's Automation Repo
+Synergy's Automation Repository
