@@ -1,2 +1,2 @@
 # Ramona
-Synergy's Auromation Repo
+Synergy's Automation Repo
