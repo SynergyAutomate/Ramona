@@ -1,0 +1,1 @@
+We still need to determine rules around storing releases vs. VBOs
