@@ -1,0 +1,2825 @@
+﻿<process name="Synergy - Admin Team - Timesheet Notification" version="1.0" bpversion="6.6.0.15260" narrative="Automation of the weekly timesheet submission review and email notifications, and anomoly listing" byrefcollection="true" preferredid="18daf9cd-3b4c-47d5-bc31-fa94f59991ec">
+  <view>
+    <camerax>77</camerax>
+    <cameray>249</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="2b1d50ad-8bc2-4493-b836-5edc8ee50d2f" type="Normal" published="False">
+    <name>Acquire Process Inputs from WFM</name>
+    <view>
+      <camerax>11</camerax>
+      <cameray>60</cameray>
+      <zoom version="2">0.9375</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="6561e669-1f3d-4d4b-97d4-2865fe76c154" type="Normal" published="False">
+    <name>Load Staff List to Queue</name>
+    <view>
+      <camerax>100</camerax>
+      <cameray>111</cameray>
+      <zoom version="2">1.0625</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="d95a617c-6969-4339-9925-4748de742ff7" type="Normal" published="False">
+    <name>Review Submission Status</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e" type="Normal" published="False">
+    <name>Mark as Exception</name>
+    <view>
+      <camerax>-76</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="635c09f7-ebdc-4237-b711-65b7c1739119" type="Normal" published="False">
+    <name>Mark as Completed</name>
+    <view>
+      <camerax>12</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="cb7a5c78-769f-43b9-a9e1-6276856f67fa" type="Normal" published="False">
+    <name>Close Down</name>
+    <view>
+      <camerax>81</camerax>
+      <cameray>213</cameray>
+      <zoom version="2">1.0625</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67" type="Normal" published="False">
+    <name>Review Hour Numbers</name>
+    <view>
+      <camerax>-22</camerax>
+      <cameray>-20</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="6f867760-2e20-4cca-889e-d0ffd3661e24" type="Normal" published="False">
+    <name>Notify by Email</name>
+    <view>
+      <camerax>43.666687</camerax>
+      <cameray>276</cameray>
+      <zoom version="2">0.9375</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="fe7be8e9-e950-420a-926f-9a10801e7526" type="Normal" published="False">
+    <name>Add to Outputs List</name>
+    <view>
+      <camerax>-93</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="19cd3dd3-afbb-4718-b33b-845e69fdd179" type="Normal" published="False">
+    <name>Search of Staff Which Are Not on Time Sheet Summary</name>
+    <view>
+      <camerax>17</camerax>
+      <cameray>208</cameray>
+      <zoom version="2">0.9125</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="0241efb1-7638-47e7-883b-c22dc5a8af09" type="Normal" published="False">
+    <name>Add Attachments</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>-21</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="83eeefe8-6691-4e73-a79d-04faf4119e8a" name="Start" type="Start">
+    <display x="-60" y="-90" />
+    <onsuccess>20ec43e6-4a2f-4138-bb75-7e950a1fb718</onsuccess>
+  </stage>
+  <stage stageid="6c4ee03f-d6d3-4887-8aae-9d0b96c24658" name="End" type="End">
+    <display x="450" y="165" />
+  </stage>
+  <stage stageid="704a7bf5-9b85-45fe-9150-7059e6aa882e" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-120" w="150" h="90" />
+  </stage>
+  <stage stageid="662658a9-9734-449c-a30b-825f378118ae" name="Global Username" type="Data">
+    <display x="-195" y="-30" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f0521f65-4f01-4240-bbd2-e527c8a1000d" name="Global Password" type="Data">
+    <display x="-195" y="0" w="120" h="30" />
+    <datatype>password</datatype>
+    <initialvalueenc>
+    </initialvalueenc>
+    <alwaysinit />
+  </stage>
+  <stage stageid="31a125a9-6694-494d-a5d6-631e0c500989" name="Xero (WorkFlowMax) Credentials" type="Block">
+    <display x="-270" y="-60" w="150" h="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="0dbe4b5f-3ade-4003-ab6e-ce0bcf69bba6" name="Acquire Process Inputs from WFM" type="SubSheetInfo">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <narrative>Conducts initial legacy file management controls, and then primarily utilises the WorkFlow Max IE BO to step through all requirements for exporting the timesheet summary.</narrative>
+    <display x="-315" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="bcd9dab4-811e-4196-8795-cd545c5ae029" name="Start" type="Start">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <preconditions>
+      <condition narrative="IE should have no visible instances running" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="IE will remain running and waiting, as further WFM inputs will be required later. IE must remain the active window throughout the process." />
+    </postconditions>
+    <display x="-75" y="-135" />
+    <onsuccess>df6bc02c-eb07-470d-8ca4-1e67c8dfcdf3</onsuccess>
+  </stage>
+  <stage stageid="b63b7a40-d261-47fa-abc6-a5291f47a75e" name="End" type="End">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="405" />
+  </stage>
+  <stage stageid="88bf3308-588f-4c12-8987-3a0801d2400c" name="Acquire Process Inputs from WFM" type="SubSheet">
+    <narrative>Complete process for opening navigating and exporting timesheets</narrative>
+    <display x="-60" y="75" w="90" h="60" />
+    <onsuccess>86fce5f0-202c-4e85-b9d1-a29386e6d739</onsuccess>
+    <processid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</processid>
+  </stage>
+  <stage stageid="772d1fb0-13a6-45e8-a205-cb61d9221a23" name="Load Staff List to Queue" type="SubSheetInfo">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <narrative>This page handles the importing, scrubbing and queuing of the import CSV.</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="c703c542-9132-4d44-81c2-ca8074fc66d4" name="Start" type="Start">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <preconditions>
+      <condition narrative="Requires the successful export of the WFM summary sheet, or it will be unable to find its target file." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Queue filled" />
+    </postconditions>
+    <display x="-75" y="-135" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <onsuccess>44daf0a4-957a-494a-907d-c9819415a47a</onsuccess>
+  </stage>
+  <stage stageid="ec71d791-1181-470a-a767-db2c2bbe7c30" name="End" type="End">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="0" y="240" />
+  </stage>
+  <stage stageid="86fce5f0-202c-4e85-b9d1-a29386e6d739" name="Load Staff List to Queue" type="SubSheet">
+    <display x="-60" y="165" w="90" h="60" />
+    <onsuccess>1452bca9-5b4b-4dd6-9ccd-8fb620092090</onsuccess>
+    <processid>6561e669-1f3d-4d4b-97d4-2865fe76c154</processid>
+  </stage>
+  <stage stageid="eaf6c155-99d9-4a0f-bf19-48a0ec94d298" name="Global Queue Name" type="Data">
+    <display x="-195" y="120" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">WFM Timesheet Summary</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="ccfb562a-ffaa-4c1d-bf9a-035d406f0707" name="Queue Management" type="Block">
+    <display x="-270" y="90" w="150" h="45" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF9900" />
+  </stage>
+  <stage stageid="75a5d4ff-a902-4bdd-86ee-0c85bcbc9519" name="Global Timesheet Summary Filepath" type="Data">
+    <display x="-195" y="180" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\Ramone.SYNERGYAUTOMATE\Downloads\Time-Sheet-Summary.csv</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="59e6bead-afa1-4386-aba5-eb43471a2965" name="Global Review Destination Filepath" type="Data">
+    <display x="-195" y="210" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\Ramone.SYNERGYAUTOMATE\Downloads\Staff for Hours Review.xls</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="b1b842e6-f512-44b8-a278-060470189a99" name="Filepaths" type="Block">
+    <display x="-270" y="150" w="150" h="240" />
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="abaa7710-5059-4a06-a2ce-602f40357bbd" name="Global Exception Type" type="Data">
+    <display x="150" y="0" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f3abcd5a-bd2c-40ea-a733-bb84e2e69385" name="Global Exception Detail" type="Data">
+    <display x="225" y="0" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="697f7fb4-0b9c-4f46-8847-9dd4e7010efa" name="Exception Outputs" type="Block">
+    <display x="15" y="-30" w="270" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="1452bca9-5b4b-4dd6-9ccd-8fb620092090" name="Get next item" type="Action">
+    <narrative>This action gets the next item to be worked from the queue, returning its details and locking it so no other case can work it.
+
+Items with higher priorities (lower numerical value) are processed first. Where the priority is the same, the next item is the one that has been in the queue the longest,  is not already locked, and is not already completed.
+
+The Item ID returned is used to make further calls to update the work status for that item. It may be empty, in which case there are no items available. This can mean either a) the queue is empty, or b) the queue is not running. This mechanism can be used to cleanly stop all processes working a particular queue at the end of the next case. Items that have a 'deferred' time set will not be returned unless that time has been reached.</narrative>
+    <display x="-60" y="225" />
+    <inputs>
+      <input type="text" name="Queue Name" narrative="The name of the queue" expr="[Global Queue Name]" />
+      <input type="text" name="Key Filter" narrative="Optionally, a key value to filter by. Only items with this key value will be considered." expr="" />
+      <input type="text" name="Tag Filter" narrative="Optionally, a tag mask to filter by. This can consist of any number of tag searches - each term can be separated by a semi-colon and they are all applied to the search (ie. they are AND'ed terms not OR'ed terms). For example, &quot;Account: Joint; -Balance: Overdrawn; Card: *Visa*&quot; will include any items which match all the terms, ie. every item must have an 'Account: Joint' tag applied, no item can have a 'Balance: Overdrawn' tag applied, every item must have a tag applied which starts with 'Card: ' and then contains the text 'Visa'." expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Item ID" narrative="The ID of the item retrieved - empty if there are none available." stage="Item ID" />
+      <output type="collection" name="Data" narrative="The data associated with the item - a single collection row." stage="Current Item Data" />
+      <output type="text" name="Status" narrative="The status of the item." stage="Status" />
+      <output type="number" name="Attempts" narrative="The number of attempts already made to work this item." stage="Attempts" />
+    </outputs>
+    <onsuccess>3dc7bbe2-1e7d-42b1-a4eb-03fcaf4fa102</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Get Next Item" />
+  </stage>
+  <stage stageid="6a3d2f12-5727-4e8e-b5de-f5fa7bf1c700" name="Attempts" type="Data">
+    <display x="-225" y="435" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4bfd4fac-6b6c-45ee-9a23-0fd881fe6676" name="Status" type="Data">
+    <display x="-225" y="480" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7fb4e3ee-335f-4289-9c0e-77feeb444807" name="Current Item Data" type="Collection">
+    <display x="-165" y="435" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+  </stage>
+  <stage stageid="02ebf94d-e2b6-49d4-b239-938f13cd7d5d" name="Item ID" type="Data">
+    <display x="-165" y="480" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3785b87e-e7d0-4663-b71a-dc68b002b58b" name="Item Management" type="Block">
+    <display x="-270" y="405" w="150" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF00FF" />
+  </stage>
+  <stage stageid="46ef5e44-f076-4edd-957b-43c6457225cd" name="Got next item?" type="Decision">
+    <display x="30" y="285" />
+    <decision expression="[Item ID]&lt;&gt;&quot;&quot;" />
+    <ontrue>99ec0533-51d9-4734-9715-edd0b25b89f3</ontrue>
+    <onfalse>198088af-ac25-43ce-861c-0a011383379e</onfalse>
+  </stage>
+  <stage stageid="19faf0c7-f3d9-4fb7-8370-f0abefd3a104" name="Review Submission Status" type="SubSheetInfo">
+    <subsheetid>d95a617c-6969-4339-9925-4748de742ff7</subsheetid>
+    <narrative>This page does a simple check of the timesheet submitted field of the queue item, and updates the linked global data item</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="dbce929a-1b9c-469f-82f4-ce85b75231d6" name="Start" type="Start">
+    <subsheetid>d95a617c-6969-4339-9925-4748de742ff7</subsheetid>
+    <display x="-60" y="-135" />
+    <onsuccess>ad700c09-3470-4c17-bb2f-16082d487553</onsuccess>
+  </stage>
+  <stage stageid="34d24512-8a87-44fa-804c-3877a77cfad8" name="End" type="End">
+    <subsheetid>d95a617c-6969-4339-9925-4748de742ff7</subsheetid>
+    <display x="-60" y="15" />
+  </stage>
+  <stage stageid="99ec0533-51d9-4734-9715-edd0b25b89f3" name="Review Submission Status" type="SubSheet">
+    <display x="30" y="345" w="90" h="60" />
+    <onsuccess>3cae9ceb-bf3a-47cb-ac7e-dacc1d592c66</onsuccess>
+    <processid>d95a617c-6969-4339-9925-4748de742ff7</processid>
+  </stage>
+  <stage stageid="f81cd3b9-fd07-4676-bb11-12314b482885" name="Recover1" type="Recover">
+    <display x="30" y="405" />
+    <onsuccess>61bcfac9-3645-432c-a52d-5ac48512970f</onsuccess>
+  </stage>
+  <stage stageid="61bcfac9-3645-432c-a52d-5ac48512970f" name="Exception Details" type="MultipleCalculation">
+    <display x="30" y="450" />
+    <onsuccess>92487283-7de2-4e5c-809b-abbe4406ffe2</onsuccess>
+    <steps>
+      <calculation expression="ExceptionType()" stage="Global Exception Type" />
+      <calculation expression="ExceptionDetail()" stage="Global Exception Detail" />
+    </steps>
+  </stage>
+  <stage stageid="92487283-7de2-4e5c-809b-abbe4406ffe2" name="Resume1" type="Resume">
+    <display x="30" y="495" />
+    <onsuccess>28f6e4d0-2454-4b94-891c-f674b444c0c5</onsuccess>
+  </stage>
+  <stage stageid="abb88d7f-c773-4b93-ab29-a8ccce60a51a" name="Mark as Exception" type="SubSheetInfo">
+    <subsheetid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</subsheetid>
+    <narrative>Internal business object action, marking queue as exceptions</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="40570c41-eb7a-42da-8aea-75104e425586" name="Start" type="Start">
+    <subsheetid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</subsheetid>
+    <preconditions>
+      <condition narrative="Must have a current gloabl queue item ID, held as a global data item (main page)" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Queue item marked as exception" />
+    </postconditions>
+    <display x="-75" y="-135" />
+    <onsuccess>25aa2ab3-0091-4e81-9b96-915e604bde50</onsuccess>
+  </stage>
+  <stage stageid="aa12a155-2dc4-4473-8d40-7f34db4dc386" name="End" type="End">
+    <subsheetid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</subsheetid>
+    <display x="-75" y="-45" />
+  </stage>
+  <stage stageid="28f6e4d0-2454-4b94-891c-f674b444c0c5" name="Mark as Exception" type="SubSheet">
+    <display x="30" y="555" />
+    <onsuccess>84bb0155-b8ae-45c8-bcc5-3a91c1aee582</onsuccess>
+    <processid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</processid>
+  </stage>
+  <stage stageid="4159d21d-fb7c-452e-8c26-d2acf997774b" name="Block1" type="Block">
+    <display x="-45" y="315" w="135" h="210" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="59a59b44-d4d5-4281-85d5-a675348fa512" name="Mark as Completed" type="SubSheetInfo">
+    <subsheetid>635c09f7-ebdc-4237-b711-65b7c1739119</subsheetid>
+    <narrative>Internal business object marking queue item as complete</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="40bb2a44-6b4e-43c8-aa88-5aba4f347173" name="Start" type="Start">
+    <subsheetid>635c09f7-ebdc-4237-b711-65b7c1739119</subsheetid>
+    <preconditions>
+      <condition narrative="Must have current active queue item ID held as a global data item (main page)" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Queue item marked as complete" />
+    </postconditions>
+    <display x="-75" y="-135" />
+    <onsuccess>9b14de76-44c1-46f2-bd53-a5cc147fbf59</onsuccess>
+  </stage>
+  <stage stageid="5e35c50b-f948-4d60-94df-be852318884a" name="End" type="End">
+    <subsheetid>635c09f7-ebdc-4237-b711-65b7c1739119</subsheetid>
+    <display x="-75" y="-45" />
+  </stage>
+  <stage stageid="31444926-2947-4e66-b77a-7bf1e975011c" name="Mark as Completed" type="SubSheet">
+    <display x="465" y="345" />
+    <onsuccess>0cfc53d2-6b1b-4c2f-a122-90be91dec9bb</onsuccess>
+    <processid>635c09f7-ebdc-4237-b711-65b7c1739119</processid>
+  </stage>
+  <stage stageid="198088af-ac25-43ce-861c-0a011383379e" name="No more" type="Note">
+    <narrative>There are no more queue items</narrative>
+    <display x="30" y="165" w="60" h="60" />
+    <onsuccess>102cffb0-798f-456e-ab9e-da37ed1d1725</onsuccess>
+  </stage>
+  <stage stageid="144cc8b6-cb89-4d22-b7ba-25aa613cfe5b" name="Close Down" type="SubSheetInfo">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <narrative>Exports all output files and ensures the browser window is closed</narrative>
+    <display x="-285" y="-90" w="150" h="90" />
+  </stage>
+  <stage stageid="2c9319a1-4ced-4dbf-97ba-5da36ffaf1ee" name="Start" type="Start">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-75" y="-105" />
+    <onsuccess>41c2066d-5d25-4619-90d8-1b240422ad67</onsuccess>
+  </stage>
+  <stage stageid="5b1e8998-44ae-44ef-b5fa-bdf008b1826e" name="End" type="End">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="225" y="345" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="3c4018ce-471b-4e03-a7a8-8b99901bd88c" name="Close Down" type="SubSheet">
+    <display x="360" y="165" />
+    <onsuccess>6c4ee03f-d6d3-4887-8aae-9d0b96c24658</onsuccess>
+    <processid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</processid>
+  </stage>
+  <stage stageid="84bb0155-b8ae-45c8-bcc5-3a91c1aee582" name="Anchor1" type="Anchor">
+    <display x="195" y="555" w="10" h="10" />
+    <onsuccess>7db448bc-98c4-4bcf-831d-a73c2654e0d8</onsuccess>
+  </stage>
+  <stage stageid="0cfc53d2-6b1b-4c2f-a122-90be91dec9bb" name="Anchor2" type="Anchor">
+    <display x="510" y="345" w="10" h="10" />
+    <onsuccess>6dcb4dd6-f528-4589-8759-ef735d8418f5</onsuccess>
+  </stage>
+  <stage stageid="5133902b-81c8-4ab8-8283-572cd472546c" name="Global Timesheet Not Submitted?" type="Data">
+    <display x="-195" y="555" w="120" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="d13e7de0-8b20-46e1-9ed3-7d70b9b99e89" name="Global Hours not rounded?" type="Data">
+    <display x="-195" y="585" w="120" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="a9fcb245-3f2a-4719-b384-de76544d6299" name="Assessment of staff" type="Block">
+    <display x="-270" y="525" w="150" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="FFFF00" />
+  </stage>
+  <stage stageid="3812892b-f227-4542-a6f5-c218775c9d3e" name="Review Hour Numbers" type="SubSheetInfo">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <narrative>Two stage check to confirm if weekly hours total is rounded to 15 min increments. First stage checks for whole number (good), second checks for rounding to 25/50/75 fractions (good).
+This could be achieved with a multi Calc stage. Built as two seperates for visibility only.</narrative>
+    <display x="-195" y="-105" w="150" h="120" />
+  </stage>
+  <stage stageid="5c9b77f0-20be-4632-9a22-43db22811928" name="Start" type="Start">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <preconditions>
+      <condition narrative="Active queue item." />
+    </preconditions>
+    <postconditions>
+      <condition narrative="Flag for status of current staff member to be listed for output (global) adjusted" />
+    </postconditions>
+    <display x="-60" y="-135" />
+    <onsuccess>c13271e7-ceb8-4193-9c7b-996fe4e37a96</onsuccess>
+  </stage>
+  <stage stageid="228b97aa-b029-4db3-a008-14972b13889d" name="End" type="End">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <display x="-60" y="105" />
+  </stage>
+  <stage stageid="f429b306-5177-432c-bf61-db9fdc4a1ce7" name="Review Hour Numbers" type="SubSheet">
+    <display x="285" y="345" w="90" h="60" />
+    <onsuccess>8d3a6971-3273-4446-8748-656b88530d26</onsuccess>
+    <processid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</processid>
+  </stage>
+  <stage stageid="d62ff0f5-d1f3-4092-89dd-9a3aed3f102c" name="Recover2" type="Recover">
+    <display x="285" y="405" />
+    <onsuccess>559853c8-f9f1-425c-9b0a-30f8554fbec5</onsuccess>
+  </stage>
+  <stage stageid="559853c8-f9f1-425c-9b0a-30f8554fbec5" name="Exception Details" type="MultipleCalculation">
+    <display x="285" y="450" />
+    <onsuccess>8efbf196-0704-470e-b7a4-81ac26637dd2</onsuccess>
+    <steps>
+      <calculation expression="ExceptionType()" stage="Global Exception Type" />
+      <calculation expression="ExceptionDetail()" stage="Global Exception Detail" />
+    </steps>
+  </stage>
+  <stage stageid="8efbf196-0704-470e-b7a4-81ac26637dd2" name="Resume2" type="Resume">
+    <display x="285" y="495" />
+    <onsuccess>b9347833-8de5-4136-8720-c323fd1e0bd3</onsuccess>
+  </stage>
+  <stage stageid="b9347833-8de5-4136-8720-c323fd1e0bd3" name="Mark as Exception" type="SubSheet">
+    <display x="285" y="555" />
+    <onsuccess>1895b63b-d5b2-4bc5-ac82-f95005e8b26f</onsuccess>
+    <processid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</processid>
+  </stage>
+  <stage stageid="09942785-bafe-4574-8944-7c4493e56d32" name="Block2" type="Block">
+    <display x="225" y="315" w="120" h="210" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c9e26e2a-c8d3-479d-8f82-0e1881c678de" name="Global Staff for review" type="Collection">
+    <display x="150" y="75" w="90" h="60" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+  </stage>
+  <stage stageid="4d9cec0a-b34d-43c7-ad06-478da032cf05" name="Outputs" type="Block">
+    <display x="15" y="45" w="345" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="008000" />
+  </stage>
+  <stage stageid="3cae9ceb-bf3a-47cb-ac7e-dacc1d592c66" name="Notify?" type="Decision">
+    <display x="135" y="345" />
+    <decision expression="[Global Timesheet Not Submitted?]=True" />
+    <ontrue>d5bf7280-0548-4550-a8c4-77c14c73486e</ontrue>
+    <onfalse>7db448bc-98c4-4bcf-831d-a73c2654e0d8</onfalse>
+  </stage>
+  <stage stageid="7db448bc-98c4-4bcf-831d-a73c2654e0d8" name="Anchor3" type="Anchor">
+    <display x="195" y="345" w="10" h="10" />
+    <onsuccess>f429b306-5177-432c-bf61-db9fdc4a1ce7</onsuccess>
+  </stage>
+  <stage stageid="15cf22d5-f59c-4f78-9653-e0dc9ca5bdfb" name="Notify by Email" type="SubSheetInfo">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>This page completes the prep search work for retrieving a valid email account from WFM, and then sends the email, while also recording the success of the email.</narrative>
+    <display x="-195" y="-120" w="150" h="90" />
+  </stage>
+  <stage stageid="2f1de61a-4307-4b73-ad59-036b2d92baf6" name="Start" type="Start">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <preconditions>
+      <condition narrative="Active queue item" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="WFM left on staff member individual page, email sent, email success recorded." />
+    </postconditions>
+    <display x="-75" y="-135" />
+    <onsuccess>40fd8e9f-dc1a-4751-b220-7e430122fd63</onsuccess>
+  </stage>
+  <stage stageid="d5bf7280-0548-4550-a8c4-77c14c73486e" name="Notify by Email" type="SubSheet">
+    <display x="135" y="285" w="90" h="60" />
+    <onsuccess>f849cca6-2208-41bf-9627-cef65ec5c95f</onsuccess>
+    <processid>6f867760-2e20-4cca-889e-d0ffd3661e24</processid>
+  </stage>
+  <stage stageid="f849cca6-2208-41bf-9627-cef65ec5c95f" name="Anchor4" type="Anchor">
+    <display x="285" y="285" w="10" h="10" />
+    <onsuccess>f429b306-5177-432c-bf61-db9fdc4a1ce7</onsuccess>
+  </stage>
+  <stage stageid="8d3a6971-3273-4446-8748-656b88530d26" name="Add to List?" type="Decision">
+    <display x="390" y="345" />
+    <decision expression="[Global Hours not rounded?]=True" />
+    <ontrue>5b23e8df-efd8-4b5c-95d4-081913d8c6ad</ontrue>
+    <onfalse>31444926-2947-4e66-b77a-7bf1e975011c</onfalse>
+  </stage>
+  <stage stageid="61cb379a-f785-43be-9055-7212ca419882" name="Add to Outputs List" type="SubSheetInfo">
+    <subsheetid>fe7be8e9-e950-420a-926f-9a10801e7526</subsheetid>
+    <narrative>Simple collection manipulation IBO stage to add a row to the gloabl output collection, prior to filling with the current queue item</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="b44b6b2c-ce61-4d87-b6e1-2aee6e5f16ac" name="Start" type="Start">
+    <subsheetid>fe7be8e9-e950-420a-926f-9a10801e7526</subsheetid>
+    <preconditions>
+      <condition narrative="Active queue item" />
+    </preconditions>
+    <postconditions>
+      <condition narrative="New row added and filled for outputs" />
+    </postconditions>
+    <display x="-60" y="-135" />
+    <onsuccess>fa843da8-3bdf-40ed-b649-375d90defdf0</onsuccess>
+  </stage>
+  <stage stageid="348af20a-481e-4aae-a708-6bd0fbeb3f61" name="End" type="End">
+    <subsheetid>fe7be8e9-e950-420a-926f-9a10801e7526</subsheetid>
+    <display x="-60" y="-15" />
+  </stage>
+  <stage stageid="5b23e8df-efd8-4b5c-95d4-081913d8c6ad" name="Add to Outputs List" type="SubSheet">
+    <display x="390" y="285" w="90" h="60" />
+    <onsuccess>7effef34-f74b-40e3-829f-a49152eda39a</onsuccess>
+    <processid>fe7be8e9-e950-420a-926f-9a10801e7526</processid>
+  </stage>
+  <stage stageid="7effef34-f74b-40e3-829f-a49152eda39a" name="Anchor5" type="Anchor">
+    <display x="465" y="285" w="10" h="10" />
+    <onsuccess>31444926-2947-4e66-b77a-7bf1e975011c</onsuccess>
+  </stage>
+  <stage stageid="1895b63b-d5b2-4bc5-ac82-f95005e8b26f" name="Anchor6" type="Anchor">
+    <display x="510" y="555" w="10" h="10" />
+    <onsuccess>0cfc53d2-6b1b-4c2f-a122-90be91dec9bb</onsuccess>
+  </stage>
+  <stage stageid="3dc7bbe2-1e7d-42b1-a4eb-03fcaf4fa102" name="Anchor7" type="Anchor">
+    <display x="-60" y="285" w="10" h="10" />
+    <onsuccess>46ef5e44-f076-4edd-957b-43c6457225cd</onsuccess>
+  </stage>
+  <stage stageid="d1a13220-5f30-4386-a2c2-193945f64241" name="Launch" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="165" />
+    <onsuccess>758ca881-8d19-49f8-b33a-b5f90624b740</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Launch Chrome Browser" />
+  </stage>
+  <stage stageid="758ca881-8d19-49f8-b33a-b5f90624b740" name="Log In" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="210" />
+    <inputs>
+      <input type="text" name="Username" expr="[Global Username]" />
+      <input type="password" name="Password" expr="[Global Password]" />
+      <input type="password" name="Authy" expr="[Authy Master PW]" />
+    </inputs>
+    <onsuccess>3300afce-235b-4a7f-8be5-eabfc30ea293</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Log In - Chrome" />
+  </stage>
+  <stage stageid="3300afce-235b-4a7f-8be5-eabfc30ea293" name="Make Digital Print" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="255" />
+    <onsuccess>6d750f64-8252-4b5b-aec3-480237f87abe</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Make Timesheet Print - Chrome" />
+  </stage>
+  <stage stageid="6d750f64-8252-4b5b-aec3-480237f87abe" name="Export" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="300" />
+    <onsuccess>73a2e24a-571f-4041-af13-5a14c6b9d6f4</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Export Timesheet to Excel - Chrome" />
+  </stage>
+  <stage stageid="44daf0a4-957a-494a-907d-c9819415a47a" name="Create Instance" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="-75" y="-90" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="handle" />
+    </outputs>
+    <onsuccess>98355953-2926-4b64-9c9e-fb8c994a2916</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="4a1ad79d-b49b-403f-ba88-0d7e07ecc823" name="handle" type="Data">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="0" y="-90" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="98355953-2926-4b64-9c9e-fb8c994a2916" name="Open Workbook" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="-75" y="-45" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[Global Timesheet Summary Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="Workbook Name" />
+    </outputs>
+    <onsuccess>9fc51c72-1966-4dda-aca1-f9818c9978d9</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="ee1a6c8d-5872-4d69-a674-ae0189c3fb24" name="Workbook Name" type="Data">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="0" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="62696e69-fa07-4c41-ab5b-c89100468627" name="Get Collection" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="-75" y="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <outputs>
+      <output type="collection" name="Data" narrative="The data output" stage="Data - Raw" />
+    </outputs>
+    <onsuccess>d71bb6e8-add4-40c5-bacc-cb668983a77e</onsuccess>
+    <resource object="MS Excel VBO" action="Get Worksheet As Collection (Fast)" />
+  </stage>
+  <stage stageid="6576d150-3970-4892-9f01-edcdaf4377bd" name="Data - Raw" type="Collection">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="0" y="60" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="06f665a0-a886-47f2-a6b7-a71a66eab626" name="Add to queue" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <narrative>The Data collection contains the items to be added to the queue. The collection may contain single or multiple rows, with each representing an item to be added.
+
+If there is a failure during the process, the queue will be unchanged - i.e. no rows will be loaded even if the error occurred on the last one.
+
+If Defer Until is specified, the items will not be available to be worked until then. Otherwise, they are available immediately.
+
+If the queue has a key field defined, an item added has key data longer than the maximum permitted 255 characters, an error will occur</narrative>
+    <display x="-75" y="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="text" name="Queue Name" narrative="The name of the queue to add items to" expr="[Global Queue Name]" />
+      <input type="collection" name="Data" narrative="A collection containing the data, one row for each item to be added" expr="[Collection Out - No blanks]" />
+      <input type="datetime" name="Defer Until" narrative="Optionally, the date/time the new item(s) should be deferred until" expr="" />
+      <input type="number" name="Priority" narrative="Optionally, the priority for the new item(s). Lower numbers represent higher priorities. The default is 0." expr="" />
+      <input type="text" name="Tags" narrative="Optionally, a semi-colon-separated set of tags to apply to the queue item(s)" expr="" />
+      <input type="text" name="Status" narrative="Optionally, the initial status required of the work queue item(s) " expr="" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Item IDs" narrative="The IDs of the items which have been added to the queue, in the order of the collection of data passed that was input" stage="Item IDs" />
+    </outputs>
+    <onsuccess>64cbd660-3e02-4dbe-834d-f705a830ffa6</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Add To Queue" />
+  </stage>
+  <stage stageid="4f0ee73f-f113-46e4-abb2-fba3c864621f" name="Item IDs" type="Collection">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="0" y="150" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Item ID" type="text" description="The Item ID of the work queue item" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="64cbd660-3e02-4dbe-834d-f705a830ffa6" name="Close Workbook" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="-75" y="195" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <onsuccess>24d9ad77-906b-4567-9d94-3b723dc68341</onsuccess>
+    <resource object="MS Excel VBO" action="Close Current Workbook" />
+  </stage>
+  <stage stageid="24d9ad77-906b-4567-9d94-3b723dc68341" name="Close instance" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="-75" y="240" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance to be closed. Zero indicates the currently active instance." expr="[handle]" />
+      <input type="flag" name="Save Changes" narrative="True to save the changes to the open workbooks on the instance, False to discard any changes. Default is False." expr="False" />
+    </inputs>
+    <onsuccess>ec71d791-1181-470a-a767-db2c2bbe7c30</onsuccess>
+    <resource object="MS Excel VBO" action="Close Instance" />
+  </stage>
+  <stage stageid="ad700c09-3470-4c17-bb2f-16082d487553" name="Is Timesheet Marked Incomplete?" type="Decision">
+    <subsheetid>d95a617c-6969-4339-9925-4748de742ff7</subsheetid>
+    <display x="-60" y="-75" w="90" h="60" />
+    <decision expression="[Current Item Data.Submitted?]=&quot;No&quot;" />
+    <ontrue>ab21a9ed-df3e-4651-b143-d8c2b0c2d323</ontrue>
+    <onfalse>34d24512-8a87-44fa-804c-3877a77cfad8</onfalse>
+  </stage>
+  <stage stageid="ab21a9ed-df3e-4651-b143-d8c2b0c2d323" name="Update submission detail" type="Calculation">
+    <subsheetid>d95a617c-6969-4339-9925-4748de742ff7</subsheetid>
+    <narrative>changes the no submission flag data item to reflect true</narrative>
+    <display x="75" y="-75" w="90" h="60" />
+    <onsuccess>727b5c03-adce-428e-9243-6a199ca41b98</onsuccess>
+    <calculation expression="True" stage="Global Timesheet Not Submitted?" />
+  </stage>
+  <stage stageid="727b5c03-adce-428e-9243-6a199ca41b98" name="Anchor9" type="Anchor">
+    <subsheetid>d95a617c-6969-4339-9925-4748de742ff7</subsheetid>
+    <display x="75" y="15" w="10" h="10" />
+    <onsuccess>34d24512-8a87-44fa-804c-3877a77cfad8</onsuccess>
+  </stage>
+  <stage stageid="c13271e7-ceb8-4193-9c7b-996fe4e37a96" name="Is the hour total a full hour number?" type="Decision">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <narrative>Compares the listed total hours worked against round number submissions</narrative>
+    <display x="-60" y="-75" w="90" h="60" />
+    <decision expression="InStr([Current Item Data.Total], &quot;.&quot;)=0" />
+    <ontrue>c6651078-a991-4a5e-8367-a3f6e73a6baf</ontrue>
+    <onfalse>2ad63d5a-f321-4d9b-9295-90a68cbe8dde</onfalse>
+  </stage>
+  <stage stageid="db869043-d96e-4384-9c8f-327bb066d0ae" name="Change hours not rounded flag" type="Calculation">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <display x="-60" y="60" />
+    <onsuccess>228b97aa-b029-4db3-a008-14972b13889d</onsuccess>
+    <calculation expression="True" stage="Global Hours not rounded?" />
+  </stage>
+  <stage stageid="c6651078-a991-4a5e-8367-a3f6e73a6baf" name="End1" type="End">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <display x="45" y="-75" />
+  </stage>
+  <stage stageid="7145c6c0-52cb-445a-a2c4-44a220ec4d9f" name="Export Review list as Excel" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="150" y="-105" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[Global Staff for review]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[Workbook Name]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="True" />
+    </inputs>
+    <onsuccess>1dfef957-7d88-4eb2-a4b0-c5e47c67dd6e</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="41c2066d-5d25-4619-90d8-1b240422ad67" name="Create Instance" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="-105" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="handle" />
+    </outputs>
+    <onsuccess>a31be83b-e8f3-477d-a288-33ec52c3c795</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="a35a3837-b31c-4902-bb34-d56a929c3b5b" name="handle" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="-75" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a31be83b-e8f3-477d-a288-33ec52c3c795" name="Create Workbook" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="75" y="-105" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="Workbook Name" />
+    </outputs>
+    <onsuccess>7145c6c0-52cb-445a-a2c4-44a220ec4d9f</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="ba34cf88-981d-4e70-914d-feefc4bb45a8" name="Workbook Name" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="75" y="-75" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1dfef957-7d88-4eb2-a4b0-c5e47c67dd6e" name="Save the Excel file" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="225" y="-105" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance for which the current workbook which should be saved. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The full path and file name to which the current workbook should be saved." expr="[Global Review Destination Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Workbook Name" narrative="The new workbook name which Excel will use to identify the workbook." stage="New Workbook Name" />
+    </outputs>
+    <onsuccess>50be7708-8ceb-48b0-b9dc-0b36d3c14cdc</onsuccess>
+    <resource object="MS Excel VBO" action="Save Current Workbook As" />
+  </stage>
+  <stage stageid="2c9b8b38-dedf-4e39-bd7f-46108f0ae841" name="New Workbook Name" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="225" y="-75" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Abnormal Timesheet Submissions for Review</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="50be7708-8ceb-48b0-b9dc-0b36d3c14cdc" name="Close workbook" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="300" y="-105" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <onsuccess>2377f7ff-b283-4648-ae65-b67f86b502ec</onsuccess>
+    <resource object="MS Excel VBO" action="Close Current Workbook" />
+  </stage>
+  <stage stageid="4e0a7d07-53ef-4dbc-b8c4-ffda0e46d46d" name="Recover4" type="Recover">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="255" y="240" />
+    <onsuccess>755dca21-66f1-42fa-a6b5-6d58f6e2a3fc</onsuccess>
+  </stage>
+  <stage stageid="200fa905-4724-4fcc-9cab-fe46d11ee91f" name="Exception Details" type="MultipleCalculation">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="105" y="240" />
+    <onsuccess>44cd4c57-6928-496a-bc5f-daf001f32e05</onsuccess>
+    <steps>
+      <calculation expression="ExceptionDetail()" stage="Global Exceptions.Global Exception Detail" />
+      <calculation expression="ExceptionType()" stage="Global Exceptions.Global Exception Type" />
+    </steps>
+  </stage>
+  <stage stageid="44cd4c57-6928-496a-bc5f-daf001f32e05" name="Resume4" type="Resume">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="15" y="240" />
+    <onsuccess>a4f4b046-121c-43ce-84f8-4c428fb3045f</onsuccess>
+  </stage>
+  <stage stageid="65deed68-2aa5-4008-af36-20bb6f643a46" name="Close All Excels" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="375" y="135" />
+    <onsuccess>8492b33e-74e5-4236-a53a-c8421fec2907</onsuccess>
+    <resource object="MS Excel VBO" action="Close All Instances" />
+  </stage>
+  <stage stageid="25aa2ab3-0091-4e81-9b96-915e604bde50" name="Mark Exception to Queue" type="Action">
+    <subsheetid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</subsheetid>
+    <narrative>Marks the item as an exception, optionally retrying it by cloning the item and returning the ID of the clone. The item must be 'owned' by the calling process - i.e. it must have been retrieved using Get Next Item.</narrative>
+    <display x="-75" y="-90" />
+    <inputs>
+      <input type="text" name="Item ID" narrative="The ID of the item to mark" expr="[Item ID]" />
+      <input type="text" name="Exception Reason" narrative="A description of the reason for the exception" expr="[Global Exception Detail]" />
+      <input type="flag" name="Retry" narrative="Whether or not to retry the item, up to the maximum number of attempts specified for the queue. Optional - if not specified, the item will be retried" expr="" />
+      <input type="flag" name="Keep Locked" narrative="Whether or not the clone of the item should remain locked after the exception has been registered and the item is retried. Optional - default is False" expr="" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Item ID" narrative="The Item ID of the newly cloned item. This item will be locked if 'Keep Locked' is True. This will be empty if no item was cloned (ie. the item was not retried." stage="New Item ID" />
+    </outputs>
+    <onsuccess>aa12a155-2dc4-4473-8d40-7f34db4dc386</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Mark Exception" />
+  </stage>
+  <stage stageid="6a5d4103-4409-4c7e-a70e-7542f328ae81" name="New Item ID" type="Data">
+    <subsheetid>bd4ea78d-d335-4e3e-bc9e-3db32d84fd6e</subsheetid>
+    <display x="0" y="-90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d71bb6e8-add4-40c5-bacc-cb668983a77e" name="Delete empty Rows" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="-75" y="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="collection" name="Collection In" narrative="The collection to remove empty rows from" expr="[Data - Raw]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Collection Out" narrative="The collection with the empty rows removed" stage="Collection Out - No blanks" />
+    </outputs>
+    <onsuccess>06f665a0-a886-47f2-a6b7-a71a66eab626</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Remove Empty Rows" />
+  </stage>
+  <stage stageid="16d671e1-a8ce-4b07-8677-c5bb5389fda7" name="Collection Out - No blanks" type="Collection">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="0" y="105" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6dcb4dd6-f528-4589-8759-ef735d8418f5" name="Reset Assessment of staff member" type="MultipleCalculation">
+    <display x="510" y="225" w="90" h="60" />
+    <onsuccess>1452bca9-5b4b-4dd6-9ccd-8fb620092090</onsuccess>
+    <steps>
+      <calculation expression="False" stage="Global Timesheet Not Submitted?" />
+      <calculation expression="False" stage="Global Hours not rounded?" />
+    </steps>
+  </stage>
+  <stage stageid="fa843da8-3bdf-40ed-b649-375d90defdf0" name="Append Current Item Data to Review Collection" type="Action">
+    <subsheetid>fe7be8e9-e950-420a-926f-9a10801e7526</subsheetid>
+    <display x="-60" y="-75" w="90" h="60" />
+    <inputs>
+      <input type="collection" name="Main Collection" narrative="The collection to append to." expr="[Global Staff for review]" />
+      <input type="collection" name="Collection to Append" narrative="The collection to append." expr="[Current Item Data]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Combined Collection" narrative="The combined collection." stage="Global Staff for review" />
+    </outputs>
+    <onsuccess>348af20a-481e-4aae-a708-6bd0fbeb3f61</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Append Rows to Collection" />
+  </stage>
+  <stage stageid="9b14de76-44c1-46f2-bd53-a5cc147fbf59" name="Mark Item Completed" type="Action">
+    <subsheetid>635c09f7-ebdc-4237-b711-65b7c1739119</subsheetid>
+    <narrative>Marks the item as completed, by updating the Completed timestamp and setting Locked to null. The item must be 'owned' by the calling process - i.e. it must have been retrieved using Get Next Item.</narrative>
+    <display x="-75" y="-90" />
+    <inputs>
+      <input type="text" name="Item ID" narrative="The ID of the item to mark" expr="[Item ID]" />
+    </inputs>
+    <onsuccess>5e35c50b-f948-4d60-94df-be852318884a</onsuccess>
+    <resource object="Blueprism.Automate.clsWorkQueuesActions" action="Mark Completed" />
+  </stage>
+  <stage stageid="27679285-5c33-4871-8945-f87bb279e9e0" name="Delete a cell (A1)" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="240" y="-45" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <inputs>
+      <input type="number" name="Handle" expr="[handle]" />
+      <input type="text" name="Workbook" expr="[Workbook Name]" />
+      <input type="text" name="Shift (Left or Up)" expr="&quot;Left&quot;" />
+    </inputs>
+    <onsuccess>cd23c11d-8305-465f-8788-caad2c5f1308</onsuccess>
+    <resource object="MS Excel VBO" action="Delete" />
+  </stage>
+  <stage stageid="59df6dcd-0dcb-43bf-b7f4-6e38ce1c4661" name="Current row deletions" type="Data">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="390" y="-45" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <datatype>number</datatype>
+    <initialvalue>1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0cf2f38f-a03b-40f1-8cf0-4c049271832b" name="Increase delete count" type="Calculation">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="315" y="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <onsuccess>7349feae-808d-4199-abef-98d158a58fa9</onsuccess>
+    <calculation expression="[Current row deletions]+1" stage="Current row deletions" />
+  </stage>
+  <stage stageid="9ae370a2-8069-4f2a-b91d-17de3a964f54" name="Max row deletions desired" type="Data">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="390" y="-15" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <datatype>number</datatype>
+    <initialvalue>12</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cd23c11d-8305-465f-8788-caad2c5f1308" name="Delete again" type="Decision">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="240" y="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <decision expression="[Current row deletions]&lt;[Max row deletions desired]" />
+    <ontrue>0cf2f38f-a03b-40f1-8cf0-4c049271832b</ontrue>
+    <onfalse>bc6843cd-060b-4aef-886c-f473df078509</onfalse>
+  </stage>
+  <stage stageid="7349feae-808d-4199-abef-98d158a58fa9" name="Anchor8" type="Anchor">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="315" y="-90" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <onsuccess>a41eaf70-4efc-4758-a087-1dd784cd69ef</onsuccess>
+  </stage>
+  <stage stageid="9fc51c72-1966-4dda-aca1-f9818c9978d9" name="Remove blanks" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="150" y="-45" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <onsuccess>27679285-5c33-4871-8945-f87bb279e9e0</onsuccess>
+    <resource object="MS Excel VBO" action="Remove Blank Rows" />
+  </stage>
+  <stage stageid="a41eaf70-4efc-4758-a087-1dd784cd69ef" name="Anchor11" type="Anchor">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="150" y="-90" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <onsuccess>9fc51c72-1966-4dda-aca1-f9818c9978d9</onsuccess>
+  </stage>
+  <stage stageid="bc6843cd-060b-4aef-886c-f473df078509" name="Remove Blanks" type="Action">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="150" y="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <onsuccess>62696e69-fa07-4c41-ab5b-c89100468627</onsuccess>
+    <resource object="MS Excel VBO" action="Remove Blank Rows" />
+  </stage>
+  <stage stageid="df6bc02c-eb07-470d-8ca4-1e67c8dfcdf3" name="Delete last week's Output file" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="-90" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path to the file to delete" expr="[Global Output Filepath Abnormal Timesheet Numbers for Review]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="Success" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="Message" />
+    </outputs>
+    <onsuccess>ec53c3c3-d2da-4a9e-b7a5-a2cf6da0d222</onsuccess>
+    <resource object="Utility - File Management" action="Delete File" />
+  </stage>
+  <stage stageid="37707412-fc8d-45e6-a8d3-6b629430d724" name="Message" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="0" y="-90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="918325c2-d5e9-4931-a810-337b9f620f48" name="Success" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="45" y="-90" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="49228b54-c7a1-4f2b-9284-31f657788637" name="Email inputs" type="Block">
+    <display x="420" y="-30" w="210" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="dbfc26f3-4cc2-4414-aedd-598375c5b561" name="Subject" type="Data">
+    <display x="465" y="15" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Timesheet Not Submitted - Please Review</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="6a6ff5dc-81b0-4539-85dd-098103013d38" name="Email Body" type="Data">
+    <display x="525" y="15" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">&lt;p&gt;Hello,&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;I have reviewed your timesheet submissions from last week and the system tells me that you have not yet submitted.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Please do this ASAP, as the Admin Team needs this resolved.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;With thanks,&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Ramone, on behalf of Angel.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;(Beep Boop. I am a bot, and this action was performed automatically.)&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;---------------------------------------------------------------------------------&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;A note to recipients:&lt;/p&gt;
+&lt;p&gt;Ramone is Angel's digital personal assistant. If you have received this email in error, please let Angel know and we can give Ramone some more training.&lt;/p&gt;
+</initialvalue>
+    <alwaysinit />
+  </stage>
+  <stage stageid="52e57210-a759-403d-ae4d-c0e9ca934754" name="Global Email Failure Summary Filepath" type="Data">
+    <display x="-195" y="240" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\Ramone.SYNERGYAUTOMATE\Downloads\Email Failure Summary.xlsx</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="18080691-d124-43bc-8ff4-407d63a10af0" name="Email To" type="Data">
+    <display x="465" y="60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <alwaysinit />
+  </stage>
+  <stage stageid="40fd8e9f-dc1a-4751-b220-7e430122fd63" name="Get Current Employee Name" type="Calculation">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="-90" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF00FF" />
+    <onsuccess>e14ffffa-c3c7-4043-ac8f-7e6f5173fd2b</onsuccess>
+    <calculation expression="[Current Item Data.Staff]" stage="Staff name only" />
+  </stage>
+  <stage stageid="72ad0e98-9e34-4afc-b2eb-c21a794f0db5" name="Staff name only" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-300" y="0" w="120" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF00FF" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="fa5e2973-1d2a-4d99-8150-52a794e59e44" name="Global Failed Email Notifications" type="Collection">
+    <display x="225" y="75" w="90" h="60" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Staff Name" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="0e9525f9-37bd-4334-89d2-d8dd8304aa0c" name="Dummy test email" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="210" w="120" h="30" />
+    <font family="Segoe UI" size="10" style="Bold" color="993300" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">digital@synergygroup.net.au</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="ae0e571d-fc5c-4e71-b258-02fb5a068113" name="Create Workbook" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <narrative>Creates the email failure summary sheet</narrative>
+    <display x="0" y="15" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="Workbook Name 2" />
+    </outputs>
+    <onsuccess>5f79b6d7-d21a-4330-a7b0-a58436840480</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="8a292489-fbe7-4b5c-98e6-776511bd3f76" name="Workbook Name 2" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="45" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5f79b6d7-d21a-4330-a7b0-a58436840480" name="Export failure list as Excel" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="75" y="15" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[Workbook Name 2]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[Global Failed Email Notifications]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="True" />
+    </inputs>
+    <onsuccess>f9a85daa-5dce-4e4e-af03-cbffb820a0b4</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="e20e49e4-0591-49de-b4cb-478e0b338e76" name="close workbook" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="225" y="15" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <onsuccess>f89a900f-2cc2-4dd8-8e76-342bd6b1e400</onsuccess>
+    <resource object="MS Excel VBO" action="Close Current Workbook" />
+  </stage>
+  <stage stageid="f9a85daa-5dce-4e4e-af03-cbffb820a0b4" name="Save Excel" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="150" y="15" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance for which the current workbook which should be saved. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The full path and file name to which the current workbook should be saved." expr="[Global Email Failure Summary Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Workbook Name" narrative="The new workbook name which Excel will use to identify the workbook." stage="New Workbook Name 2" />
+    </outputs>
+    <onsuccess>e20e49e4-0591-49de-b4cb-478e0b338e76</onsuccess>
+    <resource object="MS Excel VBO" action="Save Current Workbook As" />
+  </stage>
+  <stage stageid="3b18bd40-b178-42a6-a393-51d18da20846" name="New Workbook Name 2" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="150" y="45" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec53c3c3-d2da-4a9e-b7a5-a2cf6da0d222" name="Delete Email failure file" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="-45" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path to the file to delete" expr="[Global Email Failure Summary Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="Success2" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="Message2" />
+    </outputs>
+    <onsuccess>abda3153-052f-4544-a6f2-2fb74607d66c</onsuccess>
+    <resource object="Utility - File Management" action="Delete File" />
+  </stage>
+  <stage stageid="bee99d92-d192-405c-a25d-434216a09430" name="Message2" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="0" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5e754b3e-5d54-423a-9ee1-90d2b4ca312c" name="Success2" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="45" y="-45" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="abda3153-052f-4544-a6f2-2fb74607d66c" name="Delete last week input file" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="0" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path to the file to delete" expr="[Global Timesheet Summary Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="Success3" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="Message3" />
+    </outputs>
+    <onsuccess>140918ab-b81d-40be-a4ea-db41a4fede82</onsuccess>
+    <resource object="Utility - File Management" action="Delete File" />
+  </stage>
+  <stage stageid="577bd163-caef-4f02-9246-1d256bb60e3a" name="Message3" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="0" y="0" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8ef661ff-60e6-43f6-8f4f-47d06cfd64ed" name="Success3" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="45" y="0" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2ad63d5a-f321-4d9b-9295-90a68cbe8dde" name="Is the number rounded?(15 mins inc)" type="Decision">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <display x="-60" y="0" w="90" h="60" />
+    <decision expression="EndsWith([Current Item Data.Total], &quot;5&quot;) OR EndsWith([Current Item Data.Total], &quot;25&quot;) OR EndsWith([Current Item Data.Total], &quot;75&quot;)" />
+    <ontrue>0027da1a-3cb3-4c8f-abf0-cb103e43d115</ontrue>
+    <onfalse>db869043-d96e-4384-9c8f-327bb066d0ae</onfalse>
+  </stage>
+  <stage stageid="0027da1a-3cb3-4c8f-abf0-cb103e43d115" name="Anchor14" type="Anchor">
+    <subsheetid>e5ecb5ae-6ca9-47c8-b90d-7fb7b8fafd67</subsheetid>
+    <display x="45" y="0" w="10" h="10" />
+    <onsuccess>c6651078-a991-4a5e-8367-a3f6e73a6baf</onsuccess>
+  </stage>
+  <stage stageid="78062760-29ba-4be6-8ef3-693ccfae9f6f" name="Recover5" type="Recover">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="15" y="210" />
+    <onsuccess>a0ff6723-f6a5-4cd9-adb6-1d473e77e693</onsuccess>
+  </stage>
+  <stage stageid="a0ff6723-f6a5-4cd9-adb6-1d473e77e693" name="Resume5" type="Resume">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="15" y="255" />
+    <onsuccess>1f3fa1c2-69b2-462d-b22a-c7e5e5ec7eb3</onsuccess>
+  </stage>
+  <stage stageid="1f3fa1c2-69b2-462d-b22a-c7e5e5ec7eb3" name="Try again?" type="Decision">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="180" y="255" />
+    <decision expression="[Start up Attempts] &lt; [Max attempts]" />
+    <ontrue>006a226f-31c4-4295-a40c-858d273e3a05</ontrue>
+    <onfalse>1e989613-689a-432d-bf22-44b3a7f77956</onfalse>
+  </stage>
+  <stage stageid="006a226f-31c4-4295-a40c-858d273e3a05" name="Increase Count" type="Calculation">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="180" y="165" />
+    <onsuccess>12266e7d-c313-4b0a-9e4a-5a17b5b65346</onsuccess>
+    <calculation expression="[Start up Attempts]+1" stage="Start up Attempts" />
+  </stage>
+  <stage stageid="5c279c4b-9632-4ab5-a48a-a51e0f2360b2" name="Max attempts" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="180" y="300" />
+    <datatype>number</datatype>
+    <initialvalue>3</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1e989613-689a-432d-bf22-44b3a7f77956" name="Could not conduct the start up" type="Exception">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="300" y="255" w="120" h="30" />
+    <exception type="System Exception" detail="&quot;Could not complete the start up actions&quot;" />
+  </stage>
+  <stage stageid="12266e7d-c313-4b0a-9e4a-5a17b5b65346" name="Terminate" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="105" y="165" />
+    <onsuccess>d1a13220-5f30-4386-a2c2-193945f64241</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Terminate" />
+  </stage>
+  <stage stageid="54ea2385-0706-41b2-ad5d-1be37767e0c5" name="Start up Attempts" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="135" y="300" />
+    <datatype>number</datatype>
+    <initialvalue>1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="15935633-9e41-4a79-9a9b-9be48dfec5fb" name="Recover6" type="Recover">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="75" y="135" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+    <onsuccess>f1c4a2b1-e713-4229-842a-1fbe276a936d</onsuccess>
+  </stage>
+  <stage stageid="f1c4a2b1-e713-4229-842a-1fbe276a936d" name="Resume6" type="Resume">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="75" y="180" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+    <onsuccess>835c4e2a-2223-4c62-a070-77b92ad9f263</onsuccess>
+  </stage>
+  <stage stageid="835c4e2a-2223-4c62-a070-77b92ad9f263" name="Couldn't load info to queue" type="Exception">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <display x="195" y="180" w="150" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+    <exception type="Creation not confirmed" detail="&quot;Couldn't extract data into the queue&quot;" />
+  </stage>
+  <stage stageid="330e01fd-ea7a-4b36-abdc-b57825788edf" name="Terminate" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="225" y="300" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+    <onsuccess>5b1e8998-44ae-44ef-b5fa-bdf008b1826e</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Terminate" />
+  </stage>
+  <stage stageid="e149f0ea-1d2f-4e6c-b4f5-39a29777b514" name="Recover7" type="Recover">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="90" y="345" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+    <onsuccess>452a1d17-27e9-480d-83d6-51a44b8f47fd</onsuccess>
+  </stage>
+  <stage stageid="452a1d17-27e9-480d-83d6-51a44b8f47fd" name="Resume7" type="Resume">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="165" y="345" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+    <onsuccess>5b1e8998-44ae-44ef-b5fa-bdf008b1826e</onsuccess>
+  </stage>
+  <stage stageid="9d6de26b-ff05-43fa-a1c4-1dd8af45e3cf" name="Block3" type="Block">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="60" y="270" w="210" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="a0f623f9-b8ba-4886-972a-c7510068f422" name="Note1" type="Note">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <narrative>This loop is designed to remove apparently blank cells and rows from the input workbook. The output CSV creates the same inherent flaws, filling some title level cells with SPACE characters and other "corrupted" data, which will cause bad inputs to the queue. This loop ensures the next cell is deleted, and then a truely empty row is removed. The loop limit of 12 is hard coded, based on the number of erronous cells found in every export tested (always the same). If queue inputs become skewed in future testing, I would recommend reviewing this deletion loop limit.</narrative>
+    <display x="285" y="-150" w="270" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="0000FF" />
+  </stage>
+  <stage stageid="dfd720a9-d561-46bb-8029-d4d8c28cfdd8" name="Note2" type="Note">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <narrative>SHOW and HIDE stages can be added into this space for debugging and demonstration purposes</narrative>
+    <display x="75" y="0" w="60" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="99CC00" />
+  </stage>
+  <stage stageid="4c0834cd-6164-468f-aa44-1945324eeb1a" name="Note3" type="Note">
+    <subsheetid>6561e669-1f3d-4d4b-97d4-2865fe76c154</subsheetid>
+    <narrative>If the input data was perfectly clean, these stages would be the only stages required for this page to achieve its outcomes</narrative>
+    <display x="-165" y="15" w="90" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+  </stage>
+  <stage stageid="01361e03-8e18-4428-8135-80bfd9ca3cf9" name="Note5" type="Note">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <narrative>These stages export the first output excel file (review of staff - hours)</narrative>
+    <display x="90" y="-45" w="240" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="3366FF" />
+  </stage>
+  <stage stageid="a8d3b2a7-89eb-426e-a56f-7fd8664e1362" name="Note6" type="Note">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <narrative>These stages export the second excel ouput (email failure list)</narrative>
+    <display x="60" y="75" w="180" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="993366" />
+  </stage>
+  <stage stageid="5f8cdd07-3f2c-45e9-978c-4eb454ef993c" name="Note7" type="Note">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <narrative>This block and recovery loop is isolated in order to prevent an infinte recovery loop in the case of a termination stage failure. If it fails to terminate, it is a reasonable assumption that there is nothing to terminate and the process is safe to end. The most common cause of this is that IE is already closed.</narrative>
+    <display x="180" y="450" w="270" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="2cf6e00a-55eb-4241-b86b-29aea087d117" name="Note8" type="Note">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>This extracts the name of the staff member from a the relevant field of the queue item</narrative>
+    <display x="60" y="-90" w="180" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF00FF" />
+  </stage>
+  <stage stageid="79cd7857-4cbe-44ca-a06b-fe002079fb96" name="Note14" type="Note">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>The dummy email is set as the default "to" email (send mail input parameter), until changed to "correct email to send" data item when live implementation is desired. This dummy account is the synergy digital team account. </narrative>
+    <display x="-435" y="15" w="90" h="120" />
+    <font family="Segoe UI" size="10" style="Bold" color="993300" />
+  </stage>
+  <stage stageid="3f738cc1-a45b-4fd4-916b-181fdad0d0a8" name="Send Mail via Outlook VBO" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="585" />
+    <inputs>
+      <input type="text" name="To" narrative="Recipients of the e-mail separated by semicolon (i.e. test1@test.com;test2@test.com)" expr="[Email Address]" />
+      <input type="text" name="CC" narrative="Recipients in Cc separated by semicolon" expr="" />
+      <input type="text" name="BCC" narrative="Recipients in Bcc separated by semicolon" expr="" />
+      <input type="text" name="Subject" narrative="E-mail subject" expr="[Subject]" />
+      <input type="collection" name="Attachments" narrative="E-mail attachments" expr="" />
+      <input type="text" name="Body" friendlyname="Body" narrative="E-mail body" expr="[Email Body]" />
+      <input type="flag" name="HTML" friendlyname="HTML" narrative="A flag to drive whether e-mail is to be HTML formatted or plain text only" expr="" />
+      <input type="number" name="Shared Mailbox Number" friendlyname="Shared Mailbox Number" narrative="Provide a number of shared mailbox(can be obtained by &quot;Get All Accounts action&quot;). Default mailbox will be used if empty." expr="" />
+      <input type="text" name="Send On Behalf Name" friendlyname="Send On Behalf Name" narrative="Send on Behalf some other shared e-mail (if access to that e-mail is granted). Default mailbox will be used if empty." expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Indicates whether the email was sent." stage="Email Success" />
+      <output type="text" name="Error Message" friendlyname="Error Message" narrative="The message from the code stage specifying the error." stage="Email Error Message" />
+    </outputs>
+    <onsuccess>04368b9d-de90-4fe9-8b78-5f2c7603a43a</onsuccess>
+    <resource object="MS Outlook VBO" action="Send Email" />
+  </stage>
+  <stage stageid="140918ab-b81d-40be-a4ea-db41a4fede82" name="Delete Staff List" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="45" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path to the file to delete" expr="[Global Staff Listing]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="Success4" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="Message4" />
+    </outputs>
+    <onsuccess>1a1bef31-0dad-480f-ad17-dcfa3728c862</onsuccess>
+    <resource object="Utility - File Management" action="Delete File" />
+  </stage>
+  <stage stageid="aa3a6712-de41-4aba-bc8b-b7060bfb1811" name="Message4" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="0" y="45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3d0f5d24-ea48-4336-8734-5c61b8250158" name="Success4" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="45" y="45" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="271a0e49-8927-442d-93f2-3985e815b963" name="Global Staff Listing" type="Data">
+    <display x="-195" y="270" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\Ramone.SYNERGYAUTOMATE\Downloads\staff.csv</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="9ee4b3ae-d2ce-4bdb-aec5-382c1e1c9770" name="Global Output Filepath Abnormal Timesheet Numbers for Review" type="Data">
+    <display x="-195" y="300" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\Ramone.SYNERGYAUTOMATE\Downloads\Staff for Hours Review.xls</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="7ea920e2-36c1-4bf6-adf7-28d25abf5803" name="Create Instance" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="135" y="105" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="Staff Handle" />
+    </outputs>
+    <onsuccess>d1a07fea-a014-4f63-81c6-dd3dfda82bda</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="a5f632b7-0967-4746-b642-d417e908b999" name="Staff Handle" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="30" w="120" h="30" />
+    <datatype>number</datatype>
+    <initialvalue />
+  </stage>
+  <stage stageid="d1a07fea-a014-4f63-81c6-dd3dfda82bda" name="Open" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="135" y="180" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[Global Staff Listing]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="Workbook Name - Staff" />
+    </outputs>
+    <onsuccess>d0cc0a41-3622-4b7d-be64-64871f7d9130</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="89d55aa3-7bbd-421b-bf80-9b99ff36ed32" name="Workbook Name - Staff" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="60" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">none</initialvalue>
+  </stage>
+  <stage stageid="8c7d10b4-cc88-4d46-baea-9e645138b511" name="Re-Attempt Acquire Staff List" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="330" y="105" w="90" h="30" />
+    <onsuccess>7ea920e2-36c1-4bf6-adf7-28d25abf5803</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Acquire Email Register" />
+  </stage>
+  <stage stageid="378df5c1-61ea-4397-8f3f-13a19c7fd4de" name="Staff List Exists?" type="Decision">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>If it is there, we don't want to download it, again.</narrative>
+    <display x="-75" y="15" w="90" h="60" />
+    <decision expression="[Exists]=True" />
+    <ontrue>4a43aed3-1fe8-4e04-b823-4703d0345155</ontrue>
+    <onfalse>dae27950-ee5a-4572-848c-4eb31fff4777</onfalse>
+  </stage>
+  <stage stageid="e14ffffa-c3c7-4043-ac8f-7e6f5173fd2b" name="Check Staff List" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>Check to see if the file is there.  If it is there, then we don't need to download it again.</narrative>
+    <display x="-75" y="-45" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The name of the file to check" expr="[Global Staff Listing]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exists" narrative="True if the file exists" stage="Exists" />
+    </outputs>
+    <onsuccess>378df5c1-61ea-4397-8f3f-13a19c7fd4de</onsuccess>
+    <resource object="Utility - File Management" action="File Exists" />
+  </stage>
+  <stage stageid="13d2a2e3-9d94-49ee-b3d5-14fbc85579ac" name="Exists" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="0" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d0cc0a41-3622-4b7d-be64-64871f7d9130" name="Select Active Cell" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="180" />
+    <inputs>
+      <input type="number" name="Handle" expr="[Staff Handle]" />
+      <input type="text" name="Workbook" expr="[Workbook Name - Staff]" />
+      <input type="text" name="Worksheet" expr="&quot;staff&quot;" />
+      <input type="text" name="Cell Reference" expr="[Cell Reference]" />
+    </inputs>
+    <onsuccess>e81d2f48-4ca3-402d-b60b-d5680e1284be</onsuccess>
+    <resource object="MS Excel VBO" action="Select" />
+  </stage>
+  <stage stageid="e81d2f48-4ca3-402d-b60b-d5680e1284be" name="Get Active Cell" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="240" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the currently active cell is required. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference identifying the currently active cell on the specified sheet." stage="Cell Reference" />
+    </outputs>
+    <onsuccess>1a9eee19-c72e-4aee-88e8-19f20f1eaea5</onsuccess>
+    <resource object="MS Excel VBO" action="Get Active Cell" />
+  </stage>
+  <stage stageid="52ea1883-749a-41d2-9519-fe06151b78b0" name="Cell Reference" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="90" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">A2</initialvalue>
+    <private />
+  </stage>
+  <stage stageid="1a9eee19-c72e-4aee-88e8-19f20f1eaea5" name="Get Value" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="300" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the cell whose value is required resides. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Value" narrative="The (unformatted) value found at the specified cell." stage="Value" />
+    </outputs>
+    <onsuccess>2b416b70-5f24-40a4-9d0f-8d4605ae680d</onsuccess>
+    <resource object="MS Excel VBO" action="Get Active Cell Value" />
+  </stage>
+  <stage stageid="3c6242df-205e-4514-a7f0-0cc4addd00e0" name="Value" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="120" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2b416b70-5f24-40a4-9d0f-8d4605ae680d" name="Blank?" type="Decision">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="360" w="90" h="60" />
+    <decision expression="[Value]=&quot;&quot;" />
+    <ontrue>4d3b17e8-44be-4f0d-8ec2-1838f5b927ce</ontrue>
+    <onfalse>ebd28340-9758-4df3-9d8c-85fdcca2a989</onfalse>
+  </stage>
+  <stage stageid="ebd28340-9758-4df3-9d8c-85fdcca2a989" name="Match?" type="Decision">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="150" y="360" w="90" h="60" />
+    <decision expression="[Staff name only]=[Value]" />
+    <ontrue>850efb83-7ea6-4a8e-82fa-7879c7f55e95</ontrue>
+    <onfalse>666076fe-f24b-441c-aba8-04ece6976ccb</onfalse>
+  </stage>
+  <stage stageid="850efb83-7ea6-4a8e-82fa-7879c7f55e95" name="Move to Email Address Column" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="150" y="435" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required cell should be navigated to. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+      <input type="number" name="Rows" narrative="The number of rows to navigate down. A negative value indicates that the action should navigate UP the required number of rows." expr="0" />
+      <input type="number" name="Columns" narrative="The number of columns to navigate to the right. A negative value indicates that the action should navigate to the left." expr="3" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference of the currently active cell after navigating the required number of rows / columns. If the action could not navigate the desired number of rows / columns (eg. the active cell is near a boundary), then the active cell will not have been change, and this cell reference will represent the same cell that was active before this action was initiated." stage="Cell Reference" />
+    </outputs>
+    <onsuccess>79cd9afa-407f-4f52-89cf-dc585dda6198</onsuccess>
+    <resource object="MS Excel VBO" action="Go To Next Cell" />
+  </stage>
+  <stage stageid="79cd9afa-407f-4f52-89cf-dc585dda6198" name="Get Email Address" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="285" y="435" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance from which the required cell value should be retrieved. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+      <input type="text" name="Cell Reference" narrative="The cell reference indicating which cell's value should be retrieved. An empty value indicates that the currently active cell's value should be retrieved." expr="[Cell Reference]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Value" narrative="The (unformatted) value from the required cell." stage="Email Address" />
+    </outputs>
+    <onsuccess>7aceed5a-08c8-43a3-ae69-9a39242db23f</onsuccess>
+    <resource object="MS Excel VBO" action="Get Cell Value" />
+  </stage>
+  <stage stageid="cc7f50ce-a0f1-4281-9dac-31adbc883bad" name="Email Address" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="150" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="04d39ef5-85b8-4f64-8194-bc83ba18a4be" name="End2" type="End">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="645" />
+  </stage>
+  <stage stageid="666076fe-f24b-441c-aba8-04ece6976ccb" name="Increment Down the List" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="150" y="240" w="90" h="30" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required cell should be navigated to. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+      <input type="number" name="Rows" narrative="The number of rows to navigate down. A negative value indicates that the action should navigate UP the required number of rows." expr="1" />
+      <input type="number" name="Columns" narrative="The number of columns to navigate to the right. A negative value indicates that the action should navigate to the left." expr="0" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference of the currently active cell after navigating the required number of rows / columns. If the action could not navigate the desired number of rows / columns (eg. the active cell is near a boundary), then the active cell will not have been change, and this cell reference will represent the same cell that was active before this action was initiated." stage="Cell Reference" />
+    </outputs>
+    <onsuccess>e81d2f48-4ca3-402d-b60b-d5680e1284be</onsuccess>
+    <resource object="MS Excel VBO" action="Go To Next Cell" />
+  </stage>
+  <stage stageid="ca9dcb03-f963-4518-b88b-9b17dddb5e59" name="Dummy Message" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-210" y="180" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve"> Failed to send their timesheet</initialvalue>
+    <exposure>Environment</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4a43aed3-1fe8-4e04-b823-4703d0345155" name="Excel Running?" type="Decision">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="105" w="90" h="60" />
+    <decision expression="[Workbook Name - Staff]&lt;&gt;&quot;none&quot;" />
+    <ontrue>d0cc0a41-3622-4b7d-be64-64871f7d9130</ontrue>
+    <onfalse>7ea920e2-36c1-4bf6-adf7-28d25abf5803</onfalse>
+  </stage>
+  <stage stageid="b23c80c2-7e00-467a-93ed-309acafcf401" name="Global Exceptions" type="Collection">
+    <display x="75" y="0" w="90" h="30" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Global Exception Type" type="text" />
+      <field name="Global Exception Detail" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="755dca21-66f1-42fa-a6b5-6d58f6e2a3fc" name="Add Row" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="180" y="240" />
+    <inputs>
+      <input type="text" name="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Global Exceptions&quot;" />
+    </inputs>
+    <onsuccess>200fa905-4724-4fcc-9cab-fe46d11ee91f</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="4d3b17e8-44be-4f0d-8ec2-1838f5b927ce" name="Add Row to Collection" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="435" w="90" h="30" />
+    <inputs>
+      <input type="text" name="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Global Failed Email Notifications&quot;" />
+    </inputs>
+    <onsuccess>6daff21f-a4b8-4ff2-a2e0-ba7cc0fdb130</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="6daff21f-a4b8-4ff2-a2e0-ba7cc0fdb130" name="Add Name to Collection" type="MultipleCalculation">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-75" y="510" w="90" h="60" />
+    <onsuccess>04d39ef5-85b8-4f64-8194-bc83ba18a4be</onsuccess>
+    <steps>
+      <calculation expression="[Staff name only]" stage="Global Failed Email Notifications.Staff Name" />
+    </steps>
+  </stage>
+  <stage stageid="272467b2-3356-4d4d-b2cb-f454b565f7f4" name="Block5" type="Block">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-375" y="-45" w="225" h="285" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="dae27950-ee5a-4572-848c-4eb31fff4777" name="Re-Attempt Launch Chrome" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>If the list isn't there, we'll try to get it, again.</narrative>
+    <display x="330" y="15" w="90" h="30" />
+    <onsuccess>1e029813-8c40-4dfc-8738-8a9feb0bb613</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Launch Chrome Browser" />
+  </stage>
+  <stage stageid="1e029813-8c40-4dfc-8738-8a9feb0bb613" name="Re-Attempt Log In WFM" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>Log in is a pre-requisite to getting the list if it's not there for whatever reason</narrative>
+    <display x="330" y="60" w="90" h="30" />
+    <onsuccess>8c7d10b4-cc88-4d46-baea-9e645138b511</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Log In - Chrome" />
+  </stage>
+  <stage stageid="c5180aa4-4015-460a-a228-855517167d39" name="Re-Attempt Sequence" type="Block">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <narrative>If the staff listing isn't present, we need to try to get it, again.</narrative>
+    <display x="270" y="-15" w="120" h="150" />
+    <font family="Segoe UI" size="10" style="Regular" color="FFCC00" />
+  </stage>
+  <stage stageid="73a2e24a-571f-4041-af13-5a14c6b9d6f4" name="Acquire Staff List" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="345" />
+    <onsuccess>b63b7a40-d261-47fa-abc6-a5291f47a75e</onsuccess>
+    <resource object="WorkFlowMax Portal - Chrome" action="Acquire Email Register" />
+  </stage>
+  <stage stageid="70c37264-4ed1-49e7-893d-e4d6789c2c4f" name="Append to Global Sent Emails Collection" type="MultipleCalculation">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="405" y="510" w="90" h="60" />
+    <onsuccess>58c67bdd-51ba-4188-9afc-479a10f06a42</onsuccess>
+    <steps>
+      <calculation expression="[Staff name only]" stage="Global Sent Emails.Staff Name" />
+      <calculation expression="[Email Address]" stage="Global Sent Emails.Staff Email" />
+    </steps>
+  </stage>
+  <stage stageid="7c80b2ff-c9c6-4be3-83de-c8a4ad2ed480" name="Global Sent Emails" type="Collection">
+    <display x="75" y="75" w="90" h="60" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Staff Name" type="text" />
+      <field name="Staff Email" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="7aceed5a-08c8-43a3-ae69-9a39242db23f" name="Add Row to " type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="405" y="435" />
+    <inputs>
+      <input type="text" name="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Global Sent Emails&quot;" />
+    </inputs>
+    <onsuccess>70c37264-4ed1-49e7-893d-e4d6789c2c4f</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="f94af375-9ca1-49c6-bd12-779b2c7fe857" name="Create Workbook" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="135" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook should be created. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name of the workbook that Excel has created - this can be changed using the &quot;Save Workbook As&quot; action" stage="Workbook Name 3" />
+    </outputs>
+    <onsuccess>d5cf6d27-d261-4a48-b9eb-4df218e60aff</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="ad2a638d-148e-46a3-bdff-07e636596c17" name="Workbook Name 3" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="165" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2377f7ff-b283-4648-ae65-b67f86b502ec" name="Anchor12" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="360" y="-105" w="10" h="10" />
+    <onsuccess>0266744d-e3cd-4afd-8636-ffcb85cf26a9</onsuccess>
+  </stage>
+  <stage stageid="0266744d-e3cd-4afd-8636-ffcb85cf26a9" name="Anchor17" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="360" y="-15" w="10" h="10" />
+    <onsuccess>77fc161a-eb9c-47e7-9a80-cf6b2ce85ad5</onsuccess>
+  </stage>
+  <stage stageid="77fc161a-eb9c-47e7-9a80-cf6b2ce85ad5" name="Anchor18" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="-15" w="10" h="10" />
+    <onsuccess>ae0e571d-fc5c-4e71-b258-02fb5a068113</onsuccess>
+  </stage>
+  <stage stageid="f89a900f-2cc2-4dd8-8e76-342bd6b1e400" name="Anchor19" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="360" y="15" w="10" h="10" />
+    <onsuccess>de14008c-3632-46c6-8a07-8baab26ca9b9</onsuccess>
+  </stage>
+  <stage stageid="d5cf6d27-d261-4a48-b9eb-4df218e60aff" name="Export Email Success list as Excel" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="75" y="135" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the specified collection should be written. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook within which the data should be written. The default empty value indicates the current workbook within the specified instance." expr="[Workbook Name 3]" />
+      <input type="collection" name="Collection" narrative="The collection containing the data which should be written to the worksheet." expr="[Global Sent Emails]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet on which the given data should be written. The default empty value indicates the current sheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+      <input type="text" name="Cell Reference" narrative="The reference at which the collection should be written." expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" narrative="True to indicate that the column names from the collection should be written out as the first row; False to ignore the column names and just write out the data." expr="True" />
+    </inputs>
+    <onsuccess>3afd067c-ec6d-4cf6-aaa6-f49242249823</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="3afd067c-ec6d-4cf6-aaa6-f49242249823" name="Save Excel" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="150" y="135" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance for which the current workbook which should be saved. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The full path and file name to which the current workbook should be saved." expr="[Global Sent Emails Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="New Workbook Name" narrative="The new workbook name which Excel will use to identify the workbook." stage="New Workbook Name 3" />
+    </outputs>
+    <onsuccess>7205e8cb-ece7-4696-9cd6-3c3cc0af8c7e</onsuccess>
+    <resource object="MS Excel VBO" action="Save Current Workbook As" />
+  </stage>
+  <stage stageid="69aebb32-9b1b-4566-8650-a401d4a8333f" name="New Workbook Name 3" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="150" y="165" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7205e8cb-ece7-4696-9cd6-3c3cc0af8c7e" name="Close Workbook" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="225" y="135" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[handle]" />
+    </inputs>
+    <onsuccess>db8a2728-820d-4064-bb4f-92020c2442d9</onsuccess>
+    <resource object="MS Excel VBO" action="Close Current Workbook" />
+  </stage>
+  <stage stageid="7cc7cb5b-ca8e-45ff-a5ec-a91708972e98" name="Anchor21" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="375" y="345" w="10" h="10" />
+    <onsuccess>5b1e8998-44ae-44ef-b5fa-bdf008b1826e</onsuccess>
+  </stage>
+  <stage stageid="de14008c-3632-46c6-8a07-8baab26ca9b9" name="Anchor22" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="360" y="105" w="10" h="10" />
+    <onsuccess>ab424d70-badf-45b6-9701-1c44ebfea093</onsuccess>
+  </stage>
+  <stage stageid="ab424d70-badf-45b6-9701-1c44ebfea093" name="Anchor23" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="0" y="105" w="10" h="10" />
+    <onsuccess>f94af375-9ca1-49c6-bd12-779b2c7fe857</onsuccess>
+  </stage>
+  <stage stageid="06a0e5c1-3f84-46a2-86a6-6d0863358f3c" name="Note4" type="Note">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <narrative>Export off a list of Successful Emails sent by Ramone</narrative>
+    <display x="75" y="195" w="210" h="30" />
+  </stage>
+  <stage stageid="ddf9a6e1-2e2b-4751-956e-080eefb4684a" name="Global Sent Emails Filepath" type="Data">
+    <display x="-195" y="330" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\Ramone.SYNERGYAUTOMATE\Downloads\Email Success List.xlsx</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="e565925f-b21d-4a8d-9d0d-d91e4ec23f99" name="Send Run Success Email" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="375" y="300" w="90" h="30" />
+    <inputs>
+      <input type="text" name="To" narrative="Recipients of the e-mail separated by semicolon (i.e. test1@test.com;test2@test.com)" expr="[Ramone Email List - Run Mode]" />
+      <input type="text" name="CC" narrative="Recipients in Cc separated by semicolon" expr="[Dummy test email]" />
+      <input type="text" name="BCC" narrative="Recipients in Bcc separated by semicolon" expr="" />
+      <input type="text" name="Subject" narrative="E-mail subject" expr="&quot;I've completed my Weekly Timesheet Review (Run Mode)&quot;" />
+      <input type="collection" name="Attachments" narrative="E-mail attachments" expr="[Attachments Collection]" />
+      <input type="text" name="Body" friendlyname="Body" narrative="E-mail body" expr="[Email Content - Run Mode]" />
+      <input type="flag" name="HTML" friendlyname="HTML" narrative="A flag to drive whether e-mail is to be HTML formatted or plain text only" expr="True" />
+      <input type="number" name="Shared Mailbox Number" friendlyname="Shared Mailbox Number" narrative="Provide a number of shared mailbox(can be obtained by &quot;Get All Accounts action&quot;). Default mailbox will be used if empty." expr="" />
+      <input type="text" name="Send On Behalf Name" friendlyname="Send On Behalf Name" narrative="Send on Behalf some other shared e-mail (if access to that e-mail is granted). Default mailbox will be used if empty." expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Indicates whether the email was sent." stage="" />
+      <output type="text" name="Error Message" friendlyname="Error Message" narrative="The message from the code stage specifying the error." stage="" />
+    </outputs>
+    <onsuccess>7cc7cb5b-ca8e-45ff-a5ec-a91708972e98</onsuccess>
+    <resource object="MS Outlook VBO" action="Send Email" />
+  </stage>
+  <stage stageid="1a1bef31-0dad-480f-ad17-dcfa3728c862" name="Delete Success Emails Sent List" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-75" y="90" />
+    <inputs>
+      <input type="text" name="File Name" narrative="The full path to the file to delete" expr="[Global Sent Emails Filepath]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" narrative="True if successful" stage="Success5" />
+      <output type="text" name="Message" narrative="An error message if unsuccessful" stage="Message5" />
+    </outputs>
+    <onsuccess>d1a13220-5f30-4386-a2c2-193945f64241</onsuccess>
+    <resource object="Utility - File Management" action="Delete File" />
+  </stage>
+  <stage stageid="617e43af-d765-43da-9b39-b148a353b42c" name="Success5" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="45" y="90" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="599c2c87-4f64-48ba-a7cd-4eb72854f294" name="Message5" type="Data">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="0" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9f4196c6-b4ac-4fc0-add5-449329b986fd" name="Email Content - Run Mode" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="120" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">&lt;p&gt;Hello Team,&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;I've reviewed the timesheet submissions from last week.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Please refer to process outputs, attached.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;All the best,&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Ramone&lt;/p&gt;</initialvalue>
+    <exposure>Environment</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1bcc6271-e366-43d3-8a48-5a3bd01bfa1a" name="Block4" type="Block">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-120" y="135" w="180" h="240" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="82eadbcb-4d12-4f74-97c0-2a35035f5438" name="Authy Master PW" type="Data">
+    <display x="-195" y="30" w="120" h="30" />
+    <datatype>password</datatype>
+    <initialvalueenc>
+    </initialvalueenc>
+    <alwaysinit />
+  </stage>
+  <stage stageid="3d74eabb-743c-44a1-81d4-72573c121cc5" name="Search of Staff Which Are Not on Time Sheet Summary" type="SubSheetInfo">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>This loop cycles through the staff.csv list and searches for a corresponding entry in the Time Sheet Summary.  If there is a name match, the search progresses through the staff list.  If there is no match, an email is sent (as there is no timesheet on file) and their name is added to the email success collection.</narrative>
+    <display x="-135" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="7ca1a5cb-4de4-4a8c-a61b-e23ec57c4518" name="Start" type="Start">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="-105" />
+    <onsuccess>e4decce9-fb29-4c3c-b6b9-44a790acc9ec</onsuccess>
+  </stage>
+  <stage stageid="ee3f5f3a-570b-4590-84f7-90e46d166d61" name="Open Staff List" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="-15" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[staff list handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[Global Staff Listing]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="Workbook Name" />
+    </outputs>
+    <onsuccess>1b127810-58d9-4d34-9b12-1569198c3d8c</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="1b127810-58d9-4d34-9b12-1569198c3d8c" name="Select Active Cell" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="30" />
+    <inputs>
+      <input type="number" name="Handle" expr="[staff list handle]" />
+      <input type="text" name="Workbook" expr="[Workbook Name]" />
+      <input type="text" name="Worksheet" expr="&quot;staff&quot;" />
+      <input type="text" name="Cell Reference" expr="[Cell Reference Staff]" />
+    </inputs>
+    <onsuccess>3a06bcdc-a11e-4cb2-835a-77e856be5c01</onsuccess>
+    <resource object="MS Excel VBO" action="Select" />
+  </stage>
+  <stage stageid="3a06bcdc-a11e-4cb2-835a-77e856be5c01" name="Get Active Cell" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="75" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the currently active cell is required. The default of zero indicates the currently active instance." expr="[staff list handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference identifying the currently active cell on the specified sheet." stage="Cell Reference Staff" />
+    </outputs>
+    <onsuccess>b81fd1f0-b163-48be-9e03-b8981003cf24</onsuccess>
+    <resource object="MS Excel VBO" action="Get Active Cell" />
+  </stage>
+  <stage stageid="b81fd1f0-b163-48be-9e03-b8981003cf24" name="Get Value" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="120" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the cell whose value is required resides. The default of zero indicates the currently active instance." expr="[staff list handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Value" narrative="The (unformatted) value found at the specified cell." stage="Value" />
+    </outputs>
+    <onsuccess>64cc7d62-dac2-4294-a053-26bb1775ef5b</onsuccess>
+    <resource object="MS Excel VBO" action="Get Active Cell Value" />
+  </stage>
+  <stage stageid="64cc7d62-dac2-4294-a053-26bb1775ef5b" name="Blank?" type="Decision">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="180" />
+    <decision expression="[Value]=&quot;&quot;" />
+    <ontrue>10b3f46e-7632-4cbe-9031-cc937b30b6af</ontrue>
+    <onfalse>f2be0e48-d528-4a92-a395-3a2975e80275</onfalse>
+  </stage>
+  <stage stageid="a3e2b7ac-374a-4067-a908-b5acee83683a" name="Anchor16" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="75" w="10" h="10" />
+    <onsuccess>3a06bcdc-a11e-4cb2-835a-77e856be5c01</onsuccess>
+  </stage>
+  <stage stageid="160ea801-7911-4c15-bd84-451106ead412" name="Move to Email Address Column" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="240" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required cell should be navigated to. The default of zero indicates the currently active instance." expr="[staff list handle]" />
+      <input type="number" name="Rows" narrative="The number of rows to navigate down. A negative value indicates that the action should navigate UP the required number of rows." expr="0" />
+      <input type="number" name="Columns" narrative="The number of columns to navigate to the right. A negative value indicates that the action should navigate to the left." expr="3" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference of the currently active cell after navigating the required number of rows / columns. If the action could not navigate the desired number of rows / columns (eg. the active cell is near a boundary), then the active cell will not have been change, and this cell reference will represent the same cell that was active before this action was initiated." stage="Cell Reference Staff" />
+    </outputs>
+    <onsuccess>b97d82da-5d5c-4227-813f-c75c43c0f6b2</onsuccess>
+    <resource object="MS Excel VBO" action="Go To Next Cell" />
+  </stage>
+  <stage stageid="b97d82da-5d5c-4227-813f-c75c43c0f6b2" name="Get Email Address" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="285" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance from which the required cell value should be retrieved. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+      <input type="text" name="Cell Reference" narrative="The cell reference indicating which cell's value should be retrieved. An empty value indicates that the currently active cell's value should be retrieved." expr="[Cell Reference Staff]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Value" narrative="The (unformatted) value from the required cell." stage="Email Address" />
+    </outputs>
+    <onsuccess>bcde6be6-c5fc-4780-904d-d65ccf941df3</onsuccess>
+    <resource object="MS Excel VBO" action="Get Cell Value" />
+  </stage>
+  <stage stageid="ebbde5d8-185d-4af1-8d8e-abddefc2bfac" name="End2" type="End">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="330" />
+  </stage>
+  <stage stageid="7ea5185b-eda5-4088-8631-e1602cc29ccd" name="Increment Down the List" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="120" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required cell should be navigated to. The default of zero indicates the currently active instance." expr="[staff list handle]" />
+      <input type="number" name="Rows" narrative="The number of rows to navigate down. A negative value indicates that the action should navigate UP the required number of rows." expr="1" />
+      <input type="number" name="Columns" narrative="The number of columns to navigate to the right. A negative value indicates that the action should navigate to the left." expr="0" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference of the currently active cell after navigating the required number of rows / columns. If the action could not navigate the desired number of rows / columns (eg. the active cell is near a boundary), then the active cell will not have been change, and this cell reference will represent the same cell that was active before this action was initiated." stage="Cell Reference Staff" />
+    </outputs>
+    <onsuccess>a3e2b7ac-374a-4067-a908-b5acee83683a</onsuccess>
+    <resource object="MS Excel VBO" action="Go To Next Cell" />
+  </stage>
+  <stage stageid="10b3f46e-7632-4cbe-9031-cc937b30b6af" name="Add Row to Collection" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="240" />
+    <inputs>
+      <input type="text" name="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Global Failed Email Notifications&quot;" />
+    </inputs>
+    <onsuccess>e2634a28-ae2d-402a-89c6-9f02608d86ac</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="e2634a28-ae2d-402a-89c6-9f02608d86ac" name="Add Name to Collection" type="MultipleCalculation">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="285" />
+    <onsuccess>ebbde5d8-185d-4af1-8d8e-abddefc2bfac</onsuccess>
+    <steps>
+      <calculation expression="[Value]" stage="Global Failed Email Notifications.Staff Name" />
+    </steps>
+  </stage>
+  <stage stageid="4647b884-99f6-4f27-94df-2c4f52ad2e67" name="Append to Global Sent Emails Collection" type="MultipleCalculation">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="420" />
+    <onsuccess>dee44412-3430-419b-a1f4-528b982106d1</onsuccess>
+    <steps>
+      <calculation expression="[Value]" stage="Global Sent Emails.Staff Name" />
+      <calculation expression="[Email Address]" stage="Global Sent Emails.Staff Email" />
+    </steps>
+  </stage>
+  <stage stageid="dd593855-3851-4352-a794-aa7d5a4d1971" name="Add Row to " type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="375" />
+    <inputs>
+      <input type="text" name="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Global Sent Emails&quot;" />
+    </inputs>
+    <onsuccess>4647b884-99f6-4f27-94df-2c4f52ad2e67</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="e4decce9-fb29-4c3c-b6b9-44a790acc9ec" name="Create Instance" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="15" y="-60" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="staff list handle" />
+    </outputs>
+    <onsuccess>ee3f5f3a-570b-4590-84f7-90e46d166d61</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="3a0c603a-5403-4a76-b6b5-0176f0ec35f7" name="staff list handle" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-120" y="-15" w="120" h="30" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b7080b89-69bc-4887-9930-24fcaa472058" name="Workbook Name" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-120" y="15" w="120" h="30" />
+    <font family="Segoe UI" size="8" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4303da01-c52b-4e61-8f4d-0c02ff6af7a8" name="Cell Reference Staff" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-120" y="45" w="120" h="30" />
+    <font family="Segoe UI" size="8" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">A2</initialvalue>
+    <private />
+  </stage>
+  <stage stageid="502e78cf-3b70-481e-8e3e-e60621ee5659" name="Value" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-120" y="75" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="72b28612-5716-4a5d-8080-7b5a2cbd2dbe" name="Staff List" type="Block">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>Data Items</narrative>
+    <display x="-180" y="-45" w="120" h="180" />
+    <font family="Segoe UI" size="10" style="Regular" color="99CC00" />
+  </stage>
+  <stage stageid="3cd58e5e-545c-4fb7-96e3-79a048537f7e" name="Timesheet List" type="Block">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>Data Items</narrative>
+    <display x="-255" y="150" w="90" h="345" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c25d0493-fbdc-4a24-bc00-19c04fd0e4dd" name="Staff List Loop" type="Block">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>This loop cycles through ALL staff and contractors within WFM</narrative>
+    <display x="-45" y="-150" w="360" h="645" />
+    <font family="Segoe UI" size="10" style="Regular" color="99CC00" />
+  </stage>
+  <stage stageid="cfb28e15-69b7-448d-86bf-375f637426a3" name="Time Sheet Summary Loop" type="Block">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>This loop searches for matching values of staff which entered timesheets into the system for a comparison against the staff list.</narrative>
+    <display x="375" y="-15" w="150" h="210" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="58c67bdd-51ba-4188-9afc-479a10f06a42" name="Return to Column A" type="Action">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="405" y="585" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required cell should be navigated to. The default of zero indicates the currently active instance." expr="[Staff Handle]" />
+      <input type="number" name="Rows" narrative="The number of rows to navigate down. A negative value indicates that the action should navigate UP the required number of rows." expr="0" />
+      <input type="number" name="Columns" narrative="The number of columns to navigate to the right. A negative value indicates that the action should navigate to the left." expr="-3" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference of the currently active cell after navigating the required number of rows / columns. If the action could not navigate the desired number of rows / columns (eg. the active cell is near a boundary), then the active cell will not have been change, and this cell reference will represent the same cell that was active before this action was initiated." stage="Cell Reference" />
+    </outputs>
+    <onsuccess>2c38c236-6137-44be-8d4e-22078de6fda9</onsuccess>
+    <resource object="MS Excel VBO" action="Go To Next Cell" />
+  </stage>
+  <stage stageid="f2be0e48-d528-4a92-a395-3a2975e80275" name="Timesheet Array Open?" type="Decision">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="165" y="180" />
+    <decision expression="[Timesheet Array Initialized]=True" />
+    <ontrue>59aa0632-b1df-4ebd-838b-37d411bb6e4a</ontrue>
+    <onfalse>592baba8-ef8c-493f-ae4b-4afd6e3d6d54</onfalse>
+  </stage>
+  <stage stageid="bcde6be6-c5fc-4780-904d-d65ccf941df3" name="Move back to Column A" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="330" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required cell should be navigated to. The default of zero indicates the currently active instance." expr="[staff list handle]" />
+      <input type="number" name="Rows" narrative="The number of rows to navigate down. A negative value indicates that the action should navigate UP the required number of rows." expr="0" />
+      <input type="number" name="Columns" narrative="The number of columns to navigate to the right. A negative value indicates that the action should navigate to the left." expr="-3" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Cell Reference" narrative="The reference of the currently active cell after navigating the required number of rows / columns. If the action could not navigate the desired number of rows / columns (eg. the active cell is near a boundary), then the active cell will not have been change, and this cell reference will represent the same cell that was active before this action was initiated." stage="Cell Reference Staff" />
+    </outputs>
+    <onsuccess>dd593855-3851-4352-a794-aa7d5a4d1971</onsuccess>
+    <resource object="MS Excel VBO" action="Go To Next Cell" />
+  </stage>
+  <stage stageid="c23c53cd-65e0-4c45-a25b-d0adcf9f1037" name="Anchor25" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="360" y="240" w="10" h="10" />
+    <onsuccess>160ea801-7911-4c15-bd84-451106ead412</onsuccess>
+  </stage>
+  <stage stageid="f78e8928-2008-4c60-8989-ef8380444615" name="Email Address" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-120" y="105" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="31d0a09c-3b84-41e4-8efa-cf5a9f4d22de" name="Anchor13" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="270" y="480" w="10" h="10" />
+    <onsuccess>aced7fd7-d595-4f5b-91ea-5be05883266d</onsuccess>
+  </stage>
+  <stage stageid="a650cf50-48ee-4b8d-b6f5-d66853d4634d" name="Anchor26" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-30" y="480" w="10" h="10" />
+    <onsuccess>39bb2920-1a5c-4988-82cc-67946e2c2ee7</onsuccess>
+  </stage>
+  <stage stageid="39bb2920-1a5c-4988-82cc-67946e2c2ee7" name="Anchor27" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-30" y="210" w="10" h="10" />
+    <onsuccess>18a4fc7b-9b06-43fd-a832-7e2b7ecb8fc3</onsuccess>
+  </stage>
+  <stage stageid="18a4fc7b-9b06-43fd-a832-7e2b7ecb8fc3" name="Anchor28" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="90" y="210" w="10" h="10" />
+    <onsuccess>7ea5185b-eda5-4088-8631-e1602cc29ccd</onsuccess>
+  </stage>
+  <stage stageid="102cffb0-798f-456e-ab9e-da37ed1d1725" name="Search of Staff Which Are Not on Time Sheet Summary" type="SubSheet">
+    <narrative>Search and compare the staff.csv to the time sheet summary.csv and identify those individuals who have not submitted timesheets over a few weeks</narrative>
+    <display x="135" y="165" w="90" h="60" />
+    <onsuccess>c89a88a4-8240-4a85-b41e-17347a451881</onsuccess>
+    <processid>19cd3dd3-afbb-4718-b33b-845e69fdd179</processid>
+  </stage>
+  <stage stageid="db8a2728-820d-4064-bb4f-92020c2442d9" name="Sleep 5 Seconds" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="300" y="135" />
+    <inputs>
+      <input type="number" name="Sleep Time (Seconds)" narrative="The time (in seconds) for which to sleep" expr="5" />
+    </inputs>
+    <onsuccess>65deed68-2aa5-4008-af36-20bb6f643a46</onsuccess>
+    <resource object="Utility - General" action="Sleep" />
+  </stage>
+  <stage stageid="02be306b-296b-4692-8a8a-75b0a41a860f" name="Send Mail via Outlook VBO" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="270" y="420" />
+    <inputs>
+      <input type="text" name="To" narrative="Recipients of the e-mail separated by semicolon (i.e. test1@test.com;test2@test.com)" expr="[Email Address]" />
+      <input type="text" name="CC" narrative="Recipients in Cc separated by semicolon" expr="" />
+      <input type="text" name="BCC" narrative="Recipients in Bcc separated by semicolon" expr="" />
+      <input type="text" name="Subject" narrative="E-mail subject" expr="[Subject]" />
+      <input type="collection" name="Attachments" narrative="E-mail attachments" expr="" />
+      <input type="text" name="Body" friendlyname="Body" narrative="E-mail body" expr="[Email Body]" />
+      <input type="flag" name="HTML" friendlyname="HTML" narrative="A flag to drive whether e-mail is to be HTML formatted or plain text only" expr="" />
+      <input type="number" name="Shared Mailbox Number" friendlyname="Shared Mailbox Number" narrative="Provide a number of shared mailbox(can be obtained by &quot;Get All Accounts action&quot;). Default mailbox will be used if empty." expr="" />
+      <input type="text" name="Send On Behalf Name" friendlyname="Send On Behalf Name" narrative="Send on Behalf some other shared e-mail (if access to that e-mail is granted). Default mailbox will be used if empty." expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Indicates whether the email was sent." stage="Email Success" />
+      <output type="text" name="Error Message" friendlyname="Error Message" narrative="The message from the code stage specifying the error." stage="Email Error Message" />
+    </outputs>
+    <onsuccess>31d0a09c-3b84-41e4-8efa-cf5a9f4d22de</onsuccess>
+    <resource object="MS Outlook VBO" action="Send Email" />
+  </stage>
+  <stage stageid="6ddc7d84-e322-4f08-9b47-2ba4603fd648" name="Global Excemption List Filepath" type="Data">
+    <display x="-195" y="360" w="150" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\ramone.SYNERGYAUTOMATE\Downloads\Ramone Exception Email Report.csv</initialvalue>
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="e75cd837-eeb9-473e-9835-a34f5b71b367" name="Excemption List" type="Block">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-150" y="150" w="90" h="345" />
+    <font family="Segoe UI" size="10" style="Regular" color="CC99FF" />
+  </stage>
+  <stage stageid="1fdea96a-1cb1-4da5-9da6-80129c44535f" name="Excemption Sheet Loop" type="Block">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="375" y="210" w="135" h="285" />
+    <font family="Segoe UI" size="10" style="Regular" color="CC99FF" />
+  </stage>
+  <stage stageid="602cd3d1-cc3c-457c-86c8-09dccbd9fd52" name="Global Excempted Hits" type="Collection">
+    <display x="300" y="75" w="90" h="60" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Staff Name" type="text" />
+      <field name="Staff Email Address" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="40f21c62-832a-4094-81f1-b278383591e3" name="Add to Row" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="435" y="435" />
+    <inputs>
+      <input type="text" name="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Global Excempted Hits&quot;" />
+    </inputs>
+    <onsuccess>dddc7996-98b9-4b18-ac16-c3bcff61721a</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="dddc7996-98b9-4b18-ac16-c3bcff61721a" name="Append to Excemption Collection" type="MultipleCalculation">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="435" y="480" />
+    <onsuccess>31d0a09c-3b84-41e4-8efa-cf5a9f4d22de</onsuccess>
+    <steps>
+      <calculation expression="[Value]" stage="Global Excempted Hits.Staff Name" />
+    </steps>
+  </stage>
+  <stage stageid="035a8b8f-d6b0-494d-af41-2d77822f313d" name="Get as a Collection" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="435" y="255" />
+    <inputs>
+      <input type="text" name="CSV File Path" narrative="The full path to the CSV file" expr="[Global Excemption List Filepath]" />
+      <input type="flag" name="First Line Is Header" narrative="Set True if you want to treat the first line as a header" expr="True" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="CSV Values" narrative="The collection populated with the values of the CSV file" stage="Excempt Coll" />
+    </outputs>
+    <onsuccess>3e09f437-6f0d-459f-9cfc-a73c3406102b</onsuccess>
+    <resource object="Utility - File Management" action="Get CSV Text As Collection" />
+  </stage>
+  <stage stageid="4c0c9d64-f5cb-4245-b861-6b719efbf4c8" name="Excempt Coll" type="Collection">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>This is collected from the exemption spreadsheet (I know I misspelled it throughout)</narrative>
+    <display x="-105" y="210" w="90" h="60" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a44c4770-601f-49ea-af42-606c56131a16" name="Search Collection" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="435" y="345" />
+    <inputs>
+      <input type="collection" name="Collection" narrative="Required : The collection to search" expr="[Excempt Coll]" />
+      <input type="text" name="Column Name" narrative="Required : The name of the column to search" expr="&quot;Name&quot;" />
+      <input type="text" name="Exact Value" narrative="Optional : The exact value to search for - this is case insensitive" expr="[Value]" />
+      <input type="text" name="Regex" narrative="Optional : The regular expression to search for - this is case sensitive unless specified otherwise in the regular expression using &quot;(?i)&quot;" expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Contains Search Term" narrative="Flag indicating if the collection found the given search term or not" stage="Excempt Search Output" />
+      <output type="collection" name="Groups" narrative="The groups defined in the regular expression when it is applied to the found term" stage="Groups" />
+    </outputs>
+    <onsuccess>15836f5b-47c3-4e73-9c13-6c1c9ebf55bc</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Collection Contains Value" />
+  </stage>
+  <stage stageid="2227e142-776d-45fa-bab1-33e8dc3a411c" name="Excempt Search Output" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-105" y="270" w="90" h="60" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="15836f5b-47c3-4e73-9c13-6c1c9ebf55bc" name="Name Found?" type="Decision">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="435" y="390" />
+    <decision expression="[Excempt Search Output]=True" />
+    <ontrue>40f21c62-832a-4094-81f1-b278383591e3</ontrue>
+    <onfalse>d85b40e1-99d9-46e6-bc5d-bfefbc1621f6</onfalse>
+  </stage>
+  <stage stageid="592baba8-ef8c-493f-ae4b-4afd6e3d6d54" name="Get as a Collection" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="420" y="30" />
+    <inputs>
+      <input type="text" name="CSV File Path" narrative="The full path to the CSV file" expr="[Global Timesheet Summary Filepath]" />
+      <input type="flag" name="First Line Is Header" narrative="Set True if you want to treat the first line as a header" expr="False" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="CSV Values" narrative="The collection populated with the values of the CSV file" stage="Timesheet Coll" />
+    </outputs>
+    <onsuccess>e7625a72-3614-48ae-8690-03ed92c7ae5c</onsuccess>
+    <resource object="Utility - File Management" action="Get CSV Text As Collection" />
+  </stage>
+  <stage stageid="59aa0632-b1df-4ebd-838b-37d411bb6e4a" name="Search Collection" type="Action">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="420" y="120" />
+    <inputs>
+      <input type="collection" name="Collection" narrative="Required : The collection to search" expr="[Timesheet Coll]" />
+      <input type="text" name="Column Name" narrative="Required : The name of the column to search" expr="&quot;F1&quot;" />
+      <input type="text" name="Exact Value" narrative="Optional : The exact value to search for - this is case insensitive" expr="[Value]" />
+      <input type="text" name="Regex" narrative="Optional : The regular expression to search for - this is case sensitive unless specified otherwise in the regular expression using &quot;(?i)&quot;" expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Contains Search Term" narrative="Flag indicating if the collection found the given search term or not" stage="Timesheet Search Output" />
+      <output type="collection" name="Groups" narrative="The groups defined in the regular expression when it is applied to the found term" stage="Groups" />
+    </outputs>
+    <onsuccess>2768884b-eaf6-44cb-880a-e659e161cc8e</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Collection Contains Value" />
+  </stage>
+  <stage stageid="16a6159e-9f99-4202-af0d-8f016ba4254a" name="Timesheet Coll" type="Collection">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <narrative>This is collected from the Time-Sheet-Summary.csv</narrative>
+    <display x="-210" y="210" w="90" h="60" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d47fab10-1f6a-49d0-b6f0-eead44ff4b37" name="Timesheet Search Output" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-210" y="270" w="90" h="60" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2768884b-eaf6-44cb-880a-e659e161cc8e" name="Name Found?" type="Decision">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="420" y="165" />
+    <decision expression="[Timesheet Search Output]=True" />
+    <ontrue>7ea5185b-eda5-4088-8631-e1602cc29ccd</ontrue>
+    <onfalse>d8bfeadc-6880-4356-8aa0-c55bfd6a54f9</onfalse>
+  </stage>
+  <stage stageid="e7625a72-3614-48ae-8690-03ed92c7ae5c" name="Array Initialized" type="Calculation">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="420" y="75" />
+    <onsuccess>59aa0632-b1df-4ebd-838b-37d411bb6e4a</onsuccess>
+    <calculation expression="True" stage="Timesheet Array Initialized" />
+  </stage>
+  <stage stageid="7173c13f-aaf8-454a-9bcc-998d16d0678c" name="Timesheet Array Initialized" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-210" y="330" w="90" h="60" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d8bfeadc-6880-4356-8aa0-c55bfd6a54f9" name="Exempt Array Open?" type="Decision">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="495" y="165" />
+    <decision expression="[Exemption Array Initialized]=True" />
+    <ontrue>ab070328-af1f-4600-ab47-07ae9e5f5725</ontrue>
+    <onfalse>035a8b8f-d6b0-494d-af41-2d77822f313d</onfalse>
+  </stage>
+  <stage stageid="3e09f437-6f0d-459f-9cfc-a73c3406102b" name="Array Initialized" type="Calculation">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="435" y="300" />
+    <onsuccess>a44c4770-601f-49ea-af42-606c56131a16</onsuccess>
+    <calculation expression="True" stage="Exemption Array Initialized" />
+  </stage>
+  <stage stageid="d01bbde9-fcec-4894-9710-db10f3f1a836" name="Exemption Array Initialized" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-105" y="330" w="90" h="60" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b23ad8ec-1d74-4c87-a667-ddb58e0dbf0f" name="Groups" type="Collection">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="480" y="120" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ab070328-af1f-4600-ab47-07ae9e5f5725" name="Anchor24" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="495" y="345" w="10" h="10" />
+    <onsuccess>a44c4770-601f-49ea-af42-606c56131a16</onsuccess>
+  </stage>
+  <stage stageid="d85b40e1-99d9-46e6-bc5d-bfefbc1621f6" name="Anchor10" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="360" y="390" w="10" h="10" />
+    <onsuccess>c23c53cd-65e0-4c45-a25b-d0adcf9f1037</onsuccess>
+  </stage>
+  <stage stageid="609aaa32-0767-415c-81cb-bbb75de28db6" name="Take Screenshot" type="Action">
+    <subsheetid>2b1d50ad-8bc2-4493-b836-5edc8ee50d2f</subsheetid>
+    <display x="-195" y="165" />
+    <inputs>
+      <input type="text" name="SavePath" narrative="Where to save the scerenshot" expr="&quot;C:\Users\ramone\Desktop\screenshots&quot;" />
+      <input type="text" name="Name Prefix" narrative="Prefix for name. It will be appended with date and time." expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="success" stage="" />
+      <output type="text" name="errormsg" stage="" />
+      <output type="text" name="filename" stage="" />
+    </outputs>
+    <onsuccess>d1a13220-5f30-4386-a2c2-193945f64241</onsuccess>
+    <resource object="DWF Utility - Screenshot" action="Screenshot" />
+  </stage>
+  <stage stageid="bb924ee7-3359-42ff-8d2c-90f4492a4a41" name="Global Environment Variables" type="Block">
+    <display x="-270" y="615" w="150" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+  </stage>
+  <stage stageid="ff3ece52-2d16-49f3-b55a-a5e6a2d1920a" name="TestMode" type="Data">
+    <display x="-210" y="660" w="90" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <exposure>Environment</exposure>
+    <alwaysinit />
+  </stage>
+  <stage stageid="8492b33e-74e5-4236-a53a-c8421fec2907" name="Test Mode?" type="Decision">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="375" y="225" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <decision expression="[TestMode]" />
+    <ontrue>3011b25a-c0ad-4f69-ad3c-c3e48f849bc2</ontrue>
+    <onfalse>e565925f-b21d-4a8d-9d0d-d91e4ec23f99</onfalse>
+  </stage>
+  <stage stageid="f5ab1efb-1b33-4504-8d28-922e84373b6c" name="Ramone Email List - Test Mode" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="30" w="120" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Environment</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7d3f4073-ed27-4b2f-b425-1f2df3226f24" name="Ramone Email List - Run Mode" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="75" w="120" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <exposure>Environment</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="372b62d1-727d-48fe-a6de-c47dcba959db" name="Variables" type="Block">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-360" y="-15" w="150" h="510" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="d9370c39-c52e-4e88-906e-71f95a312c81" name="Send Test Success Email" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="645" y="300" w="90" h="30" />
+    <inputs>
+      <input type="text" name="To" narrative="Recipients of the e-mail separated by semicolon (i.e. test1@test.com;test2@test.com)" expr="&quot;rolsen@synergygroup.net.au&quot;" />
+      <input type="text" name="CC" narrative="Recipients in Cc separated by semicolon" expr="" />
+      <input type="text" name="BCC" narrative="Recipients in Bcc separated by semicolon" expr="" />
+      <input type="text" name="Subject" narrative="E-mail subject" expr="&quot;I've completed my Weekly Timesheet Review (Test Mode)&quot;" />
+      <input type="collection" name="Attachments" narrative="E-mail attachments" expr="[Attachments Collection]" />
+      <input type="text" name="Body" friendlyname="Body" narrative="E-mail body" expr="[Email Content - Test Mode] &amp; &quot; &quot; &amp; [Machine Name] &amp; &quot;\&quot; &amp; [User Name]" />
+      <input type="flag" name="HTML" friendlyname="HTML" narrative="A flag to drive whether e-mail is to be HTML formatted or plain text only" expr="True" />
+      <input type="number" name="Shared Mailbox Number" friendlyname="Shared Mailbox Number" narrative="Provide a number of shared mailbox(can be obtained by &quot;Get All Accounts action&quot;). Default mailbox will be used if empty." expr="" />
+      <input type="text" name="Send On Behalf Name" friendlyname="Send On Behalf Name" narrative="Send on Behalf some other shared e-mail (if access to that e-mail is granted). Default mailbox will be used if empty." expr="" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Indicates whether the email was sent." stage="Email Success" />
+      <output type="text" name="Error Message" friendlyname="Error Message" narrative="The message from the code stage specifying the error." stage="Email Error Message" />
+    </outputs>
+    <onsuccess>1fcb3d8a-40c9-4287-93bb-e94c7460607a</onsuccess>
+    <resource object="MS Outlook VBO" action="Send Email" />
+  </stage>
+  <stage stageid="3011b25a-c0ad-4f69-ad3c-c3e48f849bc2" name="Anchor32" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="480" y="225" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <onsuccess>889a823c-cd17-4617-b702-960d9f4bfa28</onsuccess>
+  </stage>
+  <stage stageid="aed35148-f7e7-4b82-b468-c149be93944c" name="Anchor33" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="480" y="345" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <onsuccess>7cc7cb5b-ca8e-45ff-a5ec-a91708972e98</onsuccess>
+  </stage>
+  <stage stageid="2c38c236-6137-44be-8d4e-22078de6fda9" name="Test Mode?" type="Decision">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="285" y="585" w="90" h="60" />
+    <font family="Segoe UI" size="10" style="Bold" color="FF6600" />
+    <decision expression="[TestMode]" />
+    <ontrue>aff6037d-4995-4bfa-a4ca-9dea950d0a0c</ontrue>
+    <onfalse>3f738cc1-a45b-4fd4-916b-181fdad0d0a8</onfalse>
+  </stage>
+  <stage stageid="aff6037d-4995-4bfa-a4ca-9dea950d0a0c" name="Anchor20" type="Anchor">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="285" y="645" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <onsuccess>04368b9d-de90-4fe9-8b78-5f2c7603a43a</onsuccess>
+  </stage>
+  <stage stageid="dee44412-3430-419b-a1f4-528b982106d1" name="Test Mode?" type="Decision">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="180" y="420" w="90" h="30" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <decision expression="[TestMode]" />
+    <ontrue>aced7fd7-d595-4f5b-91ea-5be05883266d</ontrue>
+    <onfalse>02be306b-296b-4692-8a8a-75b0a41a860f</onfalse>
+  </stage>
+  <stage stageid="aced7fd7-d595-4f5b-91ea-5be05883266d" name="Anchor34" type="Anchor">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="180" y="480" w="10" h="10" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF6600" />
+    <onsuccess>a650cf50-48ee-4b8d-b6f5-d66853d4634d</onsuccess>
+  </stage>
+  <stage stageid="5d5b608e-44ac-4d82-8dcb-8f4a382079cf" name="Retrieve Authy Password" type="Action">
+    <narrative>Get the specified set of credentials.
+
+An Exception will occur if access to the credentials is not allowed, based on the running Resource, Process and User.</narrative>
+    <display x="-60" y="0" w="90" h="30" />
+    <inputs>
+      <input type="text" name="Credentials Name" narrative="The name of the credentials to get" expr="&quot;Authy Password&quot;" />
+    </inputs>
+    <outputs>
+      <output type="password" name="Password" narrative="The password" stage="Authy Master PW" />
+      <output type="text" name="Username" narrative="The user name" stage="" />
+      <output type="date" name="Expiry Date" narrative="The expiry date" stage="" />
+      <output type="text" name="Status" narrative="The status" stage="" />
+    </outputs>
+    <onsuccess>88bf3308-588f-4c12-8987-3a0801d2400c</onsuccess>
+    <resource object="Blueprism.Automate.clsCredentialsActions" action="Get" />
+  </stage>
+  <stage stageid="20ec43e6-4a2f-4138-bb75-7e950a1fb718" name="Retrieve WFM User" type="Action">
+    <narrative>Get the specified set of credentials.
+
+An Exception will occur if access to the credentials is not allowed, based on the running Resource, Process and User.</narrative>
+    <display x="-60" y="-45" w="90" h="30" />
+    <inputs>
+      <input type="text" name="Credentials Name" narrative="The name of the credentials to get" expr="&quot;WFM User Account&quot;" />
+    </inputs>
+    <outputs>
+      <output type="password" name="Password" narrative="The password" stage="Global Password" />
+      <output type="text" name="Username" narrative="The user name" stage="Global Username" />
+      <output type="date" name="Expiry Date" narrative="The expiry date" stage="" />
+      <output type="text" name="Status" narrative="The status" stage="Credential Status" />
+    </outputs>
+    <onsuccess>5d5b608e-44ac-4d82-8dcb-8f4a382079cf</onsuccess>
+    <resource object="Blueprism.Automate.clsCredentialsActions" action="Get" />
+  </stage>
+  <stage stageid="04368b9d-de90-4fe9-8b78-5f2c7603a43a" name="Anchor15" type="Anchor">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="150" y="645" w="10" h="10" />
+    <onsuccess>04d39ef5-85b8-4f64-8194-bc83ba18a4be</onsuccess>
+  </stage>
+  <stage stageid="43e8952b-55f3-489f-87d9-37a2485dab83" name="Email Content - Test Mode" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="165" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">&lt;p&gt;Hello Team,&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;I've reviewed the timesheet submissions from last week.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Please refer to process outputs, attached.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;All the best,&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Ramone&lt;/p&gt;</initialvalue>
+    <exposure>Environment</exposure>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="889a823c-cd17-4617-b702-960d9f4bfa28" name="Get Machine Name" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="480" y="300" />
+    <outputs>
+      <output type="text" name="Machine Name" narrative="The hostname of the machine running this action" stage="Machine Name" />
+    </outputs>
+    <onsuccess>6fc8c012-5837-43c0-a2af-fae4f5c2f49b</onsuccess>
+    <resource object="Utility - Environment" action="Get Machine Name" />
+  </stage>
+  <stage stageid="4faa4383-f985-4c25-b5ab-03ecbf98220a" name="Machine Name" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="210" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6fc8c012-5837-43c0-a2af-fae4f5c2f49b" name="Get Username" type="Action">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="555" y="300" />
+    <outputs>
+      <output type="text" name="User Name" narrative="The name of the logged in user in the current system" stage="User Name" />
+    </outputs>
+    <onsuccess>d9370c39-c52e-4e88-906e-71f95a312c81</onsuccess>
+    <resource object="Utility - Environment" action="Get User Name" />
+  </stage>
+  <stage stageid="bfa788e7-9e34-4a14-93ad-cb086e352803" name="User Name" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="255" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a4f4b046-121c-43ce-84f8-4c428fb3045f" name="Anchor29" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="15" y="300" w="10" h="10" />
+    <onsuccess>330e01fd-ea7a-4b36-abdc-b57825788edf</onsuccess>
+  </stage>
+  <stage stageid="1fcb3d8a-40c9-4287-93bb-e94c7460607a" name="Anchor30" type="Anchor">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="645" y="345" w="10" h="10" />
+    <onsuccess>aed35148-f7e7-4b82-b468-c149be93944c</onsuccess>
+  </stage>
+  <stage stageid="47ba7415-ef5d-4ff5-a22a-54e58261b40f" name="Credential Status" type="Data">
+    <display x="-195" y="60" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4050bc6e-855f-473a-9f9a-a8432c636b6e" name="Email Success" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-330" y="45" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1f45ce7b-3ab4-4824-ab9f-774bc1a4c716" name="Email Error Message" type="Data">
+    <subsheetid>6f867760-2e20-4cca-889e-d0ffd3661e24</subsheetid>
+    <display x="-330" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8d5943d9-4cf2-4c5c-9fc2-731c4072f70b" name="Email Success" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-210" y="390" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cd3884d0-aeec-4698-ac94-2ffc13237ff3" name="Email Error Message" type="Data">
+    <subsheetid>19cd3dd3-afbb-4718-b33b-845e69fdd179</subsheetid>
+    <display x="-210" y="435" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="bb9e4575-bbcf-4d9b-9ada-5b86c0e2e120" name="Email Success" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="300" w="120" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d1514b3e-4902-4b7c-9113-e0cad2e46171" name="Email Error Message" type="Data">
+    <subsheetid>cb7a5c78-769f-43b9-a9e1-6276856f67fa</subsheetid>
+    <display x="-285" y="345" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d348f9c1-f10b-455a-a829-e7ffe1af0096" name="Add Attachments" type="SubSheetInfo">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <narrative>This page adds the 3 ouput attachment locations to a collection that is passed to send email. This is a crappy solution but all the reporting will change in the next version of Ramone</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="29944b32-a0c0-4867-8945-7901a8a6db93" name="Start" type="Start">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <display x="15" y="-195" />
+    <onsuccess>51d5212b-ca5a-4559-ab54-b8cd389253c8</onsuccess>
+  </stage>
+  <stage stageid="be9ce0f6-b257-40c5-b983-ac7ee13347bd" name="End" type="End">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <display x="15" y="165" />
+  </stage>
+  <stage stageid="c89a88a4-8240-4a85-b41e-17347a451881" name="Add Attachments" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="165" w="90" h="60" />
+    <onsuccess>3c4018ce-471b-4e03-a7a8-8b99901bd88c</onsuccess>
+    <processid>0241efb1-7638-47e7-883b-c22dc5a8af09</processid>
+  </stage>
+  <stage stageid="51d5212b-ca5a-4559-ab54-b8cd389253c8" name="Add Row Attachments Collection" type="Action">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-135" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Attachments Collection&quot;" />
+    </inputs>
+    <onsuccess>b6d2c1e1-ca8c-4954-b40d-e7a14efaf0ae</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="b6d2c1e1-ca8c-4954-b40d-e7a14efaf0ae" name="Add Attachment" type="Calculation">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-90" />
+    <onsuccess>5d2f95d2-0d4a-454d-9516-d059494763ef</onsuccess>
+    <calculation expression="[Global Email Failure Summary Filepath]" stage="Attachments Collection.Path" />
+  </stage>
+  <stage stageid="8a57fe11-a03f-4a1e-bd63-1090ac0e7b18" name="Attachments Collection" type="Collection">
+    <display x="555" y="60" w="120" h="30" />
+    <datatype>collection</datatype>
+    <collectioninfo>
+      <field name="Path" type="text" description="Location of attachment" />
+    </collectioninfo>
+    <noalwaysinit />
+  </stage>
+  <stage stageid="5d2f95d2-0d4a-454d-9516-d059494763ef" name="Add Row Attachments Collection" type="Action">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-30" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Attachments Collection&quot;" />
+    </inputs>
+    <onsuccess>5c6f10ba-3396-4dc5-94a1-7e6dab1ab4a0</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="5c6f10ba-3396-4dc5-94a1-7e6dab1ab4a0" name="Add Attachment" type="Calculation">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="15" />
+    <onsuccess>2b86e177-22f9-490d-b89f-9e64e8e6dcab</onsuccess>
+    <calculation expression="[Global Sent Emails Filepath]" stage="Attachments Collection.Path" />
+  </stage>
+  <stage stageid="2b86e177-22f9-490d-b89f-9e64e8e6dcab" name="Add Row Attachments Collection" type="Action">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="60" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Attachments Collection&quot;" />
+    </inputs>
+    <onsuccess>f7d7958d-7c8a-4aee-8ee8-3274176b441e</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="f7d7958d-7c8a-4aee-8ee8-3274176b441e" name="Add Attachment" type="Calculation">
+    <subsheetid>0241efb1-7638-47e7-883b-c22dc5a8af09</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="105" />
+    <onsuccess>be9ce0f6-b257-40c5-b983-ac7ee13347bd</onsuccess>
+    <calculation expression="[Global Review Destination Filepath]" stage="Attachments Collection.Path" />
+  </stage>
+</process>
